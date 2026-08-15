@@ -15,14 +15,14 @@
    - Session/Cookie persistence via `SetLocale` middleware.
    - Full translation coverage across products, cue technology attributes, hero banners, and team portal.
 2. **Separated Docker Infrastructure**:
-   - `severus-db`: MySQL 8.0 database service.
-   - `severus-backend`: PHP 8.2-FPM container with PDO, GD, BCMath, Zip extensions.
+   - `severus-db`: PostgreSQL 16 database service (`postgres:16-alpine`).
+   - `severus-backend`: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, Zip extensions.
    - `severus-frontend`: Nginx web server configured for Laravel with static asset caching.
 3. **Gaming PC Utility Scripts**:
    - `severus-on.bat`: Boots all containers, runs database migrations/seeders, and exposes application at `http://localhost:8000`.
    - `severus-off.bat`: Gracefully downs all Docker containers to restore 100% CPU/RAM for gaming performance.
 4. **Dual Application Portals**:
-   - **Customer Landing Portal (`/`)**: Top fixed glassmorphism navbar, hero banner, interactive cue catalog, cue technology breakdown (carbon fiber shaft, high-friction nano chalk, glove ergonomics), spec sheets, and direct Tokopedia buy links.
+   - **Customer Landing Portal (`/`)**: Top fixed glassmorphism navbar, hero banner, interactive cue catalog, cue technology breakdown, spec sheets, and direct Tokopedia buy links.
    - **Inside Team Admin Portal (`/admin`)**: Product management, image uploader, content banner management, Tokopedia live price monitor, and manual overrides.
 5. **Tokopedia Integration & Price Sync**:
    - Artisan sync command: `php artisan severus:sync-tokopedia`.
@@ -31,8 +31,8 @@
 ---
 
 ## 3. Technology Stack
-- **Framework**: Laravel 11 / PHP 8.2
-- **Database**: MySQL 8.0
+- **Framework**: Laravel 11 / 13 ready (PHP 8.3)
+- **Database**: PostgreSQL 16 (`postgres:16-alpine`)
 - **Frontend / Styling**: Tailwind CSS, Alpine.js, Inter & Outfit Google Fonts
 - **Web Server**: Nginx Alpine
 - **Containerization**: Docker & Docker Compose

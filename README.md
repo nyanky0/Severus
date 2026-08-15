@@ -5,9 +5,10 @@
   # SEVERUS CUES
   ### *Strike With Venom Precision*
 
-  [![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
-  [![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+  [![Laravel](https://img.shields.io/badge/Laravel-11_/_13_Ready-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+  [![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
   [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+  [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
   [![Docker](https://img.shields.io/badge/Docker-Separated_Containers-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
   [![Tokopedia](https://img.shields.io/badge/Tokopedia-Official_Store-42B549?style=for-the-badge&logo=tokopedia&logoColor=white)](https://www.tokopedia.com/severus)
   [![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20ID-00E676?style=for-the-badge)](#bilingual-support)
@@ -28,8 +29,8 @@
   - Instant session locale switcher between English and Indonesian.
   - Full translation coverage across product specifications (tip diameter, joint type, deflection rating, chalk friction), hero copy, and team portal.
 - **⚡ Separated Docker Architecture**:
-  - **`severus-db`**: MySQL 8.0 database container.
-  - **`severus-backend`**: PHP 8.2-FPM container with PDO, GD, BCMath, and Zip extensions.
+  - **`severus-db`**: PostgreSQL 16 database container (`postgres:16-alpine`).
+  - **`severus-backend`**: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, and Zip extensions.
   - **`severus-frontend`**: Nginx web server configured for Laravel static caching and routing.
 - **🎮 Gaming PC Resource Management**:
   - **`severus-on.bat`**: One-click startup for dev mode (`http://localhost:8000`). Runs database migrations and seeders automatically.
@@ -47,8 +48,8 @@
 
 | Layer | Technology |
 | :--- | :--- |
-| **Framework** | Laravel 11 (PHP 8.2) |
-| **Database** | MySQL 8.0 |
+| **Framework** | Laravel 11 / 13 Ready (PHP 8.3) |
+| **Database** | PostgreSQL 16 (`postgres:16-alpine`) |
 | **Styling** | Vanilla CSS + Tailwind CSS (Venom Green Palette) |
 | **Interactivity** | Alpine.js |
 | **Server** | Nginx Alpine |

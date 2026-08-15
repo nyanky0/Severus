@@ -1,14 +1,21 @@
 <?php
 
 return [
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
     'connections' => [
-        'sqlite' => [
-            'driver' => 'sqlite',
+        'pgsql' => [
+            'driver' => 'pgsql',
             'url' => env('DB_URL'),
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'host' => env('DB_HOST', 'db'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'severus_db'),
+            'username' => env('DB_USERNAME', 'severus_user'),
+            'password' => env('DB_PASSWORD', 'severus_secret'),
+            'charset' => 'utf8',
             'prefix' => '',
-            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
         ],
         'mysql' => [
             'driver' => 'mysql',
@@ -18,16 +25,12 @@ return [
             'database' => env('DB_DATABASE', 'severus_db'),
             'username' => env('DB_USERNAME', 'severus_user'),
             'password' => env('DB_PASSWORD', 'severus_secret'),
-            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
         ],
     ],
     'migrations' => [

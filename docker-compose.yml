@@ -1,21 +1,20 @@
 services:
   db:
-    image: mysql:8.0
+    image: postgres:16-alpine
     container_name: severus-db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: severus_db
-      MYSQL_USER: severus_user
-      MYSQL_PASSWORD: severus_secret
-      MYSQL_ROOT_PASSWORD: severus_root_secret
+      POSTGRES_DB: severus_db
+      POSTGRES_USER: severus_user
+      POSTGRES_PASSWORD: severus_secret
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
-      - severus_dbdata:/var/lib/mysql
+      - severus_pgdata:/var/lib/postgresql/data
     networks:
       - severus-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD-SHELL", "pg_isready -U severus_user -d severus_db"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -33,9 +32,9 @@ services:
       APP_KEY: base64:8mP9+0rF5g7aW9v8k3X4z5Y6a7b8c9d0e1f2g3h4i5j=
       APP_DEBUG: "true"
       APP_URL: http://localhost:8000
-      DB_CONNECTION: mysql
+      DB_CONNECTION: pgsql
       DB_HOST: db
-      DB_PORT: 3306
+      DB_PORT: 5432
       DB_DATABASE: severus_db
       DB_USERNAME: severus_user
       DB_PASSWORD: severus_secret
@@ -64,5 +63,5 @@ networks:
     driver: bridge
 
 volumes:
-  severus_dbdata:
+  severus_pgdata:
     driver: local
