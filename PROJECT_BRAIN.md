@@ -102,3 +102,9 @@ This stops and removes all active containers, freeing 100% of RAM and CPU.
 - **Run Tokopedia Price Sync**: `docker compose exec backend php artisan severus:sync-tokopedia`
 - **Re-seed Database**: `docker compose exec backend php artisan db:seed --force`
 - **View Container Logs**: `docker compose logs -f`
+
+---
+
+## 7. Git Backup Policy
+- **Mandatory Backup Push**: Always execute `git add`, `git commit`, and `git push origin main` after making changes, features, or fixes to ensure the repository at `https://github.com/nyanky0/Severus.git` is updated as a remote backup.
+
