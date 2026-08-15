@@ -30,6 +30,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::post('/tokopedia/sync', [DashboardController::class, 'triggerSync'])->name('tokopedia.sync');
+        Route::post('/tokopedia/scrape', [DashboardController::class, 'triggerScrape'])->name('tokopedia.scrape');
 
         // Product Management
         Route::resource('products', AdminProductController::class);

@@ -1,62 +1,55 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
     <!-- Header Banner -->
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 venom-card p-6 rounded-2xl">
         <div>
             <div class="flex items-center space-x-3">
-                <h1 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">{{ __('app.admin.title') }}</h1>
+                <h1 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider"><?php echo e(__('app.admin.title')); ?></h1>
                 <span class="px-2.5 py-1 rounded bg-[#00e676]/20 text-[#00e676] text-xs font-bold border border-[#00e676]/40">Active Team Session</span>
             </div>
-            <p class="text-xs text-slate-400 mt-1">{{ __('app.admin.welcome') }} &bull; Admin Portal</p>
+            <p class="text-xs text-slate-400 mt-1"><?php echo e(__('app.admin.welcome')); ?> &bull; Admin Portal</p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3">
-            <form action="{{ route('admin.tokopedia.scrape') }}" method="POST">
-                @csrf
-                <button type="submit" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#00e676] to-[#10b981] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(0,230,118,0.4)] flex items-center transition-all transform hover:-translate-y-0.5">
-                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path></svg>
-                    Scrape Products (tokopedia.com/severus/product)
-                </button>
-            </form>
-
-            <form action="{{ route('admin.tokopedia.sync') }}" method="POST">
-                @csrf
+        <div class="flex items-center space-x-3">
+            <form action="<?php echo e(route('admin.tokopedia.sync')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
                 <button type="submit" class="px-4 py-2.5 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.4)] flex items-center transition-all">
                     <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                    {{ __('app.admin.sync_now') }}
+                    <?php echo e(__('app.admin.sync_now')); ?>
+
                 </button>
             </form>
 
-            <form action="{{ route('admin.logout') }}" method="POST">
-                @csrf
+            <form action="<?php echo e(route('admin.logout')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
                 <button type="submit" class="px-4 py-2.5 rounded-xl bg-[#121a15] hover:bg-red-500/20 border border-[#1f2e24] hover:border-red-500/40 text-slate-300 hover:text-red-400 font-bold text-xs uppercase transition-colors">
-                    {{ __('app.admin.logout') }}
+                    <?php echo e(__('app.admin.logout')); ?>
+
                 </button>
             </form>
         </div>
     </div>
 
-    @if(session('success'))
+    <?php if(session('success')): ?>
         <div class="p-4 rounded-xl bg-[#00e676]/10 border border-[#00e676]/40 text-[#00e676] text-sm font-semibold">
-            {{ session('success') }}
+            <?php echo e(session('success')); ?>
+
         </div>
-    @endif
+    <?php endif; ?>
 
     <!-- Quick Navigation Links -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <a href="{{ route('admin.products.index') }}" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
+        <a href="<?php echo e(route('admin.products.index')); ?>" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
             <div>
                 <span class="text-xs font-bold text-slate-400 block uppercase">Product Catalog</span>
-                <span class="text-2xl font-black text-white group-hover:text-[#00e676] transition-colors">{{ $totalProducts }} Items</span>
+                <span class="text-2xl font-black text-white group-hover:text-[#00e676] transition-colors"><?php echo e($totalProducts); ?> Items</span>
             </div>
             <div class="w-12 h-12 rounded-xl bg-[#00e676]/10 border border-[#00e676]/30 flex items-center justify-center text-[#00e676] group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
             </div>
         </a>
 
-        <a href="{{ route('admin.products.create') }}" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
+        <a href="<?php echo e(route('admin.products.create')); ?>" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
             <div>
                 <span class="text-xs font-bold text-slate-400 block uppercase">Content Upload</span>
                 <span class="text-2xl font-black text-white group-hover:text-[#00e676] transition-colors">+ Add Product</span>
@@ -66,7 +59,7 @@
             </div>
         </a>
 
-        <a href="{{ route('admin.contents.index') }}" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
+        <a href="<?php echo e(route('admin.contents.index')); ?>" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
             <div>
                 <span class="text-xs font-bold text-slate-400 block uppercase">Marketing Copy</span>
                 <span class="text-2xl font-black text-white group-hover:text-[#00e676] transition-colors">Edit Banners</span>
@@ -96,26 +89,29 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-[#1f2e24]">
-                    @forelse($recentSyncLogs as $log)
+                    <?php $__empty_1 = true; $__currentLoopData = $recentSyncLogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $log): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <tr>
-                            <td class="p-3 font-semibold text-white">{{ $log->product->name ?? 'System Verification' }}</td>
-                            <td class="p-3">Rp {{ number_format($log->old_price_idr, 0, ',', '.') }}</td>
-                            <td class="p-3 text-[#00e676] font-bold">Rp {{ number_format($log->new_price_idr, 0, ',', '.') }}</td>
+                            <td class="p-3 font-semibold text-white"><?php echo e($log->product->name ?? 'System Verification'); ?></td>
+                            <td class="p-3">Rp <?php echo e(number_format($log->old_price_idr, 0, ',', '.')); ?></td>
+                            <td class="p-3 text-[#00e676] font-bold">Rp <?php echo e(number_format($log->new_price_idr, 0, ',', '.')); ?></td>
                             <td class="p-3">
-                                <span class="px-2 py-0.5 rounded text-[10px] font-bold {{ $log->status === 'SUCCESS' ? 'bg-green-500/20 text-green-400' : 'bg-slate-500/20 text-slate-400' }}">
-                                    {{ $log->status }}
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold <?php echo e($log->status === 'SUCCESS' ? 'bg-green-500/20 text-green-400' : 'bg-slate-500/20 text-slate-400'); ?>">
+                                    <?php echo e($log->status); ?>
+
                                 </span>
                             </td>
-                            <td class="p-3 text-slate-500">{{ $log->created_at->format('Y-m-d H:i:s') }}</td>
+                            <td class="p-3 text-slate-500"><?php echo e($log->created_at->format('Y-m-d H:i:s')); ?></td>
                         </tr>
-                    @empty
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <tr>
                             <td colspan="5" class="p-4 text-center text-slate-500">No sync logs recorded yet. Click "Sync Tokopedia Prices Now" above.</td>
                         </tr>
-                    @endforelse
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/html/resources/views/admin/dashboard.blade.php ENDPATH**/ ?>
