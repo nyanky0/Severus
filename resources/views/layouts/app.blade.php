@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS & Vite CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,11 +26,20 @@
                             emerald: '#00E676',
                             accent: '#10B981',
                             glow: 'rgba(0, 230, 118, 0.25)',
+                        },
+                        carbon: {
+                            base: '#08080A',
+                            card: '#121216',
+                            red: '#E51919',
+                            crimson: '#DC2626',
+                            accent: '#FF2E2E',
+                            glow: 'rgba(229, 25, 25, 0.25)',
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         outfit: ['Outfit', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
                     }
                 }
             }

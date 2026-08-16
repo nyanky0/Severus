@@ -3,41 +3,54 @@
 ## 1. Project Overview
 **Severus Cues** is a high-performance web application designed for marketing premium billiard/pool cues, high-friction chalk, and specialized billiard accessories. It is built using **Laravel PHP**, **Tailwind CSS**, **Alpine.js**, and **Docker**.
 
-- **Brand Aesthetic**: "Venom Snake Green" (`#0A0F0D` Obsidian Dark base, `#00E676` Toxic Emerald Green glow, `#10B981` Emerald Accent, `#141D17` Glass Card backdrop).
+- **Brand Aesthetic**:
+  - **Default Theme (Carbon Red)**: Crimson Red (`#E51919` / `#DC2626`), Obsidian Carbon noise background (`#08080A`), Google Font `Cinzel` luxury serif display titles, white `SEVERUS CUES` accent badges, corner L-frame accent lines.
+  - **Preserved Theme (Venom Green)**: Toxic Emerald Green (`#00E676` / `#10B981`), Obsidian Dark base (`#0A0F0D`), `Outfit` display typography, accessible via top navbar Theme Switcher.
 - **Target Audience**: Professional cue sport players, billiard enthusiasts, pool hall operators, and online shoppers.
-- **Primary Shop Integration**: Tokopedia Store (`https://www.tokopedia.com/severus`).
+- **Primary Shop Integration**: Tokopedia Store (`https://www.tokopedia.com/severus`), Shopee Store, and Instagram.
 
 ---
 
 ## 2. Key Technical Features
-1. **Multi-Language Support (EN & ID)**:
+1. **Dynamic Dual Theme Switcher (Carbon Red & Venom Green)**:
+   - Live theme toggle in top navigation bar (desktop & mobile drawer) with LocalStorage persistence.
+   - Default theme: **Carbon Red** featuring crimson red glows, white badge highlights, and luxury serif `Cinzel` display titles.
+   - Preserved theme: **Venom Green** restoring original toxic emerald green accents.
+2. **"Why Switch to Carbon?" Feature Showcase Section**:
+   - Dedicated showcase section (`#why-carbon`) replicating reference design cards:
+     - Header: "WHY SWITCH TO CARBON?" in red Cinzel serif font with signature white `SEVERUS CUES` badge.
+     - Card 1 ("PRECISION AND POWER"): Top-left L-shaped corner accent frame line, uppercase copy, concluding highlight line, bottom right white badge.
+     - Card 2 ("SMOOTH FEEL"): Horizontal title flanking accent lines, uppercase copy, concluding highlight line, center bottom white badge.
+     - Card 3 ("STYLE"): Top-right L-shaped corner accent frame line, uppercase copy, concluding highlight line, top-right white badge.
+   - Full English and Indonesian (`lang/en`, `lang/id`) translation coverage.
+3. **Multi-Language Support (EN & ID)**:
    - English & Indonesian locale switcher.
    - Session/Cookie persistence via `SetLocale` middleware.
    - Full translation coverage across products, cue technology attributes, hero banners, and team portal.
-2. **Top-to-Down Gradient Blur Navbar & Alpine.js Auto-Scroll**:
+4. **Top-to-Down Gradient Blur Navbar & Alpine.js Auto-Scroll**:
    - Fixed top navbar with top-to-bottom bold-to-light gradient backdrop blur (`.navbar-gradient-blur`).
-   - Smooth animated section auto-scroll (`scrollTo(id)` method calculating target offset minus 90px header height) for `#home`, `#cues`, `#chalk`, and `#technology`.
-   - Streamlined navbar navigation: `Home`, `Collection`, `Viper Tech` (all cues, chalks, and billiard accessories are available in the Venom Collection catalog filter tabs).
-3. **100% Mobile Web Compatibility & Mobile Drawer**:
+   - Smooth animated section auto-scroll (`scrollTo(id)` method calculating target offset minus 90px header height) for `#home`, `#why-carbon`, `#cues`, and `#technology`.
+   - Streamlined navbar navigation: `Home`, `Why Carbon?`, `Collection`, `Viper Tech`.
+5. **100% Mobile Web Compatibility & Mobile Drawer**:
    - Touch-friendly hit targets (`min-h-[48px]`).
-   - Mobile hamburger menu button with smooth slide-over drawer navigation.
-4. **Hardened Team Portal Auth & Rate Limiting**:
+   - Mobile hamburger menu button with smooth slide-over drawer navigation and theme switcher button.
+6. **Hardened Team Portal Auth & Rate Limiting**:
    - Accessing `/admin` automatically redirects unauthenticated users to `/admin/login`.
    - Rate limiting (`throttle:6,1`) blocks brute-force login attacks and SQL injection probes.
    - Manual product catalog creation, editing, and content management.
-5. **Clean Hero Layout with 3D Diagonal Slanted `/` Pool Cue Visual**:
-   - Clean top-aligned Hero section (no forced perspective scale shrink).
-   - Left side: Live motion status badge (`• PRO BILLIARD EQUIPMENT`), display typography (`STRIKE WITH VENOM PRECISION`), and lead copy.
-   - Right side: In-motion 3D orbital rings (`animate-orbit-ring-1` & `animate-orbit-ring-2`), ambient toxic green glow aura, floating 3D carbon pool cue stick angled at a diagonal `/` slash tilt (`animate-slanted-cue`), and HUD glass spec tag (`SEVERUS / 01 - Zero-Deflection Carbon`).
-   - Action CTA Suite: `Explore Products`, `Tokopedia` (Green Owl logo), `Shopee` (Orange 'S' logo), and `Instagram` (placed directly after Shopee).
+7. **Clean Hero Layout with 3D Diagonal Slanted `/` Pool Cue Visual**:
+   - Clean top-aligned Hero section.
+   - Left side: Live motion status badge (`• PRO BILLIARD EQUIPMENT`), display typography, and lead copy.
+   - Right side: In-motion 3D orbital rings, ambient red/green glow aura, floating 3D carbon pool cue stick angled at a diagonal `/` slash tilt (`animate-slanted-cue`), and HUD glass spec tag (`SEVERUS / 01 - Zero-Deflection Carbon`).
+   - Action CTA Suite: `Explore Products`, `Tokopedia` (Green Owl logo), `Shopee` (Orange 'S' logo), and `Instagram`.
    - Curved Dial & Stats section (`0.12mm Accuracy`, `99.8% Retention`, `Uni-Loc Joint`, `Rp 2.95M`).
    - `ENGINEERED BY SEVERUS CUES` display typography with 4 numbered spec cards (`01 Carbon Core`, `02 Toxic Chalk`, `03 TrueLock Pin`, `04 Pro Warranty`).
-   - Signature Heart & Strike finale banner (`STRIKE WITH VENOM PRECISION`).
-6. **Separated Docker Infrastructure**:
+   - Signature Heart & Strike finale banner.
+8. **Separated Docker Infrastructure**:
    - `severus-db`: PostgreSQL 16 database service (`postgres:16-alpine`).
    - `severus-backend`: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, Zip extensions.
    - `severus-frontend`: Nginx web server configured for Laravel with static asset caching.
-7. **Gaming PC Utility Scripts**:
+9. **Gaming PC Utility Scripts**:
    - `severus-on.bat`: Boots all containers, runs database migrations/seeders, and exposes application at `http://localhost:8000`.
    - `severus-off.bat`: Gracefully downs all Docker containers to restore 100% CPU/RAM for gaming performance.
 
