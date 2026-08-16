@@ -7,7 +7,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
             <!-- Brand Logo & Title -->
-            <a href="#home" class="flex items-center space-x-3 group">
+            <a href="#home" @click.prevent="scrollToSection('home')" class="flex items-center space-x-3 group">
                 <div class="relative">
                     <img src="<?php echo e(asset('images/logo.png')); ?>" alt="Severus Logo" class="h-10 sm:h-12 w-auto transform group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-[#00E676]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -20,29 +20,29 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav Links (Hidden on Mobile) -->
+            <!-- Desktop Nav Links with Auto-Scroll -->
             <nav class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-slate-300">
-                <a href="#home" class="hover:text-[#00E676] transition-colors py-1 relative group">
+                <a href="#home" @click.prevent="scrollToSection('home')" class="hover:text-[#00E676] transition-colors py-1 relative group">
                     <?php echo e(__('app.nav.home')); ?>
 
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#cues" class="hover:text-[#00E676] transition-colors py-1 relative group">
+                <a href="#cues" @click.prevent="scrollToSection('cues')" class="hover:text-[#00E676] transition-colors py-1 relative group">
                     <?php echo e(__('app.nav.cues')); ?>
 
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#chalk" class="hover:text-[#00E676] transition-colors py-1 relative group">
+                <a href="#chalk" @click.prevent="scrollToSection('chalk')" class="hover:text-[#00E676] transition-colors py-1 relative group">
                     <?php echo e(__('app.nav.chalk')); ?>
 
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#accessories" class="hover:text-[#00E676] transition-colors py-1 relative group">
+                <a href="#accessories" @click.prevent="scrollToSection('accessories')" class="hover:text-[#00E676] transition-colors py-1 relative group">
                     <?php echo e(__('app.nav.accessories')); ?>
 
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#technology" class="hover:text-[#00E676] transition-colors py-1 relative group">
+                <a href="#technology" @click.prevent="scrollToSection('technology')" class="hover:text-[#00E676] transition-colors py-1 relative group">
                     <?php echo e(__('app.nav.technology')); ?>
 
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <!-- Mobile Drawer Slide-Over Menu -->
+    <!-- Mobile Drawer Slide-Over Menu with Auto-Scroll -->
     <div x-show="mobileMenuOpen" 
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 -translate-y-4"
@@ -96,23 +96,23 @@
          x-cloak>
         
         <nav class="flex flex-col space-y-3 font-outfit text-sm font-bold uppercase tracking-wider text-slate-200">
-            <a @click="mobileMenuOpen = false" href="#home" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
+            <a @click.prevent="mobileMenuOpen = false; scrollToSection('home')" href="#home" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
                 <span><?php echo e(__('app.nav.home')); ?></span>
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
-            <a @click="mobileMenuOpen = false" href="#cues" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
+            <a @click.prevent="mobileMenuOpen = false; scrollToSection('cues')" href="#cues" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
                 <span><?php echo e(__('app.nav.cues')); ?></span>
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
-            <a @click="mobileMenuOpen = false" href="#chalk" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
+            <a @click.prevent="mobileMenuOpen = false; scrollToSection('chalk')" href="#chalk" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
                 <span><?php echo e(__('app.nav.chalk')); ?></span>
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
-            <a @click="mobileMenuOpen = false" href="#accessories" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
+            <a @click.prevent="mobileMenuOpen = false; scrollToSection('accessories')" href="#accessories" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
                 <span><?php echo e(__('app.nav.accessories')); ?></span>
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
-            <a @click="mobileMenuOpen = false" href="#technology" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
+            <a @click.prevent="mobileMenuOpen = false; scrollToSection('technology')" href="#technology" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between">
                 <span><?php echo e(__('app.nav.technology')); ?></span>
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
@@ -145,7 +145,7 @@
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal-on-scroll">
                 <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-[#00E676]/10 border border-[#00E676]/30 text-[#00E676] text-xs font-extrabold uppercase tracking-wider">
                     <span class="w-2 h-2 rounded-full bg-[#00E676] animate-ping"></span>
-                    <span><?php echo e($siteContents['hero_title'] ?? 'Severus Venom Precision'); ?></span>
+                    <span><?php echo e($siteContents['hero_title'] ?? __('app.hero.badge')); ?></span>
                 </div>
 
                 <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight uppercase font-outfit tracking-tight">
@@ -158,7 +158,7 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                    <a href="#cues" class="w-full sm:w-auto px-8 py-4 rounded-2xl btn-venom flex items-center justify-center text-sm font-black uppercase tracking-wider">
+                    <a href="#cues" @click.prevent="scrollToSection('cues')" class="w-full sm:w-auto px-8 py-4 rounded-2xl btn-venom flex items-center justify-center text-sm font-black uppercase tracking-wider">
                         <span><?php echo e(__('app.hero.explore_btn')); ?></span>
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                     </a>

@@ -96,10 +96,10 @@
             </div>
 
             <div class="flex items-center space-x-6 text-xs text-slate-400 font-medium">
-                <a href="#home" class="hover:text-[#00E676] transition-colors">Home</a>
-                <a href="#cues" class="hover:text-[#00E676] transition-colors">Cues</a>
-                <a href="#chalk" class="hover:text-[#00E676] transition-colors">Chalk</a>
-                <a href="#accessories" class="hover:text-[#00E676] transition-colors">Accessories</a>
+                <a href="#home" onclick="scrollToSection('home'); return false;" class="hover:text-[#00E676] transition-colors">Home</a>
+                <a href="#cues" onclick="scrollToSection('cues'); return false;" class="hover:text-[#00E676] transition-colors">Cues</a>
+                <a href="#chalk" onclick="scrollToSection('chalk'); return false;" class="hover:text-[#00E676] transition-colors">Chalk</a>
+                <a href="#accessories" onclick="scrollToSection('accessories'); return false;" class="hover:text-[#00E676] transition-colors">Accessories</a>
                 <a href="https://www.tokopedia.com/severus" target="_blank" class="hover:text-[#42b549] transition-colors">Tokopedia Store</a>
             </div>
 
@@ -109,14 +109,29 @@
         </div>
     </footer>
 
-    <!-- Framer Motion Style Intersection Observer & Smooth Scroll JavaScript -->
+    <!-- Global Auto-Scroll & Motion Observer Script -->
     <script>
+        // Global Smooth Auto-Scroll Function for Navbar Links
+        window.scrollToSection = function(sectionId) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+                const headerOffset = 90;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             // 1. Framer Motion Style Scroll Reveal Observer
             const observerOptions = {
                 root: null,
                 rootMargin: '0px 0px -50px 0px',
-                threshold: 0.12
+                threshold: 0.10
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -129,34 +144,15 @@
 
             document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 
-            // 2. Smooth Offset Scroll Handler for Nav Links
+            // 2. Intercept All Internal Anchor Clicks for Auto-Scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId && targetId !== '#') {
-                        const targetEl = document.querySelector(targetId);
-                        if (targetEl) {
-                            e.preventDefault();
-                            const navOffset = 90; // Fixed navbar height offset
-                            const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navOffset;
-
-                            window.scrollTo({
-                                top: targetPosition,
-                                behavior: 'smooth'
-                            });
-                        }
+                    const targetId = this.getAttribute('href').replace('#', '');
+                    if (targetId) {
+                        e.preventDefault();
+                        window.scrollToSection(targetId);
                     }
                 });
-            });
-
-            // 3. Smooth Window Resize Observer (Prevents CLS layout shift)
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                document.body.classList.add('is-resizing');
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    document.body.classList.remove('is-resizing');
-                }, 200);
             });
         });
     </script>
