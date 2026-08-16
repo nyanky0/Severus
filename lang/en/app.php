@@ -5,9 +5,7 @@ return [
     'brand_tagline' => 'Venom Precision Billiards',
     'nav' => [
         'home' => 'Home',
-        'cues' => 'Pool Cues',
-        'chalk' => 'Chalk Tech',
-        'accessories' => 'Accessories',
+        'collection' => 'Collection',
         'tokopedia_store' => 'Tokopedia Store',
         'technology' => 'Viper Tech',
         'team_login' => 'Team Portal',

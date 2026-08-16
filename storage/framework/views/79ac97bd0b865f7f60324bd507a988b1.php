@@ -20,7 +20,7 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav Links with Auto-Scroll (Home, Cues, Chalk, Technology) -->
+            <!-- Streamlined Desktop Nav Links (Home, Collection, Viper Tech) -->
             <nav class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-slate-300">
                 <a href="#home" @click.prevent="$dispatch('scroll-to', 'home')" class="hover:text-[#00E676] transition-colors py-1 relative group cursor-pointer">
                     <?php echo e(__('app.nav.home')); ?>
@@ -28,12 +28,7 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
                 </a>
                 <a href="#cues" @click.prevent="$dispatch('scroll-to', 'cues')" class="hover:text-[#00E676] transition-colors py-1 relative group cursor-pointer">
-                    <?php echo e(__('app.nav.cues')); ?>
-
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
-                </a>
-                <a href="#chalk" @click.prevent="$dispatch('scroll-to', 'chalk')" class="hover:text-[#00E676] transition-colors py-1 relative group cursor-pointer">
-                    <?php echo e(__('app.nav.chalk')); ?>
+                    <?php echo e(__('app.nav.collection')); ?>
 
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
                 </a>
@@ -90,7 +85,7 @@
         </div>
     </div>
 
-    <!-- Mobile Drawer Menu -->
+    <!-- Mobile Drawer Menu (Home, Collection, Viper Tech) -->
     <div x-show="mobileMenuOpen" 
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 -translate-y-4"
@@ -107,11 +102,7 @@
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
             <a @click.prevent="mobileMenuOpen = false; $dispatch('scroll-to', 'cues')" href="#cues" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between cursor-pointer">
-                <span><?php echo e(__('app.nav.cues')); ?></span>
-                <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
-            <a @click.prevent="mobileMenuOpen = false; $dispatch('scroll-to', 'chalk')" href="#chalk" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between cursor-pointer">
-                <span><?php echo e(__('app.nav.chalk')); ?></span>
+                <span><?php echo e(__('app.nav.collection')); ?></span>
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
             <a @click.prevent="mobileMenuOpen = false; $dispatch('scroll-to', 'technology')" href="#technology" class="py-2.5 px-4 rounded-xl hover:bg-[#00E676]/10 hover:text-[#00E676] transition-all flex items-center justify-between cursor-pointer">
@@ -218,7 +209,7 @@ class="space-y-24 pt-28">
         </div>
     </section>
 
-    <!-- 2. Product Catalog Section (Cues, Chalk & Accessories) -->
+    <!-- 2. Product Catalog Section (Venom Collection) -->
     <section id="cues" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-28">
         <!-- Section Header & Category Filters -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal-on-scroll">
@@ -313,9 +304,6 @@ class="space-y-24 pt-28">
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </section>
-
-    <!-- Anchor Target for Chalk Section -->
-    <div id="chalk" class="scroll-mt-28"></div>
 
     <!-- 3. Cue Technology Spotlight Section -->
     <section id="technology" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">

@@ -5,9 +5,7 @@ return [
     'brand_tagline' => 'Presisi Venom Billiard',
     'nav' => [
         'home' => 'Beranda',
-        'cues' => 'Stik Billiard',
-        'chalk' => 'Kapur Pro',
-        'accessories' => 'Aksesoris',
+        'collection' => 'Koleksi',
         'tokopedia_store' => 'Toko Tokopedia',
         'technology' => 'Teknologi Viper',
         'team_login' => 'Portal Tim',
