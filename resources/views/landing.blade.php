@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <!-- Clean Mobile Drawer Menu (Home, Collection, Viper Tech) -->
+    <!-- Clean Mobile Drawer Menu -->
     <div x-show="mobileMenuOpen" 
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 -translate-y-4"
@@ -116,70 +116,94 @@
 @scroll-to.window="scrollTo($event.detail)"
 class="space-y-24 pt-28">
 
-    <!-- 1. Hero Section -->
-    <section id="home" class="relative overflow-hidden pt-8 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-28">
-        <!-- Venom Ambient Background Glows -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E676]/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <!-- 1. Hero Section (In-Motion 3D Orbit & Diagonal Slanted Slash Pool Cue Animation) -->
+    <section id="home" class="relative overflow-hidden pt-8 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-28 min-h-[85vh] flex items-center">
+        <!-- Ambient Toxic Emerald Radial Light -->
+        <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#00E676]/20 via-[#10b981]/15 to-transparent rounded-full blur-[140px] pointer-events-none"></div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-            <!-- Left Hero Text -->
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal-on-scroll">
-                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-[#00E676]/10 border border-[#00E676]/30 text-[#00E676] text-xs font-extrabold uppercase tracking-wider">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full relative z-10">
+            
+            <!-- Left Hero Content: Massive Modern Typography & CTAs -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left reveal-on-scroll">
+                
+                <!-- Live Motion Status Badge -->
+                <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#141D17] border border-[#00E676]/30 text-xs font-mono tracking-[0.18em] uppercase">
                     <span class="w-2 h-2 rounded-full bg-[#00E676] animate-ping"></span>
-                    <span>{{ $siteContents['hero_title'] ?? __('app.hero.badge') }}</span>
+                    <span class="text-[#00E676] font-bold">&bull; THE FUTURE OF BILLIARDS, IN MOTION</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight uppercase font-outfit tracking-tight">
-                    {{ __('app.hero.headline_prefix') }} <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E676] via-[#10b981] to-emerald-400">{{ __('app.hero.headline_highlight') }}</span>
+                <!-- Main Display Headline with Italicized Highlight Word -->
+                <h1 class="text-5xl sm:text-7xl lg:text-[5.25rem] font-black text-white leading-[1.03] uppercase font-outfit tracking-tight">
+                    Strike with<br>
+                    comes <span class="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#00E676] via-[#10b981] to-emerald-300 lowercase">venom.</span>
                 </h1>
 
-                <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                    {{ $siteContents['hero_subtitle'] ?? __('app.hero.subtitle') }}
+                <!-- Lead Description Paragraph -->
+                <p class="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                    Severus Cues is the operating system for ambitious billiard champions. We turn carbon engineering into shared momentum, so more players deliver the best shots of their lives.
                 </p>
 
-                <!-- Hero Action Buttons: Explore, Tokopedia, Shopee, and Instagram (After Shopee) -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-4">
-                    <a href="#cues" @click.prevent="scrollTo('cues')" class="px-6 py-3.5 rounded-2xl btn-venom flex items-center justify-center text-xs font-black uppercase tracking-wider cursor-pointer">
-                        <span>{{ __('app.hero.explore_btn') }}</span>
-                        <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                <!-- Hero Action CTAs (Explore, Tokopedia, Shopee, and Instagram directly after Shopee) -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                    <!-- Primary Explore Collection Button -->
+                    <a href="#cues" @click.prevent="scrollTo('cues')" class="px-7 py-4 rounded-xl bg-gradient-to-r from-[#00E676] to-[#10b981] text-black font-black text-xs uppercase tracking-wider shadow-[0_0_25px_rgba(0,230,118,0.4)] hover:shadow-[0_0_35px_rgba(0,230,118,0.7)] transition-all transform hover:scale-[1.03] flex items-center cursor-pointer">
+                        <span>Explore Collection</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
                     </a>
 
-                    <!-- Tokopedia Button -->
-                    <a href="https://www.tokopedia.com/severus" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#42b549]/20 border border-[#42b549]/40 text-[#42b549] font-bold text-xs uppercase tracking-wider flex items-center transition-all">
-                        <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain">
+                    <!-- Tokopedia CTA -->
+                    <a href="https://www.tokopedia.com/severus" target="_blank" class="px-5 py-4 rounded-xl bg-[#141D17] hover:bg-[#42b549]/20 border border-[#42b549]/40 text-white font-bold text-xs uppercase tracking-wider flex items-center transition-all">
+                        <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-2 object-contain">
                         <span>Tokopedia</span>
                     </a>
 
-                    <!-- Shopee Button -->
-                    <a href="https://shopee.co.id/severuscues" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#ee4d2d]/20 border border-[#ee4d2d]/40 text-[#ee4d2d] font-bold text-xs uppercase tracking-wider flex items-center transition-all">
-                        <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain">
+                    <!-- Shopee CTA -->
+                    <a href="https://shopee.co.id/severuscues" target="_blank" class="px-5 py-4 rounded-xl bg-[#141D17] hover:bg-[#ee4d2d]/20 border border-[#ee4d2d]/40 text-white font-bold text-xs uppercase tracking-wider flex items-center transition-all">
+                        <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-2 object-contain">
                         <span>Shopee</span>
                     </a>
 
-                    <!-- Instagram Button (Positioned directly after Shopee) -->
-                    <a href="https://www.instagram.com/severuscues/" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#E1306C]/20 border border-[#E1306C]/40 text-[#E1306C] font-bold text-xs uppercase tracking-wider flex items-center transition-all" title="Instagram @severuscues">
-                        <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <!-- Instagram CTA (Placed directly after Shopee) -->
+                    <a href="https://www.instagram.com/severuscues/" target="_blank" class="px-5 py-4 rounded-xl bg-[#141D17] hover:bg-[#E1306C]/20 border border-[#E1306C]/40 text-[#E1306C] font-bold text-xs uppercase tracking-wider flex items-center transition-all" title="Instagram @severuscues">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         <span>Instagram</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Right Hero Visual Showcase -->
-            <div class="lg:col-span-5 relative flex justify-center reveal-on-scroll delay-200">
-                <div class="w-full max-w-md venom-card p-6 rounded-3xl relative group overflow-hidden">
-                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-[#00E676]/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            <!-- Right Hero 3D Visual: Rotating Orbit with Diagonal Slanted "/" Pool Cue Stick -->
+            <div class="lg:col-span-5 relative flex justify-center items-center reveal-on-scroll delay-200 min-h-[420px]">
+                
+                <div class="relative w-full max-w-lg aspect-square flex items-center justify-center">
+                    
+                    <!-- Outer Rotating Orbital Ring 1 -->
+                    <div class="absolute inset-4 rounded-full border border-[#00E676]/30 animate-orbit-ring-1 pointer-events-none"></div>
 
-                    <img src="{{ asset('images/logo.png') }}" alt="Severus Cue Stick" class="w-48 h-auto mx-auto drop-shadow-[0_0_35px_rgba(0,230,118,0.5)] transform group-hover:rotate-6 group-hover:scale-110 transition-transform duration-500">
+                    <!-- Inner Reverse Rotating Orbital Ring 2 -->
+                    <div class="absolute inset-12 rounded-full border border-emerald-400/20 animate-orbit-ring-2 pointer-events-none"></div>
 
-                    <div class="mt-6 text-center space-y-2">
-                        <h3 class="text-xl font-black text-white font-outfit uppercase">Reaper V2 Pro Carbon Shaft</h3>
-                        <p class="text-xs text-slate-400 font-medium">TrueLock Joint &bull; 12.4mm Tip &bull; Super Low Deflection</p>
-                        <div class="pt-2">
-                            <span class="inline-block px-4 py-1.5 rounded-full bg-[#00E676]/20 text-[#00E676] font-extrabold text-sm border border-[#00E676]/40">Rp 2.950.000</span>
+                    <!-- Central Glowing Toxic Sphere -->
+                    <div class="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-[#00E676] via-[#10b981] to-emerald-300 opacity-80 blur-md shadow-[0_0_80px_rgba(0,230,118,0.6)] animate-pulse"></div>
+
+                    <!-- 3D Diagonal Slanted Slash "/" Rotating Pool Cue Stick Visual -->
+                    <div class="relative z-10 animate-slanted-cue transform">
+                        <img src="{{ asset('images/slanted_cue_3d.png') }}" 
+                             alt="Severus 3D Slanted Carbon Cue Stick" 
+                             class="w-80 h-auto max-h-[460px] object-contain drop-shadow-[0_20px_50px_rgba(0,230,118,0.7)] pointer-events-none">
+                    </div>
+
+                    <!-- Futuristic Glass HUD Card anchored at bottom right -->
+                    <div class="absolute bottom-2 right-2 p-4 rounded-2xl bg-[#0a0f0d]/85 backdrop-blur-xl border border-[#00E676]/40 shadow-2xl space-y-1 font-mono text-xs z-20 text-left">
+                        <div class="text-[#00E676] font-bold uppercase tracking-widest text-[11px] flex items-center">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#00E676] mr-1.5 animate-ping"></span>
+                            SEVERUS / 01
                         </div>
+                        <div class="text-white font-black text-sm font-outfit">Zero-Deflection Carbon</div>
+                        <div class="text-slate-400 text-[10px] tracking-tight">Make the complex feel possible.</div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 

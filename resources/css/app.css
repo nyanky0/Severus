@@ -107,10 +107,53 @@
     transform: translateY(0);
   }
 
-  /* Delay utility classes for staggered reveals */
+  /* Staggered animation delays */
   .delay-100 { transition-delay: 100ms; }
   .delay-200 { transition-delay: 200ms; }
   .delay-300 { transition-delay: 300ms; }
   .delay-400 { transition-delay: 400ms; }
   .delay-500 { transition-delay: 500ms; }
+
+  /* 3D Diagonal Slanted Rotating Pool Cue Animation */
+  @keyframes slantedCueRotate {
+    0% {
+      transform: rotate(-35deg) translateY(0px) scale(1);
+    }
+    50% {
+      transform: rotate(-22deg) translateY(-18px) scale(1.06);
+    }
+    100% {
+      transform: rotate(-35deg) translateY(0px) scale(1);
+    }
+  }
+
+  @keyframes orbitSpin1 {
+    0% {
+      transform: rotate(0deg) rotateX(65deg) rotateY(15deg);
+    }
+    100% {
+      transform: rotate(360deg) rotateX(65deg) rotateY(15deg);
+    }
+  }
+
+  @keyframes orbitSpin2 {
+    0% {
+      transform: rotate(360deg) rotateX(45deg) rotateY(-30deg);
+    }
+    100% {
+      transform: rotate(0deg) rotateX(45deg) rotateY(-30deg);
+    }
+  }
+
+  .animate-slanted-cue {
+    animation: slantedCueRotate 6s ease-in-out infinite;
+  }
+
+  .animate-orbit-ring-1 {
+    animation: orbitSpin1 18s linear infinite;
+  }
+
+  .animate-orbit-ring-2 {
+    animation: orbitSpin2 24s linear infinite;
+  }
 }

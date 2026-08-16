@@ -25,10 +25,10 @@
    - Accessing `/admin` automatically redirects unauthenticated users to `/admin/login`.
    - Rate limiting (`throttle:6,1`) blocks brute-force login attacks and SQL injection probes.
    - Manual product catalog creation, editing, and content management.
-5. **Store & Social Media Hero Placement**:
-   - Clean top header navbar (branding logo, `Home`, `Collection`, `Viper Tech`, language switcher, and admin link).
-   - Hero section CTA suite: `Explore Products`, `Tokopedia` (Green Owl Bag logo), `Shopee` (Orange 'S' Bag logo), and `Instagram` (`https://www.instagram.com/severuscues/` placed directly after Shopee).
-   - Streamlined clean footer displaying brand copyright without redundant bottom links.
+5. **High-End 3D Animated Hero Showcase (Slash `/` Rotating Cue)**:
+   - Left side: Live motion status badge (`• THE FUTURE OF BILLIARDS, IN MOTION`), massive display typography with italic serif highlight (`venom.`), and lead value proposition text.
+   - Right side: In-motion 3D orbital rings (`animate-orbit-ring-1` & `animate-orbit-ring-2`), ambient toxic green glow aura, floating 3D carbon pool cue stick angled at a diagonal `/` slash tilt (`animate-slanted-cue`), and HUD glass spec tag (`SEVERUS / 01 - Zero-Deflection Carbon`).
+   - Action CTA Suite: `Explore Collection ↗`, `Tokopedia` (Green Owl logo), `Shopee` (Orange 'S' logo), and `Instagram` (placed directly after Shopee).
 6. **Separated Docker Infrastructure**:
    - `severus-db`: PostgreSQL 16 database service (`postgres:16-alpine`).
    - `severus-backend`: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, Zip extensions.
