@@ -17,11 +17,11 @@
    - Default theme: **Carbon Red** featuring crimson red glows, white badge highlights, and luxury serif `Cinzel` display titles.
    - Preserved theme: **Venom Green** restoring original toxic emerald green accents.
 2. **"Why Switch to Carbon?" Feature Showcase Section**:
-   - Dedicated showcase section (`#why-carbon`) replicating reference design cards:
-     - Header: "WHY SWITCH TO CARBON?" in red Cinzel serif font with signature white `SEVERUS CUES` badge.
-     - Card 1 ("PRECISION AND POWER"): Top-left L-shaped corner accent frame line, uppercase copy, concluding highlight line, bottom right white badge.
-     - Card 2 ("SMOOTH FEEL"): Horizontal title flanking accent lines, uppercase copy, concluding highlight line, center bottom white badge.
-     - Card 3 ("STYLE"): Top-right L-shaped corner accent frame line, uppercase copy, concluding highlight line, top-right white badge.
+   - Dedicated showcase section (`#why-carbon`) featuring:
+     - Header: "WHY SWITCH TO CARBON?" in red Cinzel serif font.
+     - Card 1 ("PRECISION AND POWER"): Top-left L-shaped corner accent frame line, uppercase copy, concluding highlight line.
+     - Card 2 ("SMOOTH FEEL"): Horizontal title flanking accent lines, uppercase copy, concluding highlight line.
+     - Card 3 ("STYLE"): Top-right L-shaped corner accent frame line, uppercase copy, concluding highlight line.
    - Full English and Indonesian (`lang/en`, `lang/id`) translation coverage.
 3. **Multi-Language Support (EN & ID)**:
    - English & Indonesian locale switcher.

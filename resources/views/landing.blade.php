@@ -247,16 +247,10 @@ class="space-y-24 pt-28">
         <div class="relative py-12 px-6 rounded-3xl bg-carbon-texture border border-white/10 shadow-2xl text-center space-y-6 reveal-on-scroll overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-b from-[#E51919]/10 via-transparent to-black/80 pointer-events-none"></div>
             
-            <div class="relative z-10 space-y-6">
+            <div class="relative z-10">
                 <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#E51919] font-cinzel uppercase tracking-wider drop-shadow-[0_4px_20px_rgba(229,25,25,0.4)]">
                     {{ __('app.why_carbon.main_title') }}
                 </h2>
-
-                <div class="pt-2 flex justify-center">
-                    <span class="severus-badge">
-                        {{ __('app.why_carbon.badge') }}
-                    </span>
-                </div>
             </div>
 
             <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
@@ -284,13 +278,6 @@ class="space-y-24 pt-28">
                         {{ __('app.why_carbon.feature1_highlight') }}
                     </p>
                 </div>
-
-                <!-- Bottom Right Badge -->
-                <div class="flex justify-end pt-4">
-                    <span class="severus-badge text-[11px] py-1 px-3">
-                        {{ __('app.why_carbon.badge') }}
-                    </span>
-                </div>
             </div>
 
             <!-- Card 2: SMOOTH FEEL (Image 3) -->
@@ -316,25 +303,11 @@ class="space-y-24 pt-28">
                         {{ __('app.why_carbon.feature2_highlight') }}
                     </p>
                 </div>
-
-                <!-- Bottom Center Badge -->
-                <div class="flex justify-center pt-4">
-                    <span class="severus-badge text-[11px] py-1 px-3">
-                        {{ __('app.why_carbon.badge') }}
-                    </span>
-                </div>
             </div>
 
             <!-- Card 3: STYLE (Image 4) -->
             <div class="bg-carbon-texture p-8 sm:p-10 rounded-2xl border border-white/10 relative flex flex-col justify-between space-y-8 corner-frame-tr shadow-2xl reveal-on-scroll delay-300 group hover:border-[#E51919]/50 transition-all">
                 
-                <!-- Top Right Corner Badge -->
-                <div class="flex justify-end -mt-2 -mr-2">
-                    <span class="severus-badge text-[11px] py-1 px-3">
-                        {{ __('app.why_carbon.badge') }}
-                    </span>
-                </div>
-
                 <div class="space-y-8">
                     <!-- Header Title -->
                     <h3 class="text-2xl sm:text-3xl font-black text-[#E51919] font-cinzel tracking-wider uppercase">
@@ -351,8 +324,6 @@ class="space-y-24 pt-28">
                         {{ __('app.why_carbon.feature3_highlight') }}
                     </p>
                 </div>
-
-                <div class="pt-4"></div>
             </div>
 
         </div>
