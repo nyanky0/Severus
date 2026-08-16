@@ -16,7 +16,8 @@
    - Full translation coverage across products, cue technology attributes, hero banners, and team portal.
 2. **Top-to-Down Gradient Blur Navbar & Alpine.js Auto-Scroll**:
    - Fixed top navbar with top-to-bottom bold-to-light gradient backdrop blur (`.navbar-gradient-blur`).
-   - Smooth animated section auto-scroll (`scrollTo(id)` method calculating target offset minus 90px header height) for `#home`, `#cues`, `#chalk`, `#accessories`, and `#technology`.
+   - Smooth animated section auto-scroll (`scrollTo(id)` method calculating target offset minus 90px header height) for `#home`, `#cues`, `#chalk`, and `#technology`.
+   - Streamlined navbar navigation: `Home`, `Pool Cues`, `Chalk Tech`, `Viper Tech` (accessories are merged directly into the catalog filter tabs).
 3. **100% Mobile Web Compatibility & Mobile Drawer**:
    - Touch-friendly hit targets (`min-h-[48px]`).
    - Mobile hamburger menu button with smooth slide-over drawer navigation.
