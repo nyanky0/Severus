@@ -12,22 +12,11 @@
             <p class="text-xs text-slate-400 mt-1">{{ __('app.admin.welcome') }} &bull; Admin Portal</p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3">
-            <form action="{{ route('admin.tokopedia.scrape') }}" method="POST">
-                @csrf
-                <button type="submit" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#00e676] to-[#10b981] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(0,230,118,0.4)] flex items-center transition-all transform hover:-translate-y-0.5">
-                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path></svg>
-                    Scrape Products (tokopedia.com/severus/product)
-                </button>
-            </form>
-
-            <form action="{{ route('admin.tokopedia.sync') }}" method="POST">
-                @csrf
-                <button type="submit" class="px-4 py-2.5 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.4)] flex items-center transition-all">
-                    <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                    {{ __('app.admin.sync_now') }}
-                </button>
-            </form>
+        <div class="flex items-center space-x-3">
+            <a href="{{ route('admin.products.create') }}" class="px-4 py-2.5 rounded-xl btn-venom text-xs uppercase tracking-wider flex items-center shadow-[0_0_15px_rgba(0,230,118,0.4)]">
+                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                + Add Product Manually
+            </a>
 
             <form action="{{ route('admin.logout') }}" method="POST">
                 @csrf
@@ -58,18 +47,18 @@
 
         <a href="{{ route('admin.products.create') }}" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
             <div>
-                <span class="text-xs font-bold text-slate-400 block uppercase">Content Upload</span>
+                <span class="text-xs font-bold text-slate-400 block uppercase">Manual Upload</span>
                 <span class="text-2xl font-black text-white group-hover:text-[#00e676] transition-colors">+ Add Product</span>
             </div>
-            <div class="w-12 h-12 rounded-xl bg-[#00e676]/10 border border-[#00e676]/30 flex items-center justify-center text-[#00e676] group-hover:scale-110 transition-transform">
+            <div class="w-12 h-12 rounded-xl bg-[#00e676]/10 border border-[#00E676]/30 flex items-center justify-center text-[#00e676] group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </div>
         </a>
 
         <a href="{{ route('admin.contents.index') }}" class="venom-card p-6 rounded-2xl group flex items-center justify-between">
             <div>
-                <span class="text-xs font-bold text-slate-400 block uppercase">Marketing Copy</span>
-                <span class="text-2xl font-black text-white group-hover:text-[#00e676] transition-colors">Edit Banners</span>
+                <span class="text-xs font-bold text-slate-400 block uppercase">Marketing Banners</span>
+                <span class="text-2xl font-black text-white group-hover:text-[#00e676] transition-colors">Edit Content</span>
             </div>
             <div class="w-12 h-12 rounded-xl bg-[#00e676]/10 border border-[#00e676]/30 flex items-center justify-center text-[#00e676] group-hover:scale-110 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 012.828 0l2.828 2.828a2 2 0 010 2.828l-8.414 8.414H9v-2.828l8.586-8.586z"></path></svg>
@@ -77,40 +66,42 @@
         </a>
     </div>
 
-    <!-- Tokopedia Sync Audit Log -->
+    <!-- Product Catalog List -->
     <div class="venom-card p-6 rounded-2xl space-y-4">
-        <h3 class="text-lg font-bold text-white uppercase tracking-wider flex items-center">
-            <svg class="w-5 h-5 mr-2 text-[#42b549]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            Tokopedia Live Sync Audit Logs
-        </h3>
+        <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-white uppercase tracking-wider flex items-center">
+                <svg class="w-5 h-5 mr-2 text-[#00e676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                Current Product Catalog (Manual Management)
+            </h3>
+
+            <a href="{{ route('admin.products.create') }}" class="text-xs font-bold text-[#00e676] hover:underline">+ Add New</a>
+        </div>
 
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs text-slate-300">
                 <thead class="bg-[#0a0f0d] text-slate-400 uppercase font-bold border-b border-[#1f2e24]">
                     <tr>
                         <th class="p-3">Product Name</th>
-                        <th class="p-3">Old Price (IDR)</th>
-                        <th class="p-3">Synced Price (IDR)</th>
-                        <th class="p-3">Status</th>
-                        <th class="p-3">Timestamp</th>
+                        <th class="p-3">Category</th>
+                        <th class="p-3">Price (IDR)</th>
+                        <th class="p-3">Stock</th>
+                        <th class="p-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-[#1f2e24]">
-                    @forelse($recentSyncLogs as $log)
+                    @forelse($products as $product)
                         <tr>
-                            <td class="p-3 font-semibold text-white">{{ $log->product->name ?? 'System Verification' }}</td>
-                            <td class="p-3">Rp {{ number_format($log->old_price_idr, 0, ',', '.') }}</td>
-                            <td class="p-3 text-[#00e676] font-bold">Rp {{ number_format($log->new_price_idr, 0, ',', '.') }}</td>
+                            <td class="p-3 font-semibold text-white">{{ $product->name_en }}</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded bg-[#00e676]/10 text-[#00e676] text-[10px] font-bold border border-[#00e676]/30">{{ $product->category->name }}</span></td>
+                            <td class="p-3 text-[#00e676] font-bold">Rp {{ number_format($product->price_idr, 0, ',', '.') }}</td>
+                            <td class="p-3 font-bold text-slate-300">{{ $product->stock }}</td>
                             <td class="p-3">
-                                <span class="px-2 py-0.5 rounded text-[10px] font-bold {{ $log->status === 'SUCCESS' ? 'bg-green-500/20 text-green-400' : 'bg-slate-500/20 text-slate-400' }}">
-                                    {{ $log->status }}
-                                </span>
+                                <a href="{{ route('admin.products.edit', $product->id) }}" class="px-2.5 py-1 rounded bg-[#141d17] hover:bg-[#00e676]/20 text-[#00e676] border border-[#00e676]/30 font-bold text-[10px] mr-1">Edit</a>
                             </td>
-                            <td class="p-3 text-slate-500">{{ $log->created_at->format('Y-m-d H:i:s') }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="p-4 text-center text-slate-500">No sync logs recorded yet. Click "Sync Tokopedia Prices Now" above.</td>
+                            <td colspan="5" class="p-4 text-center text-slate-500">No products added yet. Click "+ Add Product Manually" above.</td>
                         </tr>
                     @endforelse
                 </tbody>

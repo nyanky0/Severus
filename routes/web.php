@@ -17,22 +17,25 @@ Route::get('/api/products/{product}', [ProductController::class, 'jsonDetail'])-
 // 2. Bilingual Locale Switcher (EN / ID)
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');
 
-// 3. Inside Team Admin Portal Routes
+// 3. Fallback Route Named 'login' for Laravel Auth Middleware Redirect
+Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// 4. Inside Team Admin Portal Routes with Rate Limiting & Auth Protection
 Route::prefix('admin')->name('admin.')->group(function () {
-    // Guest Auth
+    // Guest Auth with Rate Limiter (6 attempts per minute to prevent brute-force & SQL injection probes)
     Route::middleware('guest')->group(function () {
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-        Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+        Route::post('/login', [LoginController::class, 'login'])
+            ->middleware('throttle:6,1')
+            ->name('login.submit');
     });
 
-    // Authenticated Team Members
+    // Authenticated Team Members (Redirects guests to /admin/login)
     Route::middleware('auth')->group(function () {
-        Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::post('/tokopedia/sync', [DashboardController::class, 'triggerSync'])->name('tokopedia.sync');
-        Route::post('/tokopedia/scrape', [DashboardController::class, 'triggerScrape'])->name('tokopedia.scrape');
+        Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-        // Product Management
+        // Product Management (Manual Add, Edit, Delete by Team)
         Route::resource('products', AdminProductController::class);
 
         // Content & Banner Management
