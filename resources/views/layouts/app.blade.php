@@ -86,7 +86,10 @@
         }
     </style>
 </head>
-<body class="bg-[#0A0F0D] text-slate-100 antialiased selection:bg-[#00E676] selection:text-black min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="bg-[#08080A] text-slate-100 antialiased selection:bg-[#E51919] selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden relative">
+
+    <!-- Fixed Smooth Infinite Carbon Background Layer -->
+    <div class="carbon-infinite-bg"></div>
 
     <!-- App Header & Navigation -->
     @yield('header')

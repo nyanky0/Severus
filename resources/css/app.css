@@ -45,14 +45,41 @@
 }
 
 @layer utilities {
-  /* Carbon Organic Noise/Texture Background */
+  /* Fixed Infinite Smooth Scrolling Carbon Page Background Overlay */
+  .carbon-infinite-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -20;
+    pointer-events: none;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.35) 0%, rgba(5, 5, 7, 0.88) 100%),
+      url('/images/carbon_background.jpg');
+    background-repeat: repeat;
+    background-size: 1200px auto;
+    animation: infiniteCarbonPan 120s linear infinite;
+    will-change: background-position;
+  }
+
+  @keyframes infiniteCarbonPan {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 2400px;
+    }
+  }
+
+  /* Carbon Organic Noise/Texture Card Overlay */
   .bg-carbon-texture {
-    background-color: #070709;
+    background-color: rgba(12, 12, 16, 0.85);
     background-image: 
       radial-gradient(circle at 50% 50%, rgba(229, 25, 25, 0.08) 0%, transparent 65%),
-      radial-gradient(circle at 10% 20%, rgba(20, 20, 26, 0.9) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(15, 15, 20, 0.9) 0%, transparent 40%),
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      url('/images/carbon_background.jpg');
+    background-size: cover;
+    background-repeat: repeat;
   }
 
   /* Top-to-Down Gradient Backdrop Blur Navbar */

@@ -4,7 +4,7 @@
 **Severus Cues** is a high-performance web application designed for marketing premium billiard/pool cues, high-friction chalk, and specialized billiard accessories. It is built using **Laravel PHP**, **Tailwind CSS**, **Alpine.js**, and **Docker**.
 
 - **Brand Aesthetic**:
-  - **Default Theme (Carbon Red)**: Crimson Red (`#E51919` / `#DC2626`), Obsidian Carbon noise background (`#08080A`), Google Font `Cinzel` luxury serif display titles, white `SEVERUS CUES` accent badges, corner L-frame accent lines.
+  - **Default Theme (Carbon Red)**: Crimson Red (`#E51919` / `#DC2626`), Custom Infinite Smooth Scrolling Dark Carbon background (`carbon_background.jpg` asset with fixed smooth infinite CSS panning animation), Google Font `Cinzel` luxury serif display titles, white `SEVERUS CUES` accent badges, corner L-frame accent lines.
   - **Preserved Theme (Venom Green)**: Toxic Emerald Green (`#00E676` / `#10B981`), Obsidian Dark base (`#0A0F0D`), `Outfit` display typography, accessible via top navbar Theme Switcher.
 - **Target Audience**: Professional cue sport players, billiard enthusiasts, pool hall operators, and online shoppers.
 - **Primary Shop Integration**: Tokopedia Store (`https://www.tokopedia.com/severus`), Shopee Store, and Instagram.
