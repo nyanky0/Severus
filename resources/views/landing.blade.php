@@ -22,8 +22,8 @@
                 </div>
             </a>
 
-            <!-- Streamlined Desktop Nav Links (Home, Collection, Viper Tech) -->
-            <nav class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-slate-300">
+            <!-- Clean Desktop Nav Links (Home, Collection, Viper Tech) -->
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-bold uppercase tracking-wider text-slate-300">
                 <a href="#home" @click.prevent="$dispatch('scroll-to', 'home')" class="hover:text-[#00E676] transition-colors py-1 relative group cursor-pointer">
                     {{ __('app.nav.home') }}
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00E676] group-hover:w-full transition-all duration-300"></span>
@@ -38,30 +38,13 @@
                 </a>
             </nav>
 
-            <!-- Language Switcher, Shopee, Tokopedia & Instagram Buttons with Official Logos -->
-            <div class="hidden md:flex items-center space-x-3">
+            <!-- Language Switcher & Admin Link Only -->
+            <div class="hidden md:flex items-center space-x-4">
                 <!-- EN / ID i18n Switcher -->
-                <div class="flex items-center bg-[#141D17] p-1 rounded-xl border border-[#00E676]/20 mr-1">
+                <div class="flex items-center bg-[#141D17] p-1 rounded-xl border border-[#00E676]/20">
                     <a href="{{ route('lang.switch', 'en') }}" class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all {{ app()->getLocale() === 'en' ? 'bg-[#00E676] text-black shadow-[0_0_10px_rgba(0,230,118,0.5)]' : 'text-slate-400 hover:text-white' }}">EN</a>
                     <a href="{{ route('lang.switch', 'id') }}" class="px-2.5 py-1 rounded-lg text-xs font-bold transition-all {{ app()->getLocale() === 'id' ? 'bg-[#00E676] text-black shadow-[0_0_10px_rgba(0,230,118,0.5)]' : 'text-slate-400 hover:text-white' }}">ID</a>
                 </div>
-
-                <!-- Tokopedia Official Store CTA -->
-                <a href="https://www.tokopedia.com/severus" target="_blank" class="px-3.5 py-2 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.4)] transition-all flex items-center" title="Tokopedia Store">
-                    <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain drop-shadow">
-                    Tokopedia
-                </a>
-
-                <!-- Shopee Official Store CTA -->
-                <a href="https://shopee.co.id/severuscues" target="_blank" class="px-3.5 py-2 rounded-xl bg-[#ee4d2d] hover:bg-[#d73f21] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(238,77,45,0.4)] transition-all flex items-center" title="Shopee Store">
-                    <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain drop-shadow">
-                    Shopee
-                </a>
-
-                <!-- Instagram Handle Link -->
-                <a href="https://www.instagram.com/severuscues/" target="_blank" class="p-2 rounded-xl bg-[#141D17] hover:bg-[#E1306C]/20 border border-[#E1306C]/30 text-[#E1306C] transition-colors" title="Instagram @severuscues">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
 
                 <!-- Admin Link -->
                 <a href="{{ route('admin.dashboard') }}" class="p-2 rounded-xl bg-[#141D17] hover:bg-[#00E676]/20 border border-[#00E676]/30 text-[#00E676] transition-colors" title="Inside Team Admin Portal">
@@ -84,7 +67,7 @@
         </div>
     </div>
 
-    <!-- Mobile Drawer Menu (Home, Collection, Viper Tech) -->
+    <!-- Clean Mobile Drawer Menu (Home, Collection, Viper Tech) -->
     <div x-show="mobileMenuOpen" 
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 -translate-y-4"
@@ -109,22 +92,6 @@
                 <svg class="w-4 h-4 text-[#00E676]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
         </nav>
-
-        <div class="pt-4 border-t border-[#1f2e24] flex flex-col space-y-2">
-            <a href="https://www.tokopedia.com/severus" target="_blank" class="w-full py-2.5 rounded-xl bg-[#42b549] text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center shadow-[0_0_15px_rgba(66,181,73,0.4)]">
-                <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-2 object-contain">
-                Tokopedia Official Store
-            </a>
-
-            <a href="https://shopee.co.id/severuscues" target="_blank" class="w-full py-2.5 rounded-xl bg-[#ee4d2d] text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center shadow-[0_0_15px_rgba(238,77,45,0.4)]">
-                <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-2 object-contain">
-                Shopee Official Store
-            </a>
-
-            <a href="https://www.instagram.com/severuscues/" target="_blank" class="w-full py-2.5 rounded-xl bg-[#141D17] text-[#E1306C] border border-[#E1306C]/30 font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center">
-                Instagram @severuscues
-            </a>
-        </div>
     </div>
 </header>
 @endsection
@@ -170,20 +137,29 @@ class="space-y-24 pt-28">
                     {{ $siteContents['hero_subtitle'] ?? __('app.hero.subtitle') }}
                 </p>
 
+                <!-- Hero Action Buttons: Explore, Tokopedia, Shopee, and Instagram (After Shopee) -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-4">
                     <a href="#cues" @click.prevent="scrollTo('cues')" class="px-6 py-3.5 rounded-2xl btn-venom flex items-center justify-center text-xs font-black uppercase tracking-wider cursor-pointer">
                         <span>{{ __('app.hero.explore_btn') }}</span>
                         <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                     </a>
 
+                    <!-- Tokopedia Button -->
                     <a href="https://www.tokopedia.com/severus" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#42b549]/20 border border-[#42b549]/40 text-[#42b549] font-bold text-xs uppercase tracking-wider flex items-center transition-all">
                         <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain">
                         <span>Tokopedia</span>
                     </a>
 
+                    <!-- Shopee Button -->
                     <a href="https://shopee.co.id/severuscues" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#ee4d2d]/20 border border-[#ee4d2d]/40 text-[#ee4d2d] font-bold text-xs uppercase tracking-wider flex items-center transition-all">
                         <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain">
                         <span>Shopee</span>
+                    </a>
+
+                    <!-- Instagram Button (Positioned directly after Shopee) -->
+                    <a href="https://www.instagram.com/severuscues/" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#E1306C]/20 border border-[#E1306C]/40 text-[#E1306C] font-bold text-xs uppercase tracking-wider flex items-center transition-all" title="Instagram @severuscues">
+                        <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <span>Instagram</span>
                     </a>
                 </div>
             </div>

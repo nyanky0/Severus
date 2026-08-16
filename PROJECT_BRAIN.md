@@ -25,10 +25,10 @@
    - Accessing `/admin` automatically redirects unauthenticated users to `/admin/login`.
    - Rate limiting (`throttle:6,1`) blocks brute-force login attacks and SQL injection probes.
    - Manual product catalog creation, editing, and content management.
-5. **Multi-Store & Social Media Integration**:
-   - Tokopedia Store: `https://www.tokopedia.com/severus`
-   - Shopee Store: `https://shopee.co.id/severuscues`
-   - Instagram Handle: `https://www.instagram.com/severuscues/`
+5. **Store & Social Media Hero Placement**:
+   - Clean top header navbar (branding logo, `Home`, `Collection`, `Viper Tech`, language switcher, and admin link).
+   - Hero section CTA suite: `Explore Products`, `Tokopedia` (Green Owl Bag logo), `Shopee` (Orange 'S' Bag logo), and `Instagram` (`https://www.instagram.com/severuscues/` placed directly after Shopee).
+   - Streamlined clean footer displaying brand copyright without redundant bottom links.
 6. **Separated Docker Infrastructure**:
    - `severus-db`: PostgreSQL 16 database service (`postgres:16-alpine`).
    - `severus-backend`: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, Zip extensions.
