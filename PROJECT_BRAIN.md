@@ -14,26 +14,39 @@
    - English & Indonesian locale switcher.
    - Session/Cookie persistence via `SetLocale` middleware.
    - Full translation coverage across products, cue technology attributes, hero banners, and team portal.
-2. **Separated Docker Infrastructure**:
+2. **Top-to-Down Gradient Blur Navbar & Smooth Scroll**:
+   - Fixed top navbar with top-to-bottom bold-to-light gradient backdrop blur (`.navbar-gradient-blur`).
+   - Smooth offset anchor navigation (`scroll-behavior: smooth`, `scroll-padding-top: 6rem`) preventing header overlap.
+   - Fluid window resize handling without Cumulative Layout Shift (CLS).
+3. **100% Mobile Web Compatibility & Mobile Drawer**:
+   - Touch-friendly hit targets (`min-h-[48px]`).
+   - Mobile hamburger menu button with smooth slide-over drawer navigation.
+   - Responsive multi-column to single-column card layouts.
+4. **Framer Motion Style Micro-Animations**:
+   - `IntersectionObserver` scroll reveals (`.reveal-on-scroll`, `.reveal-visible`).
+   - Staggered animation delays (`delay-100`, `delay-200`, `delay-300`).
+   - Hover scale glow effects on cue cards, buttons, badges, and technology feature blocks.
+5. **Separated Docker Infrastructure**:
    - `severus-db`: PostgreSQL 16 database service (`postgres:16-alpine`).
    - `severus-backend`: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, Zip extensions.
    - `severus-frontend`: Nginx web server configured for Laravel with static asset caching.
-3. **Gaming PC Utility Scripts**:
+6. **Gaming PC Utility Scripts**:
    - `severus-on.bat`: Boots all containers, runs database migrations/seeders, and exposes application at `http://localhost:8000`.
    - `severus-off.bat`: Gracefully downs all Docker containers to restore 100% CPU/RAM for gaming performance.
-4. **Dual Application Portals**:
+7. **Dual Application Portals**:
    - **Customer Landing Portal (`/`)**: Top fixed glassmorphism navbar, hero banner, interactive cue catalog, cue technology breakdown, spec sheets, and direct Tokopedia buy links.
    - **Inside Team Admin Portal (`/admin`)**: Product management, image uploader, content banner management, Tokopedia live price monitor, and manual overrides.
-5. **Tokopedia Integration & Price Sync**:
-   - Artisan sync command: `php artisan severus:sync-tokopedia`.
-   - `TokopediaSyncService`: Fetches store pricing and availability from `https://www.tokopedia.com/severus` with automatic fallbacks and log audit trail.
+8. **Tokopedia Store Integration & Product Scraper**:
+   - Price Sync: `php artisan severus:sync-tokopedia`.
+   - Store Product Scraper: `php artisan severus:scrape-tokopedia` (crawls items directly from `https://www.tokopedia.com/severus/product`).
 
 ---
 
 ## 3. Technology Stack
 - **Framework**: Laravel 11 / 13 ready (PHP 8.3)
 - **Database**: PostgreSQL 16 (`postgres:16-alpine`)
-- **Frontend / Styling**: Tailwind CSS, Alpine.js, Inter & Outfit Google Fonts
+- **Frontend / Styling**: Tailwind CSS, Alpine.js, Inter & Outfit Google Fonts, Custom CSS Design Tokens
+- **Animations**: Framer Motion style IntersectionObserver & CSS Keyframe Micro-Interactions
 - **Web Server**: Nginx Alpine
 - **Containerization**: Docker & Docker Compose
 - **Version Control**: Git & GitHub (`https://github.com/nyanky0/Severus.git`)
