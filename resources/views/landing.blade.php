@@ -46,7 +46,7 @@
                 </a>
             </nav>
 
-            <!-- Language Switcher, Shopee, Tokopedia & Instagram Buttons -->
+            <!-- Language Switcher, Shopee, Tokopedia & Instagram Buttons with Official Logos -->
             <div class="hidden md:flex items-center space-x-3">
                 <!-- EN / ID i18n Switcher -->
                 <div class="flex items-center bg-[#141D17] p-1 rounded-xl border border-[#00E676]/20 mr-1">
@@ -55,14 +55,14 @@
                 </div>
 
                 <!-- Tokopedia Official Store CTA -->
-                <a href="https://www.tokopedia.com/severus" target="_blank" class="px-3 py-2 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.4)] transition-all flex items-center" title="Tokopedia Store">
-                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <a href="https://www.tokopedia.com/severus" target="_blank" class="px-3.5 py-2 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.4)] transition-all flex items-center" title="Tokopedia Store">
+                    <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain drop-shadow">
                     Tokopedia
                 </a>
 
                 <!-- Shopee Official Store CTA -->
-                <a href="https://shopee.co.id/severuscues" target="_blank" class="px-3 py-2 rounded-xl bg-[#ee4d2d] hover:bg-[#d73f21] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(238,77,45,0.4)] transition-all flex items-center" title="Shopee Store">
-                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/></svg>
+                <a href="https://shopee.co.id/severuscues" target="_blank" class="px-3.5 py-2 rounded-xl bg-[#ee4d2d] hover:bg-[#d73f21] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(238,77,45,0.4)] transition-all flex items-center" title="Shopee Store">
+                    <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain drop-shadow">
                     Shopee
                 </a>
 
@@ -128,10 +128,12 @@
 
         <div class="pt-4 border-t border-[#1f2e24] flex flex-col space-y-2">
             <a href="https://www.tokopedia.com/severus" target="_blank" class="w-full py-2.5 rounded-xl bg-[#42b549] text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center shadow-[0_0_15px_rgba(66,181,73,0.4)]">
+                <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-2 object-contain">
                 Tokopedia Official Store
             </a>
 
             <a href="https://shopee.co.id/severuscues" target="_blank" class="w-full py-2.5 rounded-xl bg-[#ee4d2d] text-white font-extrabold text-xs uppercase tracking-wider text-center flex items-center justify-center shadow-[0_0_15px_rgba(238,77,45,0.4)]">
+                <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-2 object-contain">
                 Shopee Official Store
             </a>
 
@@ -191,12 +193,12 @@ class="space-y-24 pt-28">
                     </a>
 
                     <a href="https://www.tokopedia.com/severus" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#42b549]/20 border border-[#42b549]/40 text-[#42b549] font-bold text-xs uppercase tracking-wider flex items-center transition-all">
-                        <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain">
                         <span>Tokopedia</span>
                     </a>
 
                     <a href="https://shopee.co.id/severuscues" target="_blank" class="px-5 py-3.5 rounded-2xl bg-[#141D17] hover:bg-[#ee4d2d]/20 border border-[#ee4d2d]/40 text-[#ee4d2d] font-bold text-xs uppercase tracking-wider flex items-center transition-all">
-                        <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/></svg>
+                        <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain">
                         <span>Shopee</span>
                     </a>
                 </div>
@@ -300,6 +302,7 @@ class="space-y-24 pt-28">
 
                             <!-- Tokopedia Buy Link -->
                             <a href="{{ $product->tokopedia_url ?: 'https://www.tokopedia.com/severus' }}" target="_blank" class="px-3 py-2 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-extrabold text-xs uppercase tracking-wider flex items-center shadow-[0_0_10px_rgba(66,181,73,0.3)] transition-all">
+                                <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-3.5 w-3.5 mr-1 object-contain">
                                 <span>Tokopedia</span>
                             </a>
                         </div>
@@ -405,9 +408,11 @@ class="space-y-24 pt-28">
                         
                         <div class="flex items-center space-x-2">
                             <a :href="activeModalProduct.tokopedia_url || 'https://www.tokopedia.com/severus'" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#42b549] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center">
+                                <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain">
                                 <span>Tokopedia</span>
                             </a>
                             <a href="https://shopee.co.id/severuscues" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#ee4d2d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(238,77,45,0.5)] flex items-center">
+                                <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain">
                                 <span>Shopee</span>
                             </a>
                         </div>
