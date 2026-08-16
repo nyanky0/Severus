@@ -5,8 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
-    background-color: #0A0F0D;
+    scroll-padding-top: 5rem;
+    background-color: #050806;
     color: #F8FAFC;
     font-family: 'Inter', sans-serif;
     -webkit-tap-highlight-color: transparent;
@@ -16,6 +16,7 @@
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
+    background-color: #050806;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -28,7 +29,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #0A0F0D;
+    background: #050806;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -44,7 +45,7 @@
 }
 
 @layer utilities {
-  /* Top-to-Down Gradient Backdrop Blur Navbar (Bold into Light) */
+  /* Top-to-Down Gradient Backdrop Blur Navbar */
   .navbar-gradient-blur {
     background: linear-gradient(
       180deg,
@@ -57,48 +58,49 @@
     -webkit-backdrop-filter: blur(24px);
   }
 
-  /* Smooth Resize & Transition Base */
-  .smooth-resize {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Dribbble Style 3D Container Perspective Wrap */
+  .perspective-container {
+    perspective: 1200px;
+    transform-style: preserve-3d;
   }
 
   /* Venom Snake Obsidian Glass Card */
   .venom-card {
-    background: linear-gradient(135deg, rgba(20, 29, 23, 0.75) 0%, rgba(10, 15, 13, 0.90) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(0, 230, 118, 0.15);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, rgba(20, 29, 23, 0.80) 0%, rgba(10, 15, 13, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 230, 118, 0.18);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .venom-card:hover {
-    border-color: rgba(0, 230, 118, 0.5);
-    box-shadow: 0 12px 40px 0 rgba(0, 230, 118, 0.20), 0 0 15px rgba(0, 230, 118, 0.15);
-    transform: translateY(-4px);
+    border-color: rgba(0, 230, 118, 0.55);
+    box-shadow: 0 20px 50px 0 rgba(0, 230, 118, 0.22), 0 0 20px rgba(0, 230, 118, 0.15);
+    transform: translateY(-6px) scale(1.01);
   }
 
-  /* Venom Toxic Emerald Glowing Button */
+  /* Venom Toxic Emerald Button */
   .btn-venom {
     background: linear-gradient(135deg, #00E676 0%, #10B981 100%);
     color: #0A0F0D;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.35);
+    box-shadow: 0 0 25px rgba(0, 230, 118, 0.40);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-venom:hover {
-    box-shadow: 0 0 30px rgba(0, 230, 118, 0.60), 0 0 10px rgba(0, 230, 118, 0.80);
-    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(0, 230, 118, 0.70), 0 0 15px rgba(0, 230, 118, 0.90);
+    transform: scale(1.04);
   }
 
-  /* Framer Motion Style Scroll Reveals */
+  /* Framer Motion / Dribbble Scroll Reveal Classes */
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
   }
 
@@ -107,20 +109,13 @@
     transform: translateY(0);
   }
 
-  /* Staggered animation delays */
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-  .delay-400 { transition-delay: 400ms; }
-  .delay-500 { transition-delay: 500ms; }
-
-  /* 3D Diagonal Slanted Rotating Pool Cue Animation */
+  /* Keyframe Animations */
   @keyframes slantedCueRotate {
     0% {
       transform: rotate(-35deg) translateY(0px) scale(1);
     }
     50% {
-      transform: rotate(-22deg) translateY(-18px) scale(1.06);
+      transform: rotate(-22deg) translateY(-20px) scale(1.06);
     }
     100% {
       transform: rotate(-35deg) translateY(0px) scale(1);

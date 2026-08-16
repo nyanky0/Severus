@@ -25,10 +25,13 @@
    - Accessing `/admin` automatically redirects unauthenticated users to `/admin/login`.
    - Rate limiting (`throttle:6,1`) blocks brute-force login attacks and SQL injection probes.
    - Manual product catalog creation, editing, and content management.
-5. **High-End 3D Animated Hero Showcase (Slash `/` Rotating Cue)**:
-   - Left side: Live motion status badge (`• THE FUTURE OF BILLIARDS, IN MOTION`), massive display typography with italic serif highlight (`venom.`), and lead value proposition text.
-   - Right side: In-motion 3D orbital rings (`animate-orbit-ring-1` & `animate-orbit-ring-2`), ambient toxic green glow aura, floating 3D carbon pool cue stick angled at a diagonal `/` slash tilt (`animate-slanted-cue`), and HUD glass spec tag (`SEVERUS / 01 - Zero-Deflection Carbon`).
-   - Action CTA Suite: `Explore Collection ↗`, `Tokopedia` (Green Owl logo), `Shopee` (Orange 'S' logo), and `Instagram` (placed directly after Shopee).
+5. **Dribbble-Style 3D Perspective Scroll & Morphing Animation**:
+   - Container card perspective scale & shrink (`transform: scale(${1 - scrollProgress * 0.07}) rotateX(...)`).
+   - Center 3D orbital rings & slanted slash `/` rotating cue stick visual.
+   - Curved Dial & Stats section (`0.12mm Accuracy`, `99.8% Retention`, `Uni-Loc Joint`, `Rp 2.95M`).
+   - `ENGINEERED BY SEVERUS CUES` display typography with 4 numbered spec cards (`01 Carbon Core`, `02 Toxic Chalk`, `03 TrueLock Pin`, `04 Pro Warranty`).
+   - Signature Heart & Strike finale banner (`STRIKE WITH VENOM PRECISION`).
+   - Hero CTAs: `Explore Collection ↗`, `Tokopedia`, `Shopee`, and `Instagram` (placed directly after Shopee).
 6. **Separated Docker Infrastructure**:
    - `severus-db`: PostgreSQL 16 database service (`postgres:16-alpine`).
    - `severus-backend`: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, Zip extensions.
