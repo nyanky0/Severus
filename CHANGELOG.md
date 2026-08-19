@@ -5,22 +5,6 @@ All notable changes to **Severus Cues** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.2] - 2026-08-19
-
-### Changed
-- **Removed the green/Venom theme entirely.** The dual Venom ⇄ Reaper theme toggle
-  was deleted; `currentTheme` and `localStorage('severus_theme')` logic removed
-  from the landing and layout views.
-- The app now uses a **single red Grim-Reaper theme** app-wide: landing, admin
-  portal (dashboard, login, product CRUD, contents) and product pages.
-- CSS purged of all green (`#00E676`) tokens: scrollbar, text selection, text
-  glows (`text-glow-venom` → `text-glow-reaper`), venom glass cards, `btn-venom`,
-  green snake-scale overlay, green navbar, green ember particles, green border
-  pulses. Both `resources/css/app.css` and `public/css/app.css` kept in sync.
-- Static red bindings (`#E23B3B` / `#FF4D5E`) replace every dynamic theme class;
-  only genuine Alpine state bindings remain (filter tabs, scrolled header,
-  product modal).
-
 ## [2.0.1] - 2026-08-19
 
 ### Fixed
