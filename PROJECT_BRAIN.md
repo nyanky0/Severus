@@ -65,6 +65,11 @@ severus-off.bat
 - Re-seed DB: `docker compose exec backend php artisan db:seed --force`
 - Logs: `docker compose logs -f`
 
+### Environment / Cache Path Note (IMPORTANT)
+- Laravel requires the **`storage/framework/` tree** (`views`, `cache/data`, `sessions`, `testing`) plus `storage/app` to exist — these keep Laravel alive via committed `.gitignore` placeholders. **Never delete these directories.** Their absence causes `InvalidArgumentException: Please provide a valid cache path` (Blade compiler 500).
+- `config/view.php` must not be removed — it sets `compiled` to `realpath(storage_path('framework/views'))`. This repo now ships it (was missing from scaffold).
+- If the 500 "valid cache path" ever reappears after a fresh clone: run `mkdir storage/framework/views storage/framework/cache/data storage/framework/sessions storage/framework/testing storage/app` or simply `php artisan view:clear` after `composer install`.
+
 ## 7. Git Backup Policy
 - **Mandatory Backup Push**: After any feature/edit/fix run `git add -A`, `git commit`, `git push origin main` (and `git push --tags`) to back up to `https://github.com/nyanky0/Severus.git`.
 - **New release checklist**: bump `VERSION` + `composer.json version` + add CHANGELOG entry → commit → `git tag vX.Y.Z` → push all.

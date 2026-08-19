@@ -20,8 +20,8 @@ echo.
 echo ========================================================
 echo  SEVERUS CUES IS NOW LIVE!
 echo  ------------------------------------------------------
-echo  Customer Landing Page: http://localhost:8000
-echo  Inside Team Portal:    http://localhost:8000/admin
+echo  Customer Landing Page: http://localhost:8081
+echo  Inside Team Portal:    http://localhost:8081/admin
 echo  Tokopedia Store Link:  https://www.tokopedia.com/severus
 echo ========================================================
 echo.
