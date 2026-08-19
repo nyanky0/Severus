@@ -8,13 +8,13 @@
             <p class="text-xs text-slate-400">Add, edit, or remove billiard cues, chalk, and accessories</p>
         </div>
 
-        <a href="{{ route('admin.products.create') }}" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#E23B3B] to-[#7a1522] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(226,59,59,0.4)]">
+        <a href="{{ route('admin.products.create') }}" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#00e676] to-[#10b981] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,230,118,0.4)]">
             + Add New Product
         </a>
     </div>
 
     @if(session('success'))
-        <div class="p-4 rounded-xl bg-[#E23B3B]/10 border border-[#E23B3B]/40 text-[#E23B3B] text-sm font-semibold">
+        <div class="p-4 rounded-xl bg-[#00e676]/10 border border-[#00e676]/40 text-[#00e676] text-sm font-semibold">
             {{ session('success') }}
         </div>
     @endif
@@ -22,7 +22,7 @@
     <div class="venom-card rounded-2xl overflow-hidden">
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs text-slate-300">
-                <thead class="bg-[#120c0e] text-slate-400 uppercase font-bold border-b border-[#2a1a1d]">
+                <thead class="bg-[#0a0f0d] text-slate-400 uppercase font-bold border-b border-[#1f2e24]">
                     <tr>
                         <th class="p-4">Image</th>
                         <th class="p-4">Product Name</th>
@@ -32,18 +32,18 @@
                         <th class="p-4 text-center">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-[#2a1a1d]">
+                <tbody class="divide-y divide-[#1f2e24]">
                     @foreach($products as $product)
                         <tr class="hover:bg-[#121a15]/50 transition-colors">
                             <td class="p-4">
-                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="w-12 h-12 object-cover rounded-lg border border-[#2a1a1d]">
+                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="w-12 h-12 object-cover rounded-lg border border-[#1f2e24]">
                             </td>
                             <td class="p-4">
                                 <div class="font-bold text-white text-sm">{{ $product->name_en }}</div>
                                 <div class="text-[10px] text-slate-400">{{ $product->name_id }}</div>
                             </td>
                             <td class="p-4">
-                                <span class="px-2 py-0.5 rounded bg-[#120c0e] border border-[#2a1a1d] text-[#E23B3B] font-bold">
+                                <span class="px-2 py-0.5 rounded bg-[#0a0f0d] border border-[#1f2e24] text-[#00e676] font-bold">
                                     {{ $product->category->name_en }}
                                 </span>
                             </td>
@@ -58,7 +58,7 @@
                             </td>
                             <td class="p-4 text-center">
                                 <div class="flex items-center justify-center space-x-2">
-                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="px-3 py-1.5 rounded bg-[#121a15] hover:bg-[#1f2e24] border border-[#2a1a1d] text-slate-200 font-bold">
+                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="px-3 py-1.5 rounded bg-[#121a15] hover:bg-[#1f2e24] border border-[#1f2e24] text-slate-200 font-bold">
                                         Edit
                                     </a>
                                     <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Delete product?')">
@@ -75,7 +75,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="p-4 border-t border-[#2a1a1d]">
+        <div class="p-4 border-t border-[#1f2e24]">
             {{ $products->links() }}
         </div>
     </div>
