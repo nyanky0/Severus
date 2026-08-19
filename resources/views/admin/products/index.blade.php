@@ -28,7 +28,7 @@
                         <th class="p-4">Product Name</th>
                         <th class="p-4">Category</th>
                         <th class="p-4">Price (IDR)</th>
-                        <th class="p-4">Tokopedia Link</th>
+                        <th class="p-4">Marketplace Links</th>
                         <th class="p-4 text-center">Actions</th>
                     </tr>
                 </thead>
@@ -50,11 +50,19 @@
                             <td class="p-4 text-white font-bold text-sm">
                                 Rp {{ number_format($product->price_idr, 0, ',', '.') }}
                             </td>
-                            <td class="p-4">
-                                <a href="{{ $product->tokopedia_url }}" target="_blank" class="text-[#42b549] hover:underline flex items-center">
+                            <td class="p-4 space-y-1">
+                                @if($product->tokopedia_url)
+                                <a href="{{ $product->tokopedia_url }}" target="_blank" class="text-[#42b549] hover:underline flex items-center text-xs font-bold">
                                     <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                                    View Shop
+                                    Tokopedia
                                 </a>
+                                @endif
+                                @if($product->shopee_url)
+                                <a href="{{ $product->shopee_url }}" target="_blank" class="text-white hover:text-gray-300 hover:underline flex items-center text-xs font-bold">
+                                    <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                    Shopee
+                                </a>
+                                @endif
                             </td>
                             <td class="p-4 text-center">
                                 <div class="flex items-center justify-center space-x-2">
