@@ -47,15 +47,6 @@
 
             <!-- Right cluster: theme switch + hamburger -->
             <div class="flex items-center space-x-3">
-                <button @click="currentTheme = (currentTheme === 'venom' ? 'reaper' : 'venom'); localStorage.setItem('severus_theme', currentTheme)"
-                        class="w-11 h-11 rounded-2xl glass flex items-center justify-center cursor-pointer transition-all hover:scale-105 active:scale-95"
-                        :title="currentTheme === 'venom' ? 'Switch to Reaper theme' : 'Switch to Venom theme'">
-                    <div class="flex gap-1 items-center">
-                        <span class="w-3.5 h-3.5 rounded-full transition-all" :class="currentTheme === 'venom' ? 'bg-[#00E676] shadow-[0_0_10px_rgba(0,230,118,0.9)]' : 'bg-white/20'"></span>
-                        <span class="w-3.5 h-3.5 rounded-full transition-all" :class="currentTheme !== 'venom' ? 'bg-[#E23B3B] shadow-[0_0_10px_rgba(226,59,59,0.9)]' : 'bg-white/20'"></span>
-                    </div>
-                </button>
-
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden w-11 h-11 rounded-2xl glass flex items-center justify-center text-white cursor-pointer" aria-label="Toggle menu">
                     <svg x-show="!mobileMenuOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     <svg x-show="mobileMenuOpen" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -225,7 +216,7 @@
             </div>
             <div class="relative z-10">
                 <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-cinzel uppercase tracking-wider fang-underline">
-                    <span class="text-glow-venom">{{ __('app.why_carbon.main_title') }}</span>
+                    <span class="text-glow-reaper">{{ __('app.why_carbon.main_title') }}</span>
                 </h2>
             </div>
             <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
