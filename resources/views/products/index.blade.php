@@ -104,8 +104,8 @@
                             tip_size: '{{ $product->tip_size }}',
                             joint_type: '{{ $product->joint_type }}',
                             image_path: '{{ $product->image_url }}',
-                            tokopedia_url: '{{ $product->tokopedia_url ?: 'https://www.tokopedia.com/severus' }}',
-                            shopee_url: '{{ $product->shopee_url ?: 'https://shopee.co.id/severuscues' }}',
+                            tokopedia_url: '{{ $product->tokopedia_url }}',
+                            shopee_url: '{{ $product->shopee_url }}',
                             category: { name: '{{ addslashes($product->category->name) }}' }
                         }"
                                 class="flex-1 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer min-h-[48px]"
@@ -170,10 +170,10 @@
                               x-text="'Rp ' + Number(activeModalProduct.price_idr).toLocaleString('id-ID')"></span>
 
                         <div class="flex items-center space-x-2">
-                            <a :href="activeModalProduct.tokopedia_url || 'https://www.tokopedia.com/severus'" target="_blank" class="p-2.5 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center justify-center transition-all" title="Tokopedia">
+                            <a x-show="activeModalProduct.tokopedia_url" :href="activeModalProduct.tokopedia_url" target="_blank" class="p-2.5 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center justify-center transition-all" title="Tokopedia">
                                 <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-5 w-5 object-contain">
                             </a>
-                            <a :href="activeModalProduct.shopee_url || 'https://shopee.co.id/severuscues'" target="_blank" class="p-2.5 rounded-xl bg-white hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center transition-all" title="Shopee">
+                            <a x-show="activeModalProduct.shopee_url" :href="activeModalProduct.shopee_url" target="_blank" class="p-2.5 rounded-xl bg-white hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center transition-all" title="Shopee">
                                 <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-5 w-5 object-contain">
                             </a>
                         </div>
