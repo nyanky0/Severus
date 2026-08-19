@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="min-h-screen pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
+    <div class="mb-2">
+        <a href="{{ route('admin.dashboard') }}" class="text-slate-400 hover:text-[#00e676] inline-flex items-center text-xs font-bold uppercase transition-colors">
+            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Dashboard
+        </a>
+    </div>
     <div class="flex items-center justify-between venom-card p-6 rounded-2xl">
         <div>
             <h1 class="text-2xl font-black text-white uppercase tracking-wider">Product Management</h1>
