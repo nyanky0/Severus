@@ -5,6 +5,22 @@ All notable changes to **Severus Cues** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-08-19
+
+### Fixed
+- **HTTP 500 — `InvalidArgumentException: Please provide a valid cache path`**.
+  Root cause: `config/view.php` was missing from the scaffold, so
+  `config('view.compiled')` resolved to `null`; and the `storage/framework/`
+  tree (`views`, `cache/data`, `sessions`, `testing`) plus `storage/app` never
+  existed on a fresh clone. The Blade compiler therefore received an empty
+  compiled-view cache path.
+- Added `config/view.php` (`compiled` → `realpath(storage_path('framework/views'))`).
+- Rebuilt the full `storage/framework/` + `storage/app` tree with committed
+  `.gitignore` placeholders so the directories survive fresh clones.
+- Documented the environment/cache-path note in `PROJECT_BRAIN.md`.
+- Verified live via `php artisan serve`: landing 200, admin guest redirect 302,
+  product page 200.
+
 ## [2.0.0] - 2026-08-19
 
 ### Added
