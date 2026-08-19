@@ -260,7 +260,7 @@ class="space-y-24 pt-28">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             <!-- Card 1: PRECISION AND POWER (Image 2) -->
-            <div class="bg-carbon-texture p-8 sm:p-10 rounded-2xl border border-white/10 relative flex flex-col justify-between space-y-8 corner-frame-tl shadow-2xl reveal-on-scroll delay-100 group hover:border-[#E51919]/50 transition-all">
+            <div class="bg-carbon-texture p-8 sm:p-10 rounded-2xl border border-white/10 relative flex flex-col justify-between space-y-8 corner-frame-tl shadow-2xl reveal-on-scroll delay-100 group hover:border-[#E51919]/70 transition-all hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(229,25,25,0.5)] duration-500 ease-out">
                 
                 <div class="space-y-8">
                     <!-- Header Title -->
@@ -281,7 +281,7 @@ class="space-y-24 pt-28">
             </div>
 
             <!-- Card 2: SMOOTH FEEL (Image 3) -->
-            <div class="bg-carbon-texture p-8 sm:p-10 rounded-2xl border border-white/10 relative flex flex-col justify-between space-y-8 shadow-2xl reveal-on-scroll delay-200 group hover:border-[#E51919]/50 transition-all">
+            <div class="bg-carbon-texture p-8 sm:p-10 rounded-2xl border border-white/10 relative flex flex-col justify-between space-y-8 shadow-2xl reveal-on-scroll delay-200 group hover:border-[#E51919]/70 transition-all hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(229,25,25,0.5)] duration-500 ease-out">
                 
                 <div class="space-y-8">
                     <!-- Header Title Flanked with Horizontal Accent Lines -->
@@ -306,7 +306,7 @@ class="space-y-24 pt-28">
             </div>
 
             <!-- Card 3: STYLE (Image 4) -->
-            <div class="bg-carbon-texture p-8 sm:p-10 rounded-2xl border border-white/10 relative flex flex-col justify-between space-y-8 corner-frame-tr shadow-2xl reveal-on-scroll delay-300 group hover:border-[#E51919]/50 transition-all">
+            <div class="bg-carbon-texture p-8 sm:p-10 rounded-2xl border border-white/10 relative flex flex-col justify-between space-y-8 corner-frame-tr shadow-2xl reveal-on-scroll delay-300 group hover:border-[#E51919]/70 transition-all hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(229,25,25,0.5)] duration-500 ease-out">
                 
                 <div class="space-y-8">
                     <!-- Header Title -->
