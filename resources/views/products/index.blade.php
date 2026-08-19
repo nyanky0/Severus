@@ -169,13 +169,11 @@
                               x-text="'Rp ' + Number(activeModalProduct.price_idr).toLocaleString('id-ID')"></span>
 
                         <div class="flex items-center space-x-2">
-                            <a :href="activeModalProduct.tokopedia_url || 'https://www.tokopedia.com/severus'" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#42b549] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center">
-                                <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain">
-                                <span>Tokopedia</span>
+                            <a :href="activeModalProduct.tokopedia_url || 'https://www.tokopedia.com/severus'" target="_blank" class="p-2.5 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center justify-center transition-all" title="Tokopedia">
+                                <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-5 w-5 object-contain">
                             </a>
-                            <a href="https://shopee.co.id/severuscues" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#ee4d2d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(238,77,45,0.5)] flex items-center">
-                                <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain">
-                                <span>Shopee</span>
+                            <a href="https://shopee.co.id/severuscues" target="_blank" class="p-2.5 rounded-xl bg-white hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center transition-all" title="Shopee">
+                                <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-5 w-5 object-contain">
                             </a>
                         </div>
                     </div>
