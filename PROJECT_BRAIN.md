@@ -1,137 +1,70 @@
 # PROJECT BRAIN - SEVERUS CUES
 
+## 0. Versioning & Release Tracking (NEW BASE — v2.0.0)
+- **Semantic Versioning** is enforced. Canonical version lives in the root **`VERSION`** file (`2.0.0`).
+- `app/Support/Version.php` exposes `Version::current()`, `Version::short()`, `Version::slug()` — displayed as a **BUILD badge** in the site footer and admin dashboard.
+- `CHANGELOG.md` documents every release (Keep a Changelog format).
+- **composer.json** `version` must stay in sync with `VERSION` on each release.
+- Tag each release (`git tag v2.0.0`) and `git push --tags origin main`.
+
 ## 1. Project Overview
-**Severus Cues** is a high-performance web application designed for marketing premium billiard/pool cues, high-friction chalk, and specialized billiard accessories. It is built using **Laravel PHP**, **Tailwind CSS**, **Alpine.js**, and **Docker**.
+**Severus Cues** is a high-performance web application for marketing premium billiard/pool cues, high-friction chalk, and specialized billiard accessories. Built with **Laravel PHP**, **Tailwind CSS**, **Alpine.js**, **anime.js**, and **Docker**.
 
-- **Brand Aesthetic**:
-  - **Default Theme (Carbon Red)**: Crimson Red (`#E51919` / `#DC2626`), Custom Infinite Smooth Scrolling Dark Carbon background (`carbon_background.jpg` asset with fixed smooth infinite CSS panning animation), Google Font `Cinzel` luxury serif display titles, white `SEVERUS CUES` accent badges, corner L-frame accent lines.
-  - **Preserved Theme (Venom Green)**: Toxic Emerald Green (`#00E676` / `#10B981`), Obsidian Dark base (`#0A0F0D`), `Outfit` display typography, accessible via top navbar Theme Switcher.
-- **Target Audience**: Professional cue sport players, billiard enthusiasts, pool hall operators, and online shoppers.
-- **Primary Shop Integration**: Tokopedia Store (`https://www.tokopedia.com/severus`), Shopee Store, and Instagram.
-
----
+- **Brand Aesthetic (v2.0 — "Reaper Edition": Grim Reaper / Snake theme)**:
+  - **Base**: Obsidian Black (`#060506` / `#080608`).
+  - **Snake / Venom primary**: Toxic Emerald Green (`#00E676` / `#10B981`).
+  - **Grim Reaper accent**: Reaper Crimson (`#E23B3B` / `#FF4D5E`).
+  - **Signatures**: CSS-generated **snake-scale overlay** (`.snake-scale-overlay`) over infinite-panning `carbon_background.jpg` (`.reaper-infinite-bg`), **serpent shimmer** (`.serpent-shimmer`) on badges, **ember particles** rising in hero, **orbital rings + slanted 3D cue**, **Cinzel** serif for reaper-luxury type, **Outfit** for industrial headings.
+  - **Dual theme switcher** (Venom ⇄ Reaper) persists via `localStorage('severus_theme')`; default **reaper**.
+- **Target Audience**: Professional cue sport players, billiard enthusiasts, pool hall operators, online shoppers.
+- **Primary Shop Integration**: Tokopedia Store (`https://www.tokopedia.com/severus`), Shopee Store, Instagram.
 
 ## 2. Key Technical Features
-1. **Dynamic Dual Theme Switcher (Carbon Red & Venom Green)**:
-   - Live theme toggle in top navigation bar (desktop & mobile drawer) with LocalStorage persistence.
-   - Default theme: **Carbon Red** featuring crimson red glows, white badge highlights, and luxury serif `Cinzel` display titles.
-   - Preserved theme: **Venom Green** restoring original toxic emerald green accents.
-2. **"Why Switch to Carbon?" Feature Showcase Section**:
-   - Dedicated showcase section (`#why-carbon`) featuring:
-     - Header: "WHY SWITCH TO CARBON?" in red Cinzel serif font.
-     - Card 1 ("PRECISION AND POWER"): Top-left L-shaped corner accent frame line, uppercase copy, concluding highlight line.
-     - Card 2 ("SMOOTH FEEL"): Horizontal title flanking accent lines, uppercase copy, concluding highlight line.
-     - Card 3 ("STYLE"): Top-right L-shaped corner accent frame line, uppercase copy, concluding highlight line.
-   - Full English and Indonesian (`lang/en`, `lang/id`) translation coverage.
-3. **Multi-Language Support (EN & ID)**:
-   - English & Indonesian locale switcher.
-   - Session/Cookie persistence via `SetLocale` middleware.
-   - Full translation coverage across products, cue technology attributes, hero banners, and team portal.
-4. **Top-to-Down Gradient Blur Navbar & Alpine.js Auto-Scroll**:
-   - Fixed top navbar with top-to-bottom bold-to-light gradient backdrop blur (`.navbar-gradient-blur`).
-   - Smooth animated section auto-scroll (`scrollTo(id)` method calculating target offset minus 90px header height) for `#home`, `#why-carbon`, `#cues`, and `#technology`.
-   - Streamlined navbar navigation: `Home`, `Why Carbon?`, `Collection`, `Viper Tech`.
-5. **100% Mobile Web Compatibility & Mobile Drawer**:
-   - Touch-friendly hit targets (`min-h-[48px]`).
-   - Mobile hamburger menu button with smooth slide-over drawer navigation and theme switcher button.
-6. **Hardened Team Portal Auth & Rate Limiting**:
-   - Accessing `/admin` automatically redirects unauthenticated users to `/admin/login`.
-   - Rate limiting (`throttle:6,1`) blocks brute-force login attacks and SQL injection probes.
-   - Manual product catalog creation, editing, and content management.
-7. **Clean Hero Layout with 3D Diagonal Slanted `/` Pool Cue Visual**:
-   - Clean top-aligned Hero section.
-   - Left side: Live motion status badge (`• PRO BILLIARD EQUIPMENT`), display typography, and lead copy.
-   - Right side: In-motion 3D orbital rings, ambient red/green glow aura, floating 3D carbon pool cue stick angled at a diagonal `/` slash tilt (`animate-slanted-cue`), and HUD glass spec tag (`SEVERUS / 01 - Zero-Deflection Carbon`).
-   - Action CTA Suite: `Explore Products`, `Tokopedia` (Green Owl logo), `Shopee` (Orange 'S' logo), and `Instagram`.
-   - Curved Dial & Stats section (`0.12mm Accuracy`, `99.8% Retention`, `Uni-Loc Joint`, `Rp 2.95M`).
-   - `ENGINEERED BY SEVERUS CUES` display typography with 4 numbered spec cards (`01 Carbon Core`, `02 Toxic Chalk`, `03 TrueLock Pin`, `04 Pro Warranty`).
-   - Signature Heart & Strike finale banner.
-8. **Separated Docker Infrastructure**:
-   - `severus-db`: PostgreSQL 16 database service (`postgres:16-alpine`).
-   - `severus-backend`: PHP 8.3-FPM container with PDO, `pdo_pgsql`, `pgsql`, GD, BCMath, Zip extensions.
-   - `severus-frontend`: Nginx web server configured for Laravel with static asset caching.
-9. **Gaming PC Utility Scripts**:
-   - `severus-on.bat`: Boots all containers, runs database migrations/seeders, and exposes application at `http://localhost:8000`.
-   - `severus-off.bat`: Gracefully downs all Docker containers to restore 100% CPU/RAM for gaming performance.
-
----
+0. **Beautified CSS — now actually served**: `resources/css/app.css` is the source of truth and is copied to `public/css/app.css`. It is a full design-token + utility system: `@layer base` (CSS custom properties for venom/reaper themes, scales, easing curves) and `@layer utilities` (premium glass cards, glow buttons, corner frames, fang underline, gradient-blur navbars, glow text, all keyframe animations). **Keep both copies in sync on every CSS edit.**
+1. **anime.js entrance choreography** on the landing hero (staggered copy reveal, cue scale-up, glow bloom) loaded from CDN and wired via `@push('scripts')` / `@stack('scripts')`. Fully `prefers-reduced-motion` safe.
+2. **Dynamic Dual Theme Switcher (Venom Snake ⇄ Reaper Grim)**: live toggle in navbar (desktop + mobile drawer), LocalStorage persistence; default **Reaper**.
+3. **"Why Switch to Carbon?" showcase** (`#why-carbon`): `WHY SWITCH TO CARBON?` display headline, serpent-shimmer SEVERUS CUES badge, corner-frame cards, banner copy from `SiteContent`, full EN/ID coverage.
+4. **Multi-Language Support (EN & ID)**: locale switcher with session persistence via `SetLocale` middleware; full translation coverage.
+5. **Top-to-Down Gradient Blur Navbar & Alpine.js Auto-Scroll**: theme-aware `navbar-gradient-blur--venom` / `--reaper`; smooth `scrollTo(id)` (90px offset) for `#home`, `#why-carbon`, `#cues`, `#technology`.
+6. **100% Mobile Web Compatibility**: `min-h-[48px]` touch targets, hamburger slide-over drawer, stacked responsive grids (`grid-cols-1 sm:... lg:...`), `viewport-fit=cover` + safe-area friendly.
+7. **Hardened Team Portal Auth & Rate Limiting**: `/admin` redirects guests to `/admin/login`; `throttle:6,1` blocks brute-force; manual product CRUD + content editing.
+8. **Hero**: left status badge + display type + CTAs (Explore / Tokopedia / Shopee / Instagram) + guarantee badge; right 3D orbital rings, ambient glow, floating slanted cue (`animate-slanted-cue`), HUD glass tag.
+9. **Docker Infrastructure**: separated `severus-db` (PostgreSQL 16), `severus-backend` (PHP 8.3-FPM, pdo_pgsql/GD/BCMath/Zip), `severus-frontend` (Nginx Alpine, static caching).
+10. **Gaming PC Utility Scripts**: `severus-on.bat` boots + migrates + serves `http://localhost:8000`; `severus-off.bat` downs all containers to free CPU/RAM.
 
 ## 3. Technology Stack
 - **Framework**: Laravel 11 / 13 ready (PHP 8.3)
 - **Database**: PostgreSQL 16 (`postgres:16-alpine`)
-- **Frontend / Styling**: Tailwind CSS, Alpine.js, Inter & Outfit Google Fonts
-- **Animations & Auto-Scroll**: Alpine.js Smooth Scroll Dispatcher & CSS Keyframe Reveals
+- **Frontend / Styling**: Tailwind CSS (CDN), Alpine.js, Cinzel / Outfit / Inter / JetBrains Mono fonts
+- **Animation**: anime.js v4 (CDN) + CSS keyframes (serpent shimmer, ember particles, orbit rings, cue float)
 - **Web Server**: Nginx Alpine
 - **Containerization**: Docker & Docker Compose
-- **Version Control**: Git & GitHub (`https://github.com/nyanky0/Severus.git`)
+- **Version Control**: Git & GitHub (`https://github.com/nyanky0/Severus.git`) — semantic tags + CHANGELOG per release
 
----
-
-## 4. Database Schema Overview
-
-```
- +------------------+       +------------------+
- |    categories    |       |     products     |
- +------------------+       +------------------+
- | id               |<------| id               |
- | name_en / name_id|       | category_id      |
- | slug             |       | name_en / name_id|
- | created_at...    |       | description_...  |
- +------------------+       | price_idr        |
-                            | price_usd        |
-                            | tokopedia_url    |
-                            | image_path       |
-                            | tip_size         |
-                            | joint_type       |
-                            | weight_oz        |
-                            | deflection_grade |
-                            | chalk_friction   |
-                            | is_featured      |
-                            | is_active        |
-                            +------------------+
-                                     |
-                                     v
-                        +--------------------------+
-                        |   tokopedia_sync_logs    |
-                        +--------------------------+
-                        | id                       |
-                        | product_id               |
-                        | old_price_idr            |
-                        | new_price_idr            |
-                        | status                   |
-                        | synced_at                |
-                        +--------------------------+
-```
-
----
+## 4. Database / Models
+**Models**: `User`, `Category`, `Product`, `SiteContent`, `TokopediaSyncLog`.
+**Relations**: `Product → Category`, `Product → TokopediaSyncLog` (hasMany).
+**Localized accessors**: `name`, `description`, `category.name/description`, `siteContent.value` resolve by current locale (`en`/`id`).
+**Migrations**: users, categories, products (full cue specs + pricing + stock), site_contents, tokopedia_sync_logs.
 
 ## 5. Development & Execution Guide
-
-### Turn ON Development Environment
-Run from project root:
+### Turn ON
 ```cmd
 severus-on.bat
 ```
-Access points:
-- Public Customer App: `http://localhost:8000`
-- Inside Team Admin: `http://localhost:8000/admin` (Default Credentials: `admin@severus.com` / `severus123`)
+- Public: `http://localhost:8000`
+- Admin: `http://localhost:8000/admin` (`admin@severus.com` / `severus123`)
 
-### Turn OFF Development Environment (Gaming Mode)
-Run from project root:
+### Turn OFF
 ```cmd
 severus-off.bat
 ```
-This stops and removes all active containers, freeing 100% of RAM and CPU.
-
----
 
 ## 6. Maintenance & Manual Commands
-- **Run Tokopedia Price Sync**: `docker compose exec backend php artisan severus:sync-tokopedia`
-- **Re-seed Database**: `docker compose exec backend php artisan db:seed --force`
-- **View Container Logs**: `docker compose logs -f`
-
----
+- Tokopedia price sync: `docker compose exec backend php artisan severus:sync-tokopedia`
+- Re-seed DB: `docker compose exec backend php artisan db:seed --force`
+- Logs: `docker compose logs -f`
 
 ## 7. Git Backup Policy
-- **Mandatory Backup Push**: Always execute `git add`, `git commit`, and `git push origin main` after making changes, features, or fixes to ensure the repository at `https://github.com/nyanky0/Severus.git` is updated as a remote backup.
-
+- **Mandatory Backup Push**: After any feature/edit/fix run `git add -A`, `git commit`, `git push origin main` (and `git push --tags`) to back up to `https://github.com/nyanky0/Severus.git`.
+- **New release checklist**: bump `VERSION` + `composer.json version` + add CHANGELOG entry → commit → `git tag vX.Y.Z` → push all.

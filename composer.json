@@ -2,6 +2,7 @@
     "name": "severus/cues-app",
     "type": "project",
     "description": "Severus Cues - Premium Billiard Cues, Chalk & Accessories Marketing Application",
+    "version": "2.0.0",
     "keywords": ["billiards", "pool cues", "chalk", "severus", "laravel"],
     "license": "MIT",
     "require": {
