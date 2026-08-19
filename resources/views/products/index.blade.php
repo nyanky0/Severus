@@ -111,11 +111,7 @@
                                 :class="currentTheme === 'venom' ? 'btn-venom' : 'btn-reaper'">
                             {{ __('app.catalog.view_specs') }}
                         </button>
-                        <a href="{{ $product->tokopedia_url ?: 'https://www.tokopedia.com/severus' }}" target="_blank"
-                           class="px-4 py-3 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-bold text-xs uppercase tracking-wider flex items-center shadow-[0_0_10px_rgba(66,181,73,0.3)] transition-all min-h-[48px]">
-                            <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-3.5 w-3.5 mr-1 object-contain">
-                            <span>Tokopedia</span>
-                        </a>
+
                     </div>
                 </div>
             @endforeach
