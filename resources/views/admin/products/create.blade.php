@@ -46,6 +46,11 @@
             <input type="url" name="tokopedia_url" value="https://www.tokopedia.com/severus" class="w-full px-4 py-3 rounded-xl bg-[#0a0f0d] border border-[#1f2e24] text-white text-sm">
         </div>
 
+        <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Shopee Product Link</label>
+            <input type="url" name="shopee_url" value="https://shopee.co.id/severuscues" class="w-full px-4 py-3 rounded-xl bg-[#0a0f0d] border border-[#1f2e24] text-white text-sm">
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
                 <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Upload Product Image File</label>

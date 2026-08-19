@@ -19,6 +19,7 @@ class Product extends Model
         'price_idr',
         'price_usd',
         'tokopedia_url',
+        'shopee_url',
         'image_path',
         'tip_size',
         'joint_type',
