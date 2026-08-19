@@ -210,7 +210,7 @@
     <!-- ===================================================== -->
     <section id="why-carbon" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 scroll-mt-28">
         <div class="relative py-12 px-6 rounded-3xl bg-reaper-texture border border-white/10 shadow-2xl text-center space-y-6 reveal-on-scroll overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-b from-white/[0.04] via-transparent to-black/80 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[#E23B3B]/10 via-transparent to-black/80 pointer-events-none"></div>
             <div class="relative z-10">
                 <span class="severus-badge serpent-shimmer mb-4">{{ __('app.why_carbon.badge') }}</span>
             </div>
