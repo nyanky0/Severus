@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#060506">
 
     <title>@yield('title', config('app.name', 'Severus Cues')) — Reaper Edition</title>
-    <meta name="description" content="Severus Cues — Premium Billiard Cues, High-Friction Venom Chalk & Accessories. Official Tokopedia, Shopee & Instagram Partner.">
+    <meta name="description" content="Severus Cues — Premium Billiard Cues, High-Friction Chalk & Accessories. Official Tokopedia, Shopee & Instagram Partner.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,13 +21,6 @@
             theme: {
                 extend: {
                     colors: {
-                        venom: {
-                            base: '#070d0a',
-                            card: '#0d1712',
-                            emerald: '#00E676',
-                            accent: '#10B981',
-                            glow: 'rgba(0, 230, 118, 0.28)',
-                        },
                         reaper: {
                             base: '#080608',
                             card: '#120e11',
@@ -57,7 +50,7 @@
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body x-data="{ currentTheme: localStorage.getItem('severus_theme') || 'reaper' }" class="bg-obsidian text-slate-100 antialiased min-h-screen flex flex-col justify-between overflow-x-hidden relative">
+<body class="bg-obsidian text-slate-100 antialiased min-h-screen flex flex-col justify-between overflow-x-hidden relative">
 
     <!-- Fixed Infinite Carbon Background + Pure-CSS Snake Scale Overlay -->
     <div class="reaper-infinite-bg"></div>
@@ -77,7 +70,7 @@
             <div class="flex items-center space-x-3">
                 <img src="{{ asset('images/logo.png') }}" alt="Severus Logo" class="h-9 w-auto">
                 <div class="flex flex-col">
-                    <span class="font-black text-lg text-white tracking-widest uppercase font-outfit">SEVERUS <span class="text-[#00E676]">CUES</span></span>
+                    <span class="font-black text-lg text-white tracking-widest uppercase font-outfit">SEVERUS <span class="text-[#E23B3B]">CUES</span></span>
                     <span class="text-[9px] uppercase tracking-[0.28em] text-slate-500 font-bold">Reaper Edition</span>
                 </div>
             </div>
@@ -86,7 +79,7 @@
                 <span>&copy; {{ date('Y') }} Severus Cues. Strike. Slither. Prevail.</span>
                 <span class="inline-flex items-center px-2.5 py-1 rounded-full border border-white/10 bg-white/5 font-mono text-[10px] text-slate-400 tracking-wider">
                     BUILD
-                    <span class="ml-1.5 px-2 py-0.5 rounded bg-[#00E676]/15 border border-[#00E676]/30 text-[#00E676] font-bold">{{ \App\Support\Version::current() }}</span>
+                    <span class="ml-1.5 px-2 py-0.5 rounded bg-[#E23B3B]/15 border border-[#E23B3B]/30 text-[#FF4D5E] font-bold">{{ \App\Support\Version::current() }}</span>
                 </span>
             </div>
         </div>

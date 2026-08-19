@@ -3,16 +3,6 @@
     /* ---------- Grim Reaper / Severus Cues Design Tokens ---------- */
     /* Primary: venom emerald snake. Accent: reaper crimson. Base: obsidian. */
 
-    /* Venom (snake) theme */
-    --venom-base: #070d0a;
-    --venom-card: #0d1712;
-    --venom-card-hi: #13201a;
-    --venom-primary: #00e676;
-    --venom-accent: #10b981;
-    --venom-glow: rgba(0, 230, 118, 0.28);
-    --venom-text: #ecfdf5;
-    --venom-muted: rgba(236, 253, 245, 0.56);
-    --venom-border: rgba(0, 230, 118, 0.22);
 
     /* Reaper (crimson) theme */
     --reaper-base: #080608;
@@ -64,8 +54,8 @@
   }
 
   ::selection {
-    background: rgba(0, 230, 118, 0.85);
-    color: #04130c;
+    background: rgba(226, 59, 59, 0.85);
+    color: #fff7f7;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -84,13 +74,13 @@
     background: #060506;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #00e676 0%, #0d5c3a 55%, #e23b3b 100%);
-    border: 1px solid rgba(0, 230, 118, 0.18);
+    background: linear-gradient(180deg, #ff4d5e 0%, #e23b3b 55%, #7a1522 100%);
+    border: 1px solid rgba(226, 59, 59, 0.25);
     border-radius: 999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #00ff87 0%, #00e676 55%, #ff4d5e 100%);
-    box-shadow: 0 0 12px rgba(0, 230, 118, 0.45);
+    background: linear-gradient(180deg, #ff6b7a 0%, #e23b3b 55%, #ff4d5e 100%);
+    box-shadow: 0 0 12px rgba(226, 59, 59, 0.55);
   }
 }
 
@@ -109,7 +99,7 @@
     pointer-events: none;
     background-color: #050507;
     background-image:
-      radial-gradient(ellipse at 20% 8%, rgba(0, 230, 118, 0.07) 0%, transparent 46%),
+      radial-gradient(ellipse at 20% 8%, rgba(226, 59, 59, 0.08) 0%, transparent 46%),
       radial-gradient(ellipse at 82% 92%, rgba(226, 59, 59, 0.07) 0%, transparent 46%),
       url('/images/carbon_background.jpg');
     background-repeat: repeat;
@@ -128,8 +118,8 @@
     pointer-events: none;
     opacity: 0.5;
     background-image:
-      repeating-linear-gradient(45deg, rgba(0, 230, 118, 0.028) 0 2px, transparent 2px 26px),
-      repeating-linear-gradient(-45deg, rgba(0, 230, 118, 0.028) 0 2px, transparent 2px 26px);
+      repeating-linear-gradient(45deg, rgba(226, 59, 59, 0.030) 0 2px, transparent 2px 26px),
+      repeating-linear-gradient(-45deg, rgba(226, 59, 59, 0.030) 0 2px, transparent 2px 26px);
     background-size: 38px 38px;
     mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 78%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 78%);
@@ -144,7 +134,7 @@
   .bg-reaper-texture {
     background-color: rgba(11, 11, 14, 0.86);
     background-image:
-      radial-gradient(circle at 50% 50%, rgba(0, 230, 118, 0.07) 0%, transparent 64%),
+      radial-gradient(circle at 50% 50%, rgba(226, 59, 59, 0.08) 0%, transparent 64%),
       url('/images/carbon_background.jpg');
     background-size: cover;
     background-repeat: repeat;
@@ -153,12 +143,12 @@
   /* ============================================================
      TOP-TO-DOWN GRADIENT BLUR NAVBAR (Venom / Reaper aware)
      ============================================================ */
-  .navbar-gradient-blur--venom {
+  .navbar-gradient-blur--reaper {
     background: linear-gradient(180deg,
-      rgba(6, 9, 7, 0.97) 0%,
-      rgba(6, 9, 7, 0.84) 58%,
-      rgba(6, 9, 7, 0.42) 88%,
-      rgba(6, 9, 7, 0) 100%);
+      rgba(8, 6, 8, 0.97) 0%,
+      rgba(8, 6, 8, 0.84) 58%,
+      rgba(8, 6, 8, 0.42) 88%,
+      rgba(8, 6, 8, 0) 100%);
     backdrop-filter: blur(26px) saturate(150%);
     -webkit-backdrop-filter: blur(26px) saturate(150%);
   }
@@ -173,27 +163,8 @@
   }
 
   /* ============================================================
-     PREMIUM GLASS CARDS — Venom (snake) & Reaper (grim) editions
+     PREMIUM GLASS CARDS — Reaper (grim) edition
      ============================================================ */
-  .venom-glass-card {
-    background: linear-gradient(135deg, rgba(13, 23, 18, 0.82) 0%, rgba(7, 13, 10, 0.94) 100%);
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
-    border: 1px solid var(--venom-border);
-    box-shadow:
-      0 18px 46px rgba(0, 0, 0, 0.62),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    transition: transform 0.45s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.35s ease;
-  }
-  .venom-glass-card:hover {
-    border-color: rgba(0, 230, 118, 0.6);
-    box-shadow:
-      0 24px 60px rgba(0, 0, 0, 0.7),
-      0 0 34px rgba(0, 230, 118, 0.16),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transform: translateY(-6px);
-  }
-
   .reaper-glass-card {
     background: linear-gradient(135deg, rgba(26, 20, 24, 0.84) 0%, rgba(10, 8, 10, 0.95) 100%);
     backdrop-filter: blur(22px) saturate(140%);
@@ -223,7 +194,7 @@
     transition: transform 0.45s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.35s ease;
   }
   .carbon-card:hover, .venom-card:hover {
-    border-color: rgba(0, 230, 118, 0.5);
+    border-color: rgba(226, 59, 59, 0.5);
     transform: translateY(-6px);
   }
 }
@@ -231,25 +202,8 @@
 
 @layer utilities {
   /* ============================================================
-     GLOW BUTTONS — Venom fang & Reaper flame
+     GLOW BUTTONS — Reaper flame
      ============================================================ */
-  .btn-venom {
-    position: relative;
-    background: linear-gradient(135deg, #00e676 0%, #10b981 100%);
-    color: #04130c;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    box-shadow: 0 0 26px rgba(0, 230, 118, 0.4), 0 12px 28px -8px rgba(0, 230, 118, 0.5);
-    transition: all 0.32s var(--ease-out-expo);
-    overflow: hidden;
-  }
-  .btn-venom:hover {
-    box-shadow: 0 0 40px rgba(0, 230, 118, 0.72), 0 0 18px rgba(0, 230, 118, 0.9);
-    transform: translateY(-2px) scale(1.03);
-  }
-  .btn-venom:active { transform: scale(0.97); }
-
   .btn-reaper {
     position: relative;
     background: linear-gradient(135deg, #e23b3b 0%, #a31f2e 100%);
@@ -293,8 +247,8 @@
     position: absolute;
     top: -14px; left: -14px;
     width: 66px; height: 66px;
-    border-top: 2px solid rgba(0, 230, 118, 0.5);
-    border-left: 2px solid rgba(0, 230, 118, 0.5);
+    border-top: 2px solid rgba(226, 59, 59, 0.55);
+    border-left: 2px solid rgba(226, 59, 59, 0.55);
     pointer-events: none;
   }
   .corner-frame-tr::after {
@@ -316,7 +270,7 @@
     position: absolute;
     left: 0; right: 0; bottom: -0.4em;
     height: 3px;
-    background: linear-gradient(90deg, #00e676 0%, transparent 55%);
+    background: linear-gradient(90deg, #ff4d5e 0%, transparent 55%);
     clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
   }
 
@@ -384,7 +338,7 @@
     bottom: -20px;
     width: 3px; height: 3px;
     border-radius: 999px;
-    background: radial-gradient(circle, #7dffc4 0%, rgba(0,230,118,0.9) 55%, transparent 100%);
+    background: radial-gradient(circle, #ff9ea8 0%, rgba(226,59,59,0.9) 55%, transparent 100%);
     animation: emberRise linear infinite;
     pointer-events: none;
   }
@@ -419,7 +373,7 @@
      ============================================================ */
   .snake-breath { animation: snakeBreath 3s ease-in-out infinite; }
   @keyframes snakeBreath {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.55); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(226, 59, 59, 0.55); }
     50%      { box-shadow: 0 0 0 9px rgba(0, 230, 118, 0); }
   }
   .reaper-breath { animation: reaperBreath 3s ease-in-out infinite; }
@@ -431,13 +385,6 @@
   /* ============================================================
      GLOW TEXT — gradient display headlines
      ============================================================ */
-  .text-glow-venom {
-    background: linear-gradient(112deg, #b4ffd9 0%, #00e676 42%, #0d5c3a 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: drop-shadow(0 0 22px rgba(0, 230, 118, 0.34));
-  }
   .text-glow-reaper {
     background: linear-gradient(112deg, #ffd9d9 0%, #e23b3b 42%, #7a1522 100%);
     -webkit-background-clip: text;
