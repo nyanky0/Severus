@@ -1,0 +1,241 @@
+﻿    <section id="cues" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-28">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal-on-scroll">
+            <div>
+                <h2 class="text-3xl sm:text-5xl font-black text-white uppercase font-outfit tracking-tight">
+                    {{ __('app.catalog.title_prefix') }}
+                    <span :class="currentTheme === 'venom' ? 'text-glow-venom' : 'text-glow-reaper'">{{ __('app.catalog.title_highlight') }}</span>
+                </h2>
+                <p class="text-sm text-slate-400 mt-1 font-medium">{{ __('app.catalog.subtitle') }}</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center gap-2 bg-[#060506]/80 p-1.5 rounded-2xl border"
+                 :class="currentTheme === 'venom' ? 'border-[#00E676]/20' : 'border-[#E23B3B]/20'">
+                <button @click="activeCategory = 'all'"
+                        :class="activeCategory === 'all' ? (currentTheme === 'venom' ? 'bg-[#00E676] text-black font-extrabold shadow-[0_0_15px_rgba(0,230,118,0.5)]' : 'bg-[#E23B3B] text-white font-extrabold shadow-[0_0_15px_rgba(226,59,59,0.5)]') : 'text-slate-400 hover:text-white font-bold'"
+                        class="px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer min-h-[40px]">
+                    {{ __('app.catalog.all_categories') }}
+                </button>
+                @foreach($categories as $category)
+                    <button @click="activeCategory = '{{ $category->slug }}'"
+                            :class="activeCategory === '{{ $category->slug }}' ? (currentTheme === 'venom' ? 'bg-[#00E676] text-black font-extrabold shadow-[0_0_15px_rgba(0,230,118,0.5)]' : 'bg-[#E23B3B] text-white font-extrabold shadow-[0_0_15px_rgba(226,59,59,0.5)]') : 'text-slate-400 hover:text-white font-bold'"
+                            class="px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer min-h-[40px]">
+                        {{ $category->name }}
+                    </button>
+                @endforeach
+            </div>
+        </div>
+
+
+        <!-- Dynamic Product Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach($products as $index => $product)
+                <div x-show="activeCategory === 'all' || activeCategory === '{{ $product->category->slug }}'"
+                     x-transition:enter="transition ease-out duration-400"
+                     x-transition:enter-start="opacity-0 scale-95"
+                     x-transition:enter-end="opacity-100 scale-100"
+                     :class="currentTheme === 'venom' ? 'venom-glass-card' : 'reaper-glass-card'"
+                     class="p-6 rounded-3xl space-y-4 reveal-on-scroll group" style="transition-delay: {{ $index * 60 }}ms">
+                    <div class="relative overflow-hidden rounded-2xl bg-[#060506] p-4 flex items-center justify-center aspect-square">
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name_en }}" loading="lazy"
+                             class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105">
+                        @if($product->is_featured)
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider"
+                                  :class="currentTheme === 'venom' ? 'bg-[#00E676] text-black' : 'bg-[#E23B3B] text-white'">
+                                {{ __('app.products.featured') }}
+                            </span>
+                        @endif
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">{{ $product->category->name }}</span>
+                        <h3 class="text-lg font-black text-white uppercase font-outfit leading-tight group-hover:text-transparent group-hover:bg-clip-text transition-all"
+                            :class="currentTheme === 'venom' ? 'group-hover:bg-gradient-to-r group-hover:from-[#00E676] group-hover:to-[#10b981]' : 'group-hover:bg-gradient-to-r group-hover:from-[#E23B3B] group-hover:to-[#FF4D5E]'">
+                            {{ $product->name_en }}
+                        </h3>
+                        <p class="text-sm font-black font-outfit"
+                           :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                            {{ $product->formatted_price_idr }}
+                        </p>
+                    </div>
+
+
+                    <div class="flex items-center gap-2 pt-1">
+                        <button @click="activeModalProduct = {
+                            name_en: '{{ addslashes($product->name_en) }}',
+                            name_id: '{{ addslashes($product->name_id) }}',
+                            description_en: '{{ addslashes($product->description_en) }}',
+                            description_id: '{{ addslashes($product->description_id) }}',
+                            price_idr: {{ $product->price_idr }},
+                            tip_size: '{{ $product->tip_size }}',
+                            joint_type: '{{ $product->joint_type }}',
+                            image_path: '{{ $product->image_url }}',
+                            tokopedia_url: '{{ $product->tokopedia_url ?: 'https://www.tokopedia.com/severus' }}',
+                            category: { name: '{{ addslashes($product->category->name) }}' }
+                        }"
+                                class="flex-1 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer min-h-[48px]"
+                                :class="currentTheme === 'venom' ? 'btn-venom' : 'btn-reaper'">
+                            {{ __('app.catalog.view_specs') }}
+                        </button>
+                        <a href="{{ $product->tokopedia_url ?: 'https://www.tokopedia.com/severus' }}" target="_blank"
+                           class="px-4 py-3 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-bold text-xs uppercase tracking-wider flex items-center shadow-[0_0_10px_rgba(66,181,73,0.3)] transition-all min-h-[48px]">
+                            <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-3.5 w-3.5 mr-1 object-contain">
+                            <span>Tokopedia</span>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- 6. CUE TECHNOLOGY SPOTLIGHT -->
+    <!-- ===================================================== -->
+    <section id="technology" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <div class="p-8 sm:p-12 rounded-3xl relative overflow-hidden reveal-on-scroll transition-all duration-500"
+             :class="currentTheme === 'venom' ? 'venom-glass-card' : 'reaper-glass-card'">
+            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-80 h-80 rounded-full blur-3xl pointer-events-none transition-all duration-500"
+                 :class="currentTheme === 'venom' ? 'bg-[#00E676]/10' : 'bg-[#E23B3B]/10'"></div>
+
+            <div class="max-w-3xl space-y-6">
+                <span class="px-3 py-1.5 rounded-full border text-xs font-extrabold uppercase tracking-wider transition-all"
+                      :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E]'">
+                    {{ __('app.tech.badge') }}
+                </span>
+
+                <h2 class="text-3xl sm:text-5xl font-black text-white font-outfit uppercase tracking-tight">
+                    {{ __('app.tech.title_prefix') }}
+                    <span :class="currentTheme === 'venom' ? 'text-glow-venom' : 'text-glow-reaper'">{{ __('app.tech.title_highlight') }}</span>
+                </h2>
+
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    {{ __('app.tech.description') }}
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10">
+                    <div class="space-y-1">
+                        <span class="text-2xl font-black font-outfit" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">0.12mm</span>
+                        <h4 class="text-xs font-bold text-white uppercase">{{ __('app.tech.attr1_title') }}</h4>
+                        <p class="text-[11px] text-slate-400">{{ __('app.tech.attr1_desc') }}</p>
+                    </div>
+
+                    <div class="space-y-1">
+                        <span class="text-2xl font-black font-outfit" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">99.8%</span>
+                        <h4 class="text-xs font-bold text-white uppercase">{{ __('app.tech.attr2_title') }}</h4>
+                        <p class="text-[11px] text-slate-400">{{ __('app.tech.attr2_desc') }}</p>
+                    </div>
+
+                    <div class="space-y-1">
+                        <span class="text-2xl font-black font-outfit" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">3/8x8 & Uni-Loc</span>
+                        <h4 class="text-xs font-bold text-white uppercase">{{ __('app.tech.attr3_title') }}</h4>
+                        <p class="text-[11px] text-slate-400">{{ __('app.tech.attr3_desc') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 7. FINALE BANNER â€” Strike. Slither. Prevail. -->
+    <!-- ===================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 reveal-on-scroll">
+        <div class="relative py-16 px-6 rounded-3xl border overflow-hidden shadow-2xl transition-all duration-500"
+             :class="currentTheme === 'venom' ? 'bg-gradient-to-r from-[#060907] via-[#0d1712] to-[#060907] border-[#00E676]/30' : 'bg-gradient-to-r from-[#0a0606] via-[#1a1418] to-[#0a0606] border-[#E23B3B]/30'">
+            <div class="absolute inset-0 blur-3xl pointer-events-none transition-all duration-500"
+                 :class="currentTheme === 'venom' ? 'bg-[#00E676]/10' : 'bg-[#E23B3B]/10'"></div>
+
+            <div class="relative z-10 space-y-6 max-w-3xl mx-auto">
+                <div class="w-16 h-16 mx-auto rounded-full border flex items-center justify-center shadow-2xl transition-all"
+                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/20 border-[#00E676]/50 text-[#00E676] shadow-[0_0_25px_rgba(0,230,118,0.5)]' : 'bg-[#E23B3B]/20 border-[#E23B3B]/50 text-[#E23B3B] shadow-[0_0_25px_rgba(226,59,59,0.5)]'">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+
+                <h2 class="text-4xl sm:text-6xl font-black text-white font-cinzel uppercase tracking-tight">
+                    STRIKE WITH
+                    <span :class="currentTheme === 'venom' ? 'text-glow-venom' : 'text-glow-reaper'" x-text="currentTheme === 'venom' ? 'VENOM PRECISION' : 'REAPER PRECISION'">REAPER PRECISION</span>
+                </h2>
+
+                <p class="text-sm text-slate-300">Champions worldwide play with Severus high-tech carbon cues. Deadly on the table, unforgettable off it.</p>
+
+                <div class="flex items-center justify-center space-x-4 pt-2">
+                    <a href="#cues" @click.prevent="scrollTo('cues')"
+                       class="px-8 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider hover:scale-105 transition-all cursor-pointer min-h-[48px]"
+                       :class="currentTheme === 'venom' ? 'bg-[#00E676] text-black shadow-[0_0_20px_rgba(0,230,118,0.5)]' : 'bg-[#E23B3B] text-white shadow-[0_0_20px_rgba(226,59,59,0.5)]'">
+                        Shop Collection
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- 8. PRODUCT SPEC SHEET MODAL -->
+    <!-- ===================================================== -->
+    <div x-show="activeModalProduct !== null"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+         x-cloak>
+
+        <div @click.away="activeModalProduct = null"
+             :class="currentTheme === 'venom' ? 'venom-glass-card border-[#00E676]/40' : 'reaper-glass-card border-[#E23B3B]/40'"
+             class="w-full max-w-2xl p-6 sm:p-8 rounded-3xl space-y-6 relative border shadow-2xl max-h-[90vh] overflow-y-auto">
+
+            <button @click="activeModalProduct = null" class="absolute top-6 right-6 p-2 rounded-xl bg-[#060506] text-slate-400 hover:text-white border border-white/10" aria-label="{{ __('app.products.close') }}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <template x-if="activeModalProduct">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
+                              :class="currentTheme === 'venom' ? 'bg-[#00E676]/20 text-[#00E676]' : 'bg-[#E23B3B]/20 text-[#FF4D5E]'"
+                              x-text="activeModalProduct.category ? activeModalProduct.category.name : 'Severus Product'"></span>
+                        <span class="text-xs font-semibold text-slate-400">Technical Spec Sheet</span>
+                    </div>
+
+                    <h3 class="text-2xl font-black text-white font-outfit uppercase" x-text="activeModalProduct.name_en"></h3>
+
+                    <div class="h-64 rounded-2xl bg-[#060506] p-4 flex items-center justify-center border border-white/10">
+                        <img :src="activeModalProduct.image_path || 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80'" :alt="activeModalProduct.name_en" class="max-h-full max-w-full object-contain drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs">
+                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10">
+                            <span class="text-slate-500 font-bold block uppercase">{{ __('app.products.tip_size') }}</span>
+                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.tip_size || '12.4mm Premium'"></span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10">
+                            <span class="text-slate-500 font-bold block uppercase">{{ __('app.products.joint_type') }}</span>
+                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.joint_type || 'Radial / Uni-Loc Compatible'"></span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-300 leading-relaxed" x-text="activeModalProduct.description_en"></p>
+
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                        <span class="text-2xl font-black font-outfit"
+                              :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'"
+                              x-text="'Rp ' + Number(activeModalProduct.price_idr).toLocaleString('id-ID')"></span>
+
+                        <div class="flex items-center space-x-2">
+                            <a :href="activeModalProduct.tokopedia_url || 'https://www.tokopedia.com/severus'" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#42b549] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center">
+                                <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-4 w-4 mr-1.5 object-contain">
+                                <span>Tokopedia</span>
+                            </a>
+                            <a href="https://shopee.co.id/severuscues" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#ee4d2d] text-white font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(238,77,45,0.5)] flex items-center">
+                                <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-4 w-4 mr-1.5 object-contain">
+                                <span>Shopee</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>

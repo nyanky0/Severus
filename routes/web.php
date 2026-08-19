@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 // 1. Customer Public Landing & Marketing Pages
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/api/products/{product}', [ProductController::class, 'jsonDetail'])->name('api.products.detail');
 
