@@ -95,19 +95,23 @@
 
 
                     <div class="flex items-center gap-2 pt-1">
-                        <button @click="activeModalProduct = {
-                            name_en: '{{ addslashes($product->name_en) }}',
-                            name_id: '{{ addslashes($product->name_id) }}',
-                            description_en: '{{ addslashes($product->description_en) }}',
-                            description_id: '{{ addslashes($product->description_id) }}',
-                            price_idr: {{ $product->price_idr }},
-                            tip_size: '{{ $product->tip_size }}',
-                            joint_type: '{{ $product->joint_type }}',
-                            image_path: '{{ $product->image_url }}',
-                            tokopedia_url: '{{ $product->tokopedia_url }}',
-                            shopee_url: '{{ $product->shopee_url }}',
-                            category: { name: '{{ addslashes($product->category->name) }}' }
-                        }"
+                        <button @click='activeModalProduct = @json([
+                            "name_en" => $product->name_en,
+                            "name_id" => $product->name_id,
+                            "description_en" => $product->description_en,
+                            "description_id" => $product->description_id,
+                            "price_idr" => (float) $product->price_idr,
+                            "tip_size" => $product->tip_size,
+                            "joint_type" => $product->joint_type,
+                            "weight_oz" => $product->weight_oz,
+                            "tip" => $product->tip,
+                            "ferrule" => $product->ferrule,
+                            "image_path" => $product->image_url,
+                            "tokopedia_url" => $product->tokopedia_url,
+                            "shopee_url" => $product->shopee_url,
+                            "category" => ["name" => $product->category->name_en ?? "Severus Product"],
+                            "options" => $product->options,
+                        ])'
                                 class="flex-1 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer min-h-[48px]"
                                 :class="currentTheme === 'venom' ? 'btn-venom' : 'btn-reaper'">
                             {{ __('app.catalog.view_specs') }}
@@ -142,7 +146,7 @@
                         <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
                               :class="currentTheme === 'venom' ? 'bg-[#00E676]/20 text-[#00E676]' : 'bg-[#E23B3B]/20 text-[#FF4D5E]'"
                               x-text="activeModalProduct.category ? activeModalProduct.category.name : 'Severus Product'"></span>
-                        <span class="text-xs font-semibold text-slate-400">Technical Spec Sheet</span>
+                        <span class="text-xs font-semibold text-slate-400">Technical Specifications Sheet</span>
                     </div>
 
                     <h3 class="text-2xl font-black text-white font-outfit uppercase" x-text="activeModalProduct.name_en"></h3>
@@ -151,18 +155,52 @@
                         <img :src="activeModalProduct.image_path || 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80'" :alt="activeModalProduct.name_en" referrerpolicy="no-referrer" class="max-h-full max-w-full object-contain drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4 text-xs">
-                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10">
-                            <span class="text-slate-500 font-bold block uppercase">{{ __('app.products.tip_size') }}</span>
-                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.tip_size || '12.4mm Premium'"></span>
+                    <!-- Technical Specs Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10" x-show="activeModalProduct.tip_size">
+                            <span class="text-slate-500 font-bold block uppercase">Tip Size</span>
+                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.tip_size"></span>
                         </div>
-                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10">
-                            <span class="text-slate-500 font-bold block uppercase">{{ __('app.products.joint_type') }}</span>
-                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.joint_type || 'Radial / Uni-Loc Compatible'"></span>
+                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10" x-show="activeModalProduct.joint_type">
+                            <span class="text-slate-500 font-bold block uppercase">Joint Pin</span>
+                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.joint_type"></span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10" x-show="activeModalProduct.weight_oz">
+                            <span class="text-slate-500 font-bold block uppercase">Weight</span>
+                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.weight_oz"></span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10" x-show="activeModalProduct.tip">
+                            <span class="text-slate-500 font-bold block uppercase">Tip</span>
+                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.tip"></span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-[#060506] border border-white/10" x-show="activeModalProduct.ferrule">
+                            <span class="text-slate-500 font-bold block uppercase">Ferrule</span>
+                            <span class="text-white font-extrabold text-sm" x-text="activeModalProduct.ferrule"></span>
                         </div>
                     </div>
 
-                    <p class="text-xs text-slate-300 leading-relaxed" x-text="activeModalProduct.description_en"></p>
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Description</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed whitespace-pre-line" x-text="activeModalProduct.description_en"></p>
+                    </div>
+
+                    <!-- Available Options / Variants -->
+                    <template x-if="activeModalProduct.options && activeModalProduct.options.length > 0">
+                        <div class="space-y-2 border-t border-white/10 pt-4">
+                            <h4 class="text-xs font-bold text-[#00E676] uppercase tracking-wider">Available Variants & Options</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <template x-for="opt in activeModalProduct.options" :key="opt.id">
+                                    <div class="p-2.5 rounded-xl bg-[#060506] border border-white/10 text-xs flex items-center justify-between">
+                                        <div>
+                                            <span class="text-slate-400 text-[10px] block uppercase" x-text="opt.title_en"></span>
+                                            <span class="text-white font-bold" x-text="opt.option_en"></span>
+                                        </div>
+                                        <span x-show="opt.price > 0" class="text-emerald-400 font-extrabold text-xs" x-text="'Rp ' + Number(opt.price).toLocaleString('id-ID')"></span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
 
                     <div class="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
                         <span class="text-2xl font-black font-outfit"
@@ -170,11 +208,13 @@
                               x-text="'Rp ' + Number(activeModalProduct.price_idr).toLocaleString('id-ID')"></span>
 
                         <div class="flex items-center space-x-2">
-                            <a x-show="activeModalProduct.tokopedia_url" :href="activeModalProduct.tokopedia_url" target="_blank" class="p-2.5 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center justify-center transition-all" title="Tokopedia">
+                            <a x-show="activeModalProduct.tokopedia_url" :href="activeModalProduct.tokopedia_url" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white shadow-[0_0_15px_rgba(66,181,73,0.5)] flex items-center justify-center transition-all text-xs font-extrabold uppercase space-x-2" title="Buy on Tokopedia">
                                 <img src="{{ asset('images/tokopedia.png') }}" alt="Tokopedia" class="h-5 w-5 object-contain">
+                                <span>Tokopedia</span>
                             </a>
-                            <a x-show="activeModalProduct.shopee_url" :href="activeModalProduct.shopee_url" target="_blank" class="p-2.5 rounded-xl bg-white hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center transition-all" title="Shopee">
+                            <a x-show="activeModalProduct.shopee_url" :href="activeModalProduct.shopee_url" target="_blank" class="px-4 py-2.5 rounded-xl bg-white hover:bg-gray-200 text-black shadow-[0_0_15px_rgba(255,255,255,0.3)] flex items-center justify-center transition-all text-xs font-extrabold uppercase space-x-2" title="Buy on Shopee">
                                 <img src="{{ asset('images/shopee.png') }}" alt="Shopee" class="h-5 w-5 object-contain">
+                                <span>Shopee</span>
                             </a>
                         </div>
                     </div>
