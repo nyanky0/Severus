@@ -5,15 +5,66 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductOption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class AdminProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::with('category')->latest()->paginate(15);
-        return view('admin.products.index', compact('products'));
+        $query = Product::with('category');
+
+        // Apply Search
+        if ($request->filled('search')) {
+            $searchTerm = '%' . $request->search . '%';
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name_en', 'like', $searchTerm)
+                  ->orWhere('name_id', 'like', $searchTerm)
+                  ->orWhere('description_en', 'like', $searchTerm);
+            });
+        }
+
+        // Apply Category Filter
+        if ($request->filled('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // Apply Sorting
+        switch ($request->sort) {
+            case 'price_asc':
+                $query->orderBy('price_idr', 'asc');
+                break;
+            case 'price_desc':
+                $query->orderBy('price_idr', 'desc');
+                break;
+            case 'name_asc':
+                $query->orderBy('name_en', 'asc');
+                break;
+            case 'name_desc':
+                $query->orderBy('name_en', 'desc');
+                break;
+            case 'oldest':
+                $query->oldest();
+                break;
+            case 'newest':
+            default:
+                $query->latest();
+                break;
+        }
+
+        // Apply Dynamic Pagination
+        $perPage = $request->per_page;
+        if ($perPage === 'all') {
+            $perPage = $query->count() > 0 ? $query->count() : 1;
+        } elseif (!in_array($perPage, [20, 50, 100])) {
+            $perPage = 20; // Default
+        }
+
+        $products = $query->paginate($perPage);
+        $categories = Category::all();
+
+        return view('admin.products.index', compact('products', 'categories'));
     }
 
     public function create()
@@ -38,11 +89,18 @@ class AdminProductController extends Controller
             'tip_size' => 'nullable|string',
             'joint_type' => 'nullable|string',
             'weight_oz' => 'nullable|string',
-            'deflection_grade' => 'nullable|string',
-            'chalk_friction' => 'nullable|string',
-            'stock' => 'required|integer|min:0',
+            'tip' => 'nullable|string',
+            'ferrule' => 'nullable|string',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
+            'options' => 'nullable|array',
+            'options.*.title_en' => 'required_with:options|string|max:255',
+            'options.*.title_id' => 'required_with:options|string|max:255',
+            'options.*.option_en' => 'required_with:options|string|max:255',
+            'options.*.option_id' => 'required_with:options|string|max:255',
+            'options.*.price' => 'nullable|numeric|min:0',
+            'options.*.description_en' => 'nullable|string',
+            'options.*.description_id' => 'nullable|string',
         ]);
 
         $data['slug'] = Str::slug($data['name_en']) . '-' . time();
@@ -56,13 +114,29 @@ class AdminProductController extends Controller
             $data['image_path'] = $request->image_url_input;
         }
 
-        Product::create($data);
+        $product = Product::create($data);
+
+        if ($request->filled('options')) {
+            foreach ($request->options as $i => $opt) {
+                $product->options()->create([
+                    'title_en' => $opt['title_en'],
+                    'title_id' => $opt['title_id'],
+                    'option_en' => $opt['option_en'],
+                    'option_id' => $opt['option_id'],
+                    'price' => $opt['price'] ?? 0,
+                    'description_en' => $opt['description_en'] ?? null,
+                    'description_id' => $opt['description_id'] ?? null,
+                    'sort_order' => $i,
+                ]);
+            }
+        }
 
         return redirect()->route('admin.products.index')->with('success', 'Product created successfully!');
     }
 
     public function edit(Product $product)
     {
+        $product->load('options');
         $categories = Category::all();
         return view('admin.products.edit', compact('product', 'categories'));
     }
@@ -83,28 +157,73 @@ class AdminProductController extends Controller
             'tip_size' => 'nullable|string',
             'joint_type' => 'nullable|string',
             'weight_oz' => 'nullable|string',
-            'deflection_grade' => 'nullable|string',
-            'chalk_friction' => 'nullable|string',
-            'stock' => 'required|integer|min:0',
+            'tip' => 'nullable|string',
+            'ferrule' => 'nullable|string',
+            'is_featured' => 'boolean',
+            'is_active' => 'boolean',
+            'options' => 'nullable|array',
+            'options.*.id' => 'nullable|exists:product_options,id',
+            'options.*.title_en' => 'required_with:options|string|max:255',
+            'options.*.title_id' => 'required_with:options|string|max:255',
+            'options.*.option_en' => 'required_with:options|string|max:255',
+            'options.*.option_id' => 'required_with:options|string|max:255',
+            'options.*.price' => 'nullable|numeric|min:0',
+            'options.*.description_en' => 'nullable|string',
+            'options.*.description_id' => 'nullable|string',
         ]);
 
         $data['is_featured'] = $request->has('is_featured');
         $data['is_active'] = $request->has('is_active');
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('products', 'public');
-            $data['image_path'] = $path;
+            $data['image_path'] = $request->file('image')->store('products', 'public');
         } elseif ($request->filled('image_url_input')) {
             $data['image_path'] = $request->image_url_input;
         }
 
         $product->update($data);
 
+        $submittedIds = [];
+        if ($request->filled('options')) {
+            foreach ($request->options as $i => $opt) {
+                if (!empty($opt['id'])) {
+                    $option = ProductOption::find($opt['id']);
+                    if ($option && $option->product_id === $product->id) {
+                        $option->update([
+                            'title_en' => $opt['title_en'],
+                            'title_id' => $opt['title_id'],
+                            'option_en' => $opt['option_en'],
+                            'option_id' => $opt['option_id'],
+                            'price' => $opt['price'] ?? 0,
+                            'description_en' => $opt['description_en'] ?? null,
+                            'description_id' => $opt['description_id'] ?? null,
+                            'sort_order' => $i,
+                        ]);
+                        $submittedIds[] = $option->id;
+                    }
+                } else {
+                    $new = $product->options()->create([
+                        'title_en' => $opt['title_en'],
+                        'title_id' => $opt['title_id'],
+                        'option_en' => $opt['option_en'],
+                        'option_id' => $opt['option_id'],
+                        'price' => $opt['price'] ?? 0,
+                        'description_en' => $opt['description_en'] ?? null,
+                        'description_id' => $opt['description_id'] ?? null,
+                        'sort_order' => $i,
+                    ]);
+                    $submittedIds[] = $new->id;
+                }
+            }
+        }
+        $product->options()->whereNotIn('id', $submittedIds)->delete();
+
         return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
     }
 
     public function destroy(Product $product)
     {
+        $product->options()->delete();
         $product->delete();
         return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully!');
     }

@@ -141,7 +141,6 @@
                        class="px-7 py-4 rounded-2xl flex items-center justify-center text-xs font-black uppercase tracking-wider cursor-pointer transition-all min-h-[48px]"
                        :class="currentTheme === 'venom' ? 'btn-venom' : 'btn-reaper'">
                         <span>{{ __('app.hero.explore_btn') }}</span>
-                        <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                     </a>
 
                     <a href="https://www.tokopedia.com/severus" target="_blank" class="px-5 py-3.5 rounded-2xl bg-white/5 hover:bg-[#42b549]/20 border border-[#42b549]/40 text-[#42b549] font-bold text-xs uppercase tracking-wider flex items-center transition-all min-h-[48px]">
@@ -278,6 +277,110 @@
         </div>
     </section>
 
+    <!-- ===================================================== -->
+    <!-- CARBON VS WOOD — Why Carbon dominates -->
+    <!-- ===================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <!-- Left visual: carbon vs wood concept -->
+            <div class="lg:col-span-5 relative">
+                <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#1a1418] via-[#120e11] to-[#080608] border border-white/10 p-8 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-[2px] h-3/4 bg-gradient-to-b from-transparent via-[#E23B3B]/40 to-transparent rotate-12"></div>
+                    </div>
+                    <div class="relative z-10 text-center space-y-6">
+                        <div class="space-y-1">
+                            <span class="text-4xl font-black text-white font-outfit block">CARBON</span>
+                            <span class="text-3xl font-black text-[#E23B3B] font-outfit block">&gt;</span>
+                            <span class="text-4xl font-black text-slate-500 font-outfit block">WOOD</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-4 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+                            <span>Modern Tech</span>
+                            <span class="w-2 h-2 rounded-full bg-[#E23B3B]"></span>
+                            <span>Traditional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: benefits list -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border text-xs font-extrabold uppercase tracking-wider bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E]">
+                    <span class="w-2 h-2 rounded-full bg-[#E23B3B]"></span>
+                    <span>Carbon vs. Wood Analysis</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-black text-white font-cinzel uppercase tracking-tight">
+                    WHY CARBON <span class="text-glow-reaper">DOMINATES</span>
+                </h2>
+
+                <div class="space-y-4">
+
+
+
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-black text-[#E23B3B]">1</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white uppercase">Lightweight</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Carbon fiber shafts are significantly lighter than wood, reducing arm fatigue during long sessions and allowing faster cue ball control.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-black text-[#E23B3B]">2</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white uppercase">More Durable</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Less prone to warping, damage, or bending over time. Wood shafts warp with humidity and temperature changes — carbon stays true forever.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-black text-[#E23B3B]">3</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white uppercase">Harder to Bend or Damage</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Perfect for intense players. Carbon's molecular structure resists impact stress that would crack or splinter a wood shaft.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-black text-[#E23B3B]">4</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white uppercase">Smoother Feel</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Frosted satin finish that's pleasant to the touch. Easy to maintain — a quick wipe down keeps it looking and feeling good as new.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-black text-[#E23B3B]">5</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white uppercase">Temperature Resistant</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Can withstand extreme temperatures without warping or losing structural integrity. Wood swells, contracts, and cracks.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
+                            <span class="text-sm font-black text-[#E23B3B]">6</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white uppercase">Consistent Straightness</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Carbon's stronger physical structure maintains consistent straightness in the long run. No gradual warping that plagues traditional wood shafts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ===================================================== -->
     <!-- 3. ENGINEERING LAB — stat dials -->

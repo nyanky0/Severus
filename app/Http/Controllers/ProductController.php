@@ -30,13 +30,13 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        $product->load('category');
+        $product->load('category', 'options');
         return view('products.show', compact('product'));
     }
 
     public function jsonDetail(Product $product)
     {
-        $product->load('category');
+        $product->load('category', 'options');
         return response()->json([
             'id' => $product->id,
             'name' => $product->name,
@@ -48,10 +48,10 @@ class ProductController extends Controller
             'tip_size' => $product->tip_size ?: '-',
             'joint_type' => $product->joint_type ?: '-',
             'weight_oz' => $product->weight_oz ?: '-',
-            'deflection_grade' => $product->deflection_grade ?: '-',
-            'chalk_friction' => $product->chalk_friction ?: '-',
+            'tip' => $product->tip ?: '-',
+            'ferrule' => $product->ferrule ?: '-',
             'category_name' => $product->category->name,
-            'stock' => $product->stock,
+            'options' => $product->options,
         ]);
     }
 }

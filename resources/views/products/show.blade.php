@@ -44,15 +44,43 @@
                         <span class="text-white font-bold">{{ $product->weight_oz ?: '-' }}</span>
                     </div>
                     <div>
-                        <span class="text-slate-500 block text-[10px] uppercase font-bold">{{ __('app.products.deflection') }}</span>
-                        <span class="text-white font-bold">{{ $product->deflection_grade ?: '-' }}</span>
+                        <span class="text-slate-500 block text-[10px] uppercase font-bold">Tip</span>
+                        <span class="text-white font-bold">{{ $product->tip ?: '-' }}</span>
                     </div>
                     <div>
-                        <span class="text-slate-500 block text-[10px] uppercase font-bold">{{ __('app.products.friction') }}</span>
-                        <span class="text-white font-bold">{{ $product->chalk_friction ?: '-' }}</span>
+                        <span class="text-slate-500 block text-[10px] uppercase font-bold">Ferrule</span>
+                        <span class="text-white font-bold">{{ $product->ferrule ?: '-' }}</span>
                     </div>
                 </div>
             </div>
+
+            @if($product->options->count())
+                <div class="bg-[#060506] p-5 rounded-2xl border border-white/10 space-y-3">
+                    <h3 class="text-xs font-black text-[#00e676] uppercase tracking-wider">Available Options</h3>
+                    <div class="space-y-4" x-data="{ selectedOption: {{ $product->options->first()->id }} }">
+                        @foreach($product->options->groupBy('title_en') as $groupTitle => $options)
+                            <div>
+                                <span class="text-slate-500 block text-[10px] uppercase font-bold mb-1.5">{{ $groupTitle }}</span>
+                                <div class="flex flex-wrap gap-2">
+                                    @foreach($options as $opt)
+                                        <label class="flex items-center space-x-2 px-3 py-2 rounded-xl border cursor-pointer transition-colors"
+                                               :class="selectedOption === {{ $opt->id }} ? 'border-[#00e676] bg-[#00e676]/10 text-white' : 'border-white/10 text-slate-300 hover:border-white/30'">
+                                            <input type="radio" name="option_{{ $opt->id }}" value="{{ $opt->id }}" class="hidden"
+                                                   @click="selectedOption = {{ $opt->id }}">
+                                            <span class="text-xs font-bold">{{ $opt->option }}</span>
+                                            @if($opt->price > 0)
+                                                <span class="text-[10px] font-black" :class="selectedOption === {{ $opt->id }} ? 'text-[#00e676]' : 'text-slate-500'">
+                                                    + Rp {{ number_format($opt->price, 0, ',', '.') }}
+                                                </span>
+                                            @endif
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
 
             <a href="{{ $product->tokopedia_url ?: 'https://www.tokopedia.com/severus' }}" target="_blank" class="w-full py-4 rounded-xl bg-[#42b549] hover:bg-[#369b3d] text-white font-extrabold text-xs uppercase tracking-wider flex items-center justify-center shadow-[0_0_20px_rgba(66,181,73,0.4)] transition-all min-h-[52px]">
                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>

@@ -24,11 +24,10 @@ class Product extends Model
         'tip_size',
         'joint_type',
         'weight_oz',
-        'deflection_grade',
-        'chalk_friction',
+        'tip',
+        'ferrule',
         'is_featured',
         'is_active',
-        'stock',
         'last_tokopedia_synced_at',
     ];
 
@@ -49,6 +48,12 @@ class Product extends Model
     {
         return $this->hasMany(TokopediaSyncLog::class);
     }
+
+    public function options()
+    {
+        return $this->hasMany(ProductOption::class)->orderBy('sort_order');
+    }
+
 
     public function getNameAttribute()
     {
