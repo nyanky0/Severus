@@ -82,8 +82,8 @@ class AdminProductController extends Controller
             'description_en' => 'required|string',
             'description_id' => 'required|string',
             'price_idr' => 'required|numeric|min:0',
-            'tokopedia_url' => 'nullable|url',
-            'shopee_url' => 'nullable|url',
+            'tokopedia_url' => 'nullable|string',
+            'shopee_url' => 'nullable|string',
             'image' => 'nullable|image|max:4096',
             'image_url_input' => 'nullable|string',
             'tip_size' => 'nullable|string',
@@ -91,17 +91,17 @@ class AdminProductController extends Controller
             'weight_oz' => 'nullable|string',
             'tip' => 'nullable|string',
             'ferrule' => 'nullable|string',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
+            'is_featured' => 'nullable',
+            'is_active' => 'nullable',
             'options' => 'nullable|array',
-            'options.*.title_en' => 'required_with:options|string|max:255',
-            'options.*.title_id' => 'required_with:options|string|max:255',
-            'options.*.option_en' => 'required_with:options|string|max:255',
-            'options.*.option_id' => 'required_with:options|string|max:255',
-            'options.*.price' => 'nullable|numeric|min:0',
-            'options.*.description_en' => 'nullable|string',
-            'options.*.description_id' => 'nullable|string',
         ]);
+
+        if (!empty($data['tokopedia_url']) && !str_starts_with($data['tokopedia_url'], 'http://') && !str_starts_with($data['tokopedia_url'], 'https://')) {
+            $data['tokopedia_url'] = 'https://' . $data['tokopedia_url'];
+        }
+        if (!empty($data['shopee_url']) && !str_starts_with($data['shopee_url'], 'http://') && !str_starts_with($data['shopee_url'], 'https://')) {
+            $data['shopee_url'] = 'https://' . $data['shopee_url'];
+        }
 
         $data['slug'] = Str::slug($data['name_en']) . '-' . time();
         $data['is_featured'] = $request->has('is_featured');
@@ -118,12 +118,15 @@ class AdminProductController extends Controller
 
         if ($request->filled('options')) {
             foreach ($request->options as $i => $opt) {
+                if (empty($opt['title_en']) && empty($opt['title_id']) && empty($opt['option_en'])) {
+                    continue;
+                }
                 $product->options()->create([
-                    'title_en' => $opt['title_en'],
-                    'title_id' => $opt['title_id'],
-                    'option_en' => $opt['option_en'],
-                    'option_id' => $opt['option_id'],
-                    'price' => $opt['price'] ?? 0,
+                    'title_en' => $opt['title_en'] ?? 'Option',
+                    'title_id' => $opt['title_id'] ?? ($opt['title_en'] ?? 'Option'),
+                    'option_en' => $opt['option_en'] ?? '',
+                    'option_id' => $opt['option_id'] ?? ($opt['option_en'] ?? ''),
+                    'price' => !empty($opt['price']) ? $opt['price'] : 0,
                     'description_en' => $opt['description_en'] ?? null,
                     'description_id' => $opt['description_id'] ?? null,
                     'sort_order' => $i,
@@ -150,8 +153,8 @@ class AdminProductController extends Controller
             'description_en' => 'required|string',
             'description_id' => 'required|string',
             'price_idr' => 'required|numeric|min:0',
-            'tokopedia_url' => 'nullable|url',
-            'shopee_url' => 'nullable|url',
+            'tokopedia_url' => 'nullable|string',
+            'shopee_url' => 'nullable|string',
             'image' => 'nullable|image|max:4096',
             'image_url_input' => 'nullable|string',
             'tip_size' => 'nullable|string',
@@ -159,18 +162,17 @@ class AdminProductController extends Controller
             'weight_oz' => 'nullable|string',
             'tip' => 'nullable|string',
             'ferrule' => 'nullable|string',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
+            'is_featured' => 'nullable',
+            'is_active' => 'nullable',
             'options' => 'nullable|array',
-            'options.*.id' => 'nullable|exists:product_options,id',
-            'options.*.title_en' => 'required_with:options|string|max:255',
-            'options.*.title_id' => 'required_with:options|string|max:255',
-            'options.*.option_en' => 'required_with:options|string|max:255',
-            'options.*.option_id' => 'required_with:options|string|max:255',
-            'options.*.price' => 'nullable|numeric|min:0',
-            'options.*.description_en' => 'nullable|string',
-            'options.*.description_id' => 'nullable|string',
         ]);
+
+        if (!empty($data['tokopedia_url']) && !str_starts_with($data['tokopedia_url'], 'http://') && !str_starts_with($data['tokopedia_url'], 'https://')) {
+            $data['tokopedia_url'] = 'https://' . $data['tokopedia_url'];
+        }
+        if (!empty($data['shopee_url']) && !str_starts_with($data['shopee_url'], 'http://') && !str_starts_with($data['shopee_url'], 'https://')) {
+            $data['shopee_url'] = 'https://' . $data['shopee_url'];
+        }
 
         $data['is_featured'] = $request->has('is_featured');
         $data['is_active'] = $request->has('is_active');
@@ -186,15 +188,18 @@ class AdminProductController extends Controller
         $submittedIds = [];
         if ($request->filled('options')) {
             foreach ($request->options as $i => $opt) {
+                if (empty($opt['title_en']) && empty($opt['title_id']) && empty($opt['option_en'])) {
+                    continue;
+                }
                 if (!empty($opt['id'])) {
                     $option = ProductOption::find($opt['id']);
                     if ($option && $option->product_id === $product->id) {
                         $option->update([
-                            'title_en' => $opt['title_en'],
-                            'title_id' => $opt['title_id'],
-                            'option_en' => $opt['option_en'],
-                            'option_id' => $opt['option_id'],
-                            'price' => $opt['price'] ?? 0,
+                            'title_en' => $opt['title_en'] ?? 'Option',
+                            'title_id' => $opt['title_id'] ?? ($opt['title_en'] ?? 'Option'),
+                            'option_en' => $opt['option_en'] ?? '',
+                            'option_id' => $opt['option_id'] ?? ($opt['option_en'] ?? ''),
+                            'price' => !empty($opt['price']) ? $opt['price'] : 0,
                             'description_en' => $opt['description_en'] ?? null,
                             'description_id' => $opt['description_id'] ?? null,
                             'sort_order' => $i,
@@ -203,11 +208,11 @@ class AdminProductController extends Controller
                     }
                 } else {
                     $new = $product->options()->create([
-                        'title_en' => $opt['title_en'],
-                        'title_id' => $opt['title_id'],
-                        'option_en' => $opt['option_en'],
-                        'option_id' => $opt['option_id'],
-                        'price' => $opt['price'] ?? 0,
+                        'title_en' => $opt['title_en'] ?? 'Option',
+                        'title_id' => $opt['title_id'] ?? ($opt['title_en'] ?? 'Option'),
+                        'option_en' => $opt['option_en'] ?? '',
+                        'option_id' => $opt['option_id'] ?? ($opt['option_en'] ?? ''),
+                        'price' => !empty($opt['price']) ? $opt['price'] : 0,
                         'description_en' => $opt['description_en'] ?? null,
                         'description_id' => $opt['description_id'] ?? null,
                         'sort_order' => $i,

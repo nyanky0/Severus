@@ -12,6 +12,17 @@
         </a>
     </div>
 
+    @if ($errors->any())
+        <div class="bg-red-500/10 border border-red-500/30 text-red-500 dark:text-red-400 p-4 rounded-xl text-xs space-y-1">
+            <p class="font-bold uppercase">There were errors with your submission:</p>
+            <ul class="list-disc list-inside">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="bg-white dark:bg-[#121a15] shadow-sm border border-gray-200 dark:border-white/10 dark:shadow-none p-8 rounded-2xl space-y-6">
         @csrf
         @method('PUT')

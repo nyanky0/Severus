@@ -18,6 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -56,8 +57,29 @@
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body x-data="{ currentTheme: 'reaper' }" class="bg-obsidian text-slate-100 antialiased min-h-screen flex flex-col justify-between overflow-x-hidden relative">
+<body x-data="{ 
+        currentTheme: 'reaper',
+        isDarkMode: localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
+        toggleDarkMode() {
+            this.isDarkMode = !this.isDarkMode;
+            if (this.isDarkMode) {
+                localStorage.theme = 'dark';
+                document.documentElement.classList.add('dark');
+            } else {
+                localStorage.theme = 'light';
+                document.documentElement.classList.remove('dark');
+            }
+        }
+    }" 
+    class="{{ request()->is('admin*') ? 'bg-gray-50 dark:bg-obsidian text-gray-900 dark:text-slate-100' : 'bg-obsidian text-slate-100' }} antialiased min-h-screen flex flex-col justify-between overflow-x-hidden relative transition-colors duration-300">
 
     <!-- Fixed Infinite Carbon Background + Pure-CSS Snake Scale Overlay -->
     <div class="reaper-infinite-bg"></div>
