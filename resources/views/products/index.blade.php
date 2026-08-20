@@ -95,23 +95,23 @@
 
 
                     <div class="flex items-center gap-2 pt-1">
-                        <button @click='activeModalProduct = @json([
-                            "name_en" => $product->name_en,
-                            "name_id" => $product->name_id,
-                            "description_en" => $product->description_en,
-                            "description_id" => $product->description_id,
-                            "price_idr" => (float) $product->price_idr,
-                            "tip_size" => $product->tip_size,
-                            "joint_type" => $product->joint_type,
-                            "weight_oz" => $product->weight_oz,
-                            "tip" => $product->tip,
-                            "ferrule" => $product->ferrule,
-                            "image_path" => $product->image_url,
-                            "tokopedia_url" => $product->tokopedia_url,
-                            "shopee_url" => $product->shopee_url,
-                            "category" => ["name" => $product->category->name_en ?? "Severus Product"],
-                            "options" => $product->options,
-                        ])'
+                        <button @click="activeModalProduct = {{ \Illuminate\Support\Js::from([
+                            'name_en' => $product->name_en,
+                            'name_id' => $product->name_id,
+                            'description_en' => $product->description_en,
+                            'description_id' => $product->description_id,
+                            'price_idr' => (float) $product->price_idr,
+                            'tip_size' => $product->tip_size,
+                            'joint_type' => $product->joint_type,
+                            'weight_oz' => $product->weight_oz,
+                            'tip' => $product->tip,
+                            'ferrule' => $product->ferrule,
+                            'image_path' => $product->image_url,
+                            'tokopedia_url' => $product->tokopedia_url,
+                            'shopee_url' => $product->shopee_url,
+                            'category' => ['name' => $product->category->name_en ?? 'Severus Product'],
+                            'options' => $product->options,
+                        ]) }}"
                                 class="flex-1 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer min-h-[48px]"
                                 :class="currentTheme === 'venom' ? 'btn-venom' : 'btn-reaper'">
                             {{ __('app.catalog.view_specs') }}
