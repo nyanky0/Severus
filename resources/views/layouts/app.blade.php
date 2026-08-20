@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="referrer" content="no-referrer">
     <meta name="theme-color" content="#060506">
 
     <title>@yield('title', config('app.name', 'Severus Cues')) — Reaper Edition</title>

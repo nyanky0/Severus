@@ -10,7 +10,7 @@
 
     <div class="reaper-glass-card p-6 sm:p-8 rounded-3xl grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <div class="md:col-span-6 bg-[#060506] rounded-2xl p-6 border border-white/10 flex items-center justify-center">
-            <img src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy" class="max-h-96 w-auto object-contain rounded-xl filter drop-shadow-[0_0_15px_rgba(0,230,118,0.3)]">
+            <img src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy" referrerpolicy="no-referrer" class="max-h-96 w-auto object-contain rounded-xl filter drop-shadow-[0_0_15px_rgba(0,230,118,0.3)]">
         </div>
 
         <div class="md:col-span-6 space-y-6">

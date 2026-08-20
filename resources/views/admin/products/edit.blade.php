@@ -73,9 +73,19 @@
 
             <div>
                 <label class="block text-xs font-bold text-gray-700 dark:text-slate-300 uppercase mb-2">Or Direct Image URL</label>
-                <input type="text" name="image_url_input" value="{{ old('image_url_input', $product->image_path) }}" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#0a0f0d] border border-gray-300 dark:border-[#1f2e24] text-gray-900 dark:text-white focus:border-emerald-500 dark:focus:border-[#00e676] outline-none text-sm">
+                <input type="text" name="image_url_input" value="{{ old('image_url_input', $product->image_path) }}" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-[#0a0f0d] border border-gray-300 dark:border-[#1f2e24] text-gray-900 dark:text-white focus:border-emerald-500 dark:focus:border-[#00e676] outline-none text-sm" placeholder="https://...">
             </div>
         </div>
+
+        @if($product->image_path)
+            <div class="flex items-center space-x-4 bg-gray-50 dark:bg-[#0a0f0d] p-4 rounded-xl border border-gray-200 dark:border-[#1f2e24]">
+                <img src="{{ $product->image_url }}" alt="Product Image Preview" referrerpolicy="no-referrer" class="w-20 h-20 object-contain rounded-lg border border-gray-300 dark:border-[#1f2e24] bg-black/40">
+                <div class="overflow-hidden">
+                    <span class="text-xs font-bold text-gray-900 dark:text-white block">Current Image Preview</span>
+                    <span class="text-[10px] text-gray-500 dark:text-slate-400 truncate block max-w-md">{{ $product->image_path }}</span>
+                </div>
+            </div>
+        @endif
 
         <!-- Cue & Accessory Specs Matrix -->
         <div class="border-t border-gray-200 dark:border-[#1f2e24] pt-6 space-y-4">

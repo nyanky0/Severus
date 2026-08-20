@@ -71,7 +71,7 @@
                      :class="currentTheme === 'venom' ? 'venom-glass-card' : 'reaper-glass-card'"
                      class="p-6 rounded-3xl space-y-4 reveal-on-scroll group" style="transition-delay: {{ $index * 60 }}ms">
                     <div class="relative overflow-hidden rounded-2xl bg-[#060506] p-4 flex items-center justify-center aspect-square">
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name_en }}" loading="lazy"
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name_en }}" loading="lazy" referrerpolicy="no-referrer"
                              class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105">
                         @if($product->is_featured)
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider"
@@ -148,7 +148,7 @@
                     <h3 class="text-2xl font-black text-white font-outfit uppercase" x-text="activeModalProduct.name_en"></h3>
 
                     <div class="h-64 rounded-2xl bg-[#060506] p-4 flex items-center justify-center border border-white/10">
-                        <img :src="activeModalProduct.image_path || 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80'" :alt="activeModalProduct.name_en" class="max-h-full max-w-full object-contain drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+                        <img :src="activeModalProduct.image_path || 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80'" :alt="activeModalProduct.name_en" referrerpolicy="no-referrer" class="max-h-full max-w-full object-contain drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4 text-xs">

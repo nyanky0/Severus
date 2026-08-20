@@ -86,7 +86,7 @@
                     @foreach($products as $product)
                         <tr class="hover:bg-gray-50 dark:hover:bg-[#121a15]/50 transition-colors">
                             <td class="p-4">
-                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="w-12 h-12 object-cover rounded-lg border border-gray-200 dark:border-[#1f2e24]">
+                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" referrerpolicy="no-referrer" class="w-12 h-12 object-cover rounded-lg border border-gray-200 dark:border-[#1f2e24]">
                             </td>
                             <td class="p-4">
                                 <div class="font-bold text-gray-900 dark:text-white text-sm">{{ $product->name_en }}</div>
