@@ -43,10 +43,13 @@
                     {{ __('app.nav.collection') }}
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                 </a>
+                {{-- [OPTIONAL NAV LINK] To re-enable Technology in navbar, remove the comment tags below: --}}
+                {{--
                 <a href="#technology" @click.prevent="$dispatch('scroll-to', 'technology')" class="transition-colors py-1 relative group cursor-pointer" :class="currentTheme === 'venom' ? 'hover:text-[#00E676]' : 'hover:text-[#E23B3B]'">
                     {{ __('app.nav.technology') }}
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                 </a>
+                --}}
             </nav>
 
             <!-- Right cluster: theme switch + hamburger -->
@@ -88,10 +91,13 @@
                 <span>{{ __('app.nav.collection') }}</span>
                 <svg class="w-4 h-4" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
+            {{-- [OPTIONAL MOBILE NAV LINK] To re-enable Technology in mobile menu, remove the comment tags below: --}}
+            {{--
             <a @click.prevent="mobileMenuOpen = false; $dispatch('scroll-to', 'technology')" href="#technology" class="py-3 min-h-[48px] px-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-between cursor-pointer">
                 <span>{{ __('app.nav.technology') }}</span>
                 <svg class="w-4 h-4" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
+            --}}
         </nav>
     </div>
 </header>
@@ -886,9 +892,13 @@
         </div>
     </section>
 
-    <!-- ===================================================== -->
-    <!-- 6. BIG TYPOGRAPHY + numbered spec cards -->
-    <!-- ===================================================== -->
+    {{-- 
+    ========================================================================================
+    [HIDDEN SECTION: 6. SPECIFICATIONS & CRAFTSMANSHIP (01-04 NUMBERED CARDS)]
+    To re-enable this section on the home page, simply remove the opening "{{--" and closing "--}}" tags.
+    ========================================================================================
+    --}}
+    {{--
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div class="text-center space-y-3 reveal-on-scroll">
             <span class="text-xs font-mono uppercase tracking-[0.25em] font-bold"
@@ -926,16 +936,16 @@
             </div>
         </div>
     </section>
+    --}}
 
 
-    <!-- ===================================================== -->
-    <!-- 5. INTERACTIVE PRODUCT CATALOG -->
-    <!-- ===================================================== -->
-
-
-    <!-- ===================================================== -->
-    <!-- 6. CUE TECHNOLOGY SPOTLIGHT -->
-    <!-- ===================================================== -->
+    {{-- 
+    ========================================================================================
+    [HIDDEN SECTION: 7. CUE TECHNOLOGY SPOTLIGHT (0.12mm DEFLECTION, 99.8% CHALK RETENTION)]
+    To re-enable this section on the home page, simply remove the opening "{{--" and closing "--}}" tags.
+    ========================================================================================
+    --}}
+    {{--
     <section id="technology" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div class="p-8 sm:p-12 rounded-3xl relative overflow-hidden reveal-on-scroll transition-all duration-500"
              :class="currentTheme === 'venom' ? 'venom-glass-card' : 'reaper-glass-card'">
@@ -979,10 +989,16 @@
             </div>
         </div>
     </section>
+    --}}
 
-    <!-- ===================================================== -->
-    <!-- 7. FINALE BANNER — Strike. Slither. Prevail. -->
-    <!-- ===================================================== -->
+
+    {{-- 
+    ========================================================================================
+    [HIDDEN SECTION: 8. FINALE BANNER — STRIKE WITH REAPER PRECISION]
+    To re-enable this section on the home page, simply remove the opening "{{--" and closing "--}}" tags.
+    ========================================================================================
+    --}}
+    {{--
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 reveal-on-scroll">
         <div class="relative py-16 px-6 rounded-3xl border overflow-hidden shadow-2xl transition-all duration-500"
              :class="currentTheme === 'venom' ? 'bg-gradient-to-r from-[#060907] via-[#0d1712] to-[#060907] border-[#00E676]/30' : 'bg-gradient-to-r from-[#0a0606] via-[#1a1418] to-[#0a0606] border-[#E23B3B]/30'">
@@ -1012,6 +1028,7 @@
             </div>
         </div>
     </section>
+    --}}
 
 
     <!-- ===================================================== -->
