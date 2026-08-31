@@ -394,9 +394,10 @@
         </div>
     </section>
 
-    <!-- ===================================================== -->
-    <!-- 3. ENGINEERING LAB — stat dials -->
-    <!-- ===================================================== -->
+    {{-- 
+    [HIDDEN SECTION: 3. ENGINEERING LAB — STAT DIALS (0.12mm LOW DEFLECTION, 99.8% CHALK RETENTION)]
+    To re-enable this section on the home page, remove the opening and closing comment tags of this block.
+
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="p-8 sm:p-12 rounded-3xl relative overflow-hidden reveal-on-scroll transition-all duration-500"
              :class="currentTheme === 'venom' ? 'venom-glass-card' : 'reaper-glass-card'">
@@ -447,6 +448,7 @@
             </div>
         </div>
     </section>
+    --}}
 
 
     <!-- ===================================================== -->

@@ -63,6 +63,65 @@ These are frosted liquid-glass overlay cards placed inside media containers (`as
 
 ---
 
+### D. `Engineering Lab Stats Matrix Modal`
+- **Component Identifier**: `engineering-lab-stats-modal`
+- **Location**: Between "Why Carbon" and "Shaft Guide"
+- **Code Blueprint**:
+```blade
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="p-8 sm:p-12 rounded-3xl relative overflow-hidden reveal-on-scroll transition-all duration-500"
+         :class="currentTheme === 'venom' ? 'venom-glass-card' : 'reaper-glass-card'">
+        <div class="absolute inset-0 pointer-events-none"
+             :class="currentTheme === 'venom' ? 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#00E676]/10 via-transparent to-transparent' : 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#E23B3B]/10 via-transparent to-transparent'"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div class="lg:col-span-4 space-y-4 text-left">
+                <div class="flex items-center space-x-2 text-xs font-mono text-slate-400 uppercase tracking-widest">
+                    <span class="w-2 h-2 rounded-full snake-breath" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
+                    <span>ENGINEERING LAB</span>
+                </div>
+                <h3 class="text-3xl sm:text-4xl font-black text-white font-outfit uppercase">VENOM CARBON SHAFTS</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Tested by world-class billiard professionals. Radial pin joint precision and hydrophobic chalk retention matrix.
+                </p>
+            </div>
+
+            <div class="lg:col-span-8 flex flex-wrap items-center justify-around gap-6 pt-4 lg:pt-0">
+                <div class="flex flex-col items-center justify-center p-6 rounded-3xl bg-[#060506]/80 border shadow-xl min-w-[140px] transform hover:scale-105 transition-all"
+                     :class="currentTheme === 'venom' ? 'border-[#00E676]/30' : 'border-[#E23B3B]/30'">
+                    <span class="text-xs font-mono text-slate-400 uppercase block mb-1">ACCURACY</span>
+                    <span class="text-3xl font-black font-outfit" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">0.12mm</span>
+                    <span class="text-[10px] text-slate-500 mt-1">LOW DEFLECTION</span>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-6 rounded-3xl shadow-2xl min-w-[140px] transform hover:scale-105 transition-all"
+                     :class="currentTheme === 'venom' ? 'bg-[#00E676] text-black shadow-[0_0_30px_rgba(0,230,118,0.5)]' : 'bg-[#E23B3B] text-white shadow-[0_0_30px_rgba(226,59,59,0.5)]'">
+                    <span class="text-xs font-mono font-bold uppercase block mb-1">RETENTION</span>
+                    <span class="text-3xl font-black font-outfit">99.8%</span>
+                    <span class="text-[10px] font-extrabold uppercase mt-1">CHALK FRICTION</span>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-6 rounded-3xl bg-[#060506]/80 border shadow-xl min-w-[140px] transform hover:scale-105 transition-all"
+                     :class="currentTheme === 'venom' ? 'border-[#00E676]/30' : 'border-[#E23B3B]/30'">
+                    <span class="text-xs font-mono text-slate-400 uppercase block mb-1">JOINT PIN</span>
+                    <span class="text-2xl font-black text-white font-outfit">UNI-LOC</span>
+                    <span class="text-[10px] text-slate-500 mt-1">RADIAL BRASS</span>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-6 rounded-3xl bg-[#060506]/80 border shadow-xl min-w-[140px] transform hover:scale-105 transition-all"
+                     :class="currentTheme === 'venom' ? 'border-[#00E676]/30' : 'border-[#E23B3B]/30'">
+                    <span class="text-xs font-mono text-slate-400 uppercase block mb-1">FLAGSHIP</span>
+                    <span class="text-2xl font-black font-outfit" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">Rp 2.95M</span>
+                    <span class="text-[10px] text-slate-500 mt-1">REAPER V2 PRO</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+---
+
 ## 2. Typography System
 
 | Name | Source | CSS Class | Primary Usage |
@@ -99,4 +158,5 @@ To restore or reuse any overlay modal or design preset, simply mention:
 - *"Add Brand Manifesto Modal"*
 - *"Add Precision Assembly Modal"*
 - *"Add Play Shaft Specs Modal"*
+- *"Add Engineering Lab Stats Matrix Modal"*
 - *"Apply Boska font"*
