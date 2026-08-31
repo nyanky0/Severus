@@ -461,8 +461,8 @@
                 <span>SEVERUS CARBON SHAFT LINEUP</span>
             </div>
 
-            <!-- Gothic/Decorative Title with high readability -->
-            <h2 class="font-gothic font-black text-4xl sm:text-6xl lg:text-7xl text-white tracking-[0.15em] uppercase drop-shadow-[0_0_25px_rgba(226,59,59,0.4)]">
+            <!-- Boska Display Title -->
+            <h2 class="font-boska font-black text-5xl sm:text-7xl lg:text-8xl text-white tracking-[0.12em] uppercase drop-shadow-[0_0_25px_rgba(226,59,59,0.4)]">
                 SHAFT GUIDE
             </h2>
 
@@ -611,7 +611,7 @@
                     <!-- Title & Badge -->
                     <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
                         <div class="flex items-center space-x-3">
-                            <h3 class="text-3xl sm:text-4xl font-black font-gothic tracking-widest text-white drop-shadow-[0_0_15px_rgba(226,59,59,0.5)]">
+                            <h3 class="text-3xl sm:text-4xl font-black font-boska tracking-widest text-white drop-shadow-[0_0_15px_rgba(226,59,59,0.5)]">
                                 REAPER
                             </h3>
                             <!-- Grim Reaper Silhouette SVG Icon matching the poster -->

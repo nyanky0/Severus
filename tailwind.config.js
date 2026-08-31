@@ -26,7 +26,8 @@ export default {
             fontFamily: {
                 sans: ['Outfit', 'Inter', ...defaultTheme.fontFamily.sans],
                 cinzel: ['Cinzel', 'serif'],
-                gothic: ['Cinzel Decorative', 'Cinzel', 'serif'],
+                boska: ['Boska', 'serif'],
+                gothic: ['Boska', 'Cinzel Decorative', 'Cinzel', 'serif'],
             },
         },
     },

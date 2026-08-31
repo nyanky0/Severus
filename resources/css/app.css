@@ -37,8 +37,10 @@
 
     /* Serif display (reaper necromantic luxury) */
     --font-display: 'Cinzel', 'Outfit', serif;
+    /* Boska display (luxury serif) */
+    --font-boska: 'Boska', 'Cinzel', serif;
     /* Gothic / Blackletter display (reaper calligraphy) */
-    --font-gothic: 'Cinzel Decorative', 'Cinzel', serif;
+    --font-gothic: 'Boska', 'Cinzel Decorative', 'Cinzel', serif;
     /* Geometric display (venom industrial) */
     --font-outfit: 'Outfit', 'Inter', sans-serif;
     --font-sans: 'Inter', system-ui, sans-serif;
@@ -485,8 +487,12 @@
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
   }
 
+  .font-boska {
+    font-family: 'Boska', 'Cinzel', serif;
+  }
+
   .font-gothic {
-    font-family: 'UnifrakturMaguntia', 'Pirata One', 'Cinzel', serif;
+    font-family: 'Boska', 'Cinzel Decorative', 'Cinzel', serif;
   }
 
   .font-cinzel {

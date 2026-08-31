@@ -10,10 +10,11 @@
     <title>@yield('title', config('app.name', 'Severus Cues')) — Reaper Edition</title>
     <meta name="description" content="Severus Cues — Premium Billiard Cues, High-Friction Venom Chalk & Accessories. Official Tokopedia, Shopee & Instagram Partner.">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts & Fontshare Boska -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700;900&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900,201,301,401,501,701,901&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS & Vite CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +44,8 @@
                         sans: ['Inter', 'sans-serif'],
                         outfit: ['Outfit', 'sans-serif'],
                         cinzel: ['Cinzel', 'serif'],
-                        gothic: ['Cinzel Decorative', 'Cinzel', 'serif'],
+                        boska: ['Boska', 'serif'],
+                        gothic: ['Boska', 'Cinzel Decorative', 'Cinzel', 'serif'],
                         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
                     }
                 }
