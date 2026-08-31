@@ -457,9 +457,9 @@
                 <span>SEVERUS CARBON SHAFT LINEUP</span>
             </div>
 
-            <!-- Gothic Title matching the poster -->
-            <h2 class="font-gothic text-5xl sm:text-7xl lg:text-8xl text-white tracking-wide uppercase drop-shadow-[0_0_35px_rgba(226,59,59,0.4)]">
-                Shaft Guide
+            <!-- Gothic/Decorative Title with high readability -->
+            <h2 class="font-gothic font-black text-4xl sm:text-6xl lg:text-7xl text-white tracking-[0.15em] uppercase drop-shadow-[0_0_25px_rgba(226,59,59,0.4)]">
+                SHAFT GUIDE
             </h2>
 
             <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
