@@ -282,19 +282,22 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <!-- Left visual: carbon vs wood concept -->
             <div class="lg:col-span-5 relative">
-                <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#1a1418] via-[#120e11] to-[#080608] border border-white/10 p-8 flex items-center justify-center relative overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-[2px] h-3/4 bg-gradient-to-b from-transparent via-[#E23B3B]/40 to-transparent rotate-12"></div>
+                <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#1a1418] via-[#120e11] to-[#080608] border p-8 flex items-center justify-center relative overflow-hidden transition-all duration-500 hover:-translate-y-2 group cursor-default shadow-2xl"
+                     :class="currentTheme === 'venom' ? 'border-white/10 hover:border-[#00E676]/60 hover:shadow-[0_0_40px_rgba(0,230,118,0.25)]' : 'border-white/10 hover:border-[#E23B3B]/60 hover:shadow-[0_0_40px_rgba(226,59,59,0.3)]'">
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="w-[2px] h-3/4 bg-gradient-to-b from-transparent via-[#E23B3B]/40 to-transparent rotate-12 group-hover:rotate-45 group-hover:scale-110 transition-all duration-700"
+                             :class="currentTheme === 'venom' ? 'via-[#00E676]/40' : 'via-[#E23B3B]/40'"></div>
                     </div>
-                    <div class="relative z-10 text-center space-y-6">
+                    <div class="relative z-10 text-center space-y-6 group-hover:scale-105 transition-transform duration-500">
                         <div class="space-y-1">
-                            <span class="text-4xl font-black text-white font-outfit block">CARBON</span>
-                            <span class="text-3xl font-black text-[#E23B3B] font-outfit block">&gt;</span>
-                            <span class="text-4xl font-black text-slate-500 font-outfit block">WOOD</span>
+                            <span class="text-4xl sm:text-5xl font-black text-white font-outfit block tracking-wider">CARBON</span>
+                            <span class="text-3xl sm:text-4xl font-black font-outfit block transition-all duration-300 group-hover:scale-125"
+                                  :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">&gt;</span>
+                            <span class="text-4xl sm:text-5xl font-black text-slate-500 font-outfit block tracking-wider group-hover:text-slate-400 transition-colors">WOOD</span>
                         </div>
-                        <div class="flex items-center justify-center space-x-4 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                            <span>Modern Tech</span>
-                            <span class="w-2 h-2 rounded-full bg-[#E23B3B]"></span>
+                        <div class="flex items-center justify-center space-x-4 text-[10px] font-mono text-slate-400 uppercase tracking-widest">
+                            <span class="font-bold text-white">Modern Tech</span>
+                            <span class="w-2 h-2 rounded-full animate-ping" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                             <span>Traditional</span>
                         </div>
                     </div>
@@ -303,76 +306,92 @@
 
             <!-- Right: benefits list -->
             <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border text-xs font-extrabold uppercase tracking-wider bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E]">
-                    <span class="w-2 h-2 rounded-full bg-[#E23B3B]"></span>
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border text-xs font-extrabold uppercase tracking-wider transition-all"
+                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E]'">
+                    <span class="w-2 h-2 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                     <span>Carbon vs. Wood Analysis</span>
                 </div>
 
                 <h2 class="text-3xl sm:text-5xl font-black text-white font-cinzel uppercase tracking-tight">
-                    WHY CARBON <span class="text-glow-reaper">DOMINATES</span>
+                    WHY CARBON <span :class="currentTheme === 'venom' ? 'text-glow-venom' : 'text-glow-reaper'">DOMINATES</span>
                 </h2>
 
-                <div class="space-y-4">
-
-
-
-                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
-                            <span class="text-sm font-black text-[#E23B3B]">1</span>
+                <div class="space-y-3.5">
+                    <!-- Item 1 -->
+                    <div class="flex items-start space-x-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] group cursor-default shadow-lg"
+                         :class="currentTheme === 'venom' ? 'border-white/[0.08] hover:border-[#00E676]/50 hover:shadow-[0_8px_25px_-5px_rgba(0,230,118,0.25)]' : 'border-white/[0.08] hover:border-[#E23B3B]/50 hover:shadow-[0_8px_25px_-5px_rgba(226,59,59,0.3)]'">
+                        <div class="w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md"
+                             :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676] group-hover:bg-[#00E676] group-hover:text-black group-hover:shadow-[0_0_15px_rgba(0,230,118,0.6)]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E] group-hover:bg-[#E23B3B] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(226,59,59,0.6)]'">
+                            <span class="text-sm font-black font-mono">1</span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-white uppercase">Lightweight</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed">Carbon fiber shafts are significantly lighter than wood, reducing arm fatigue during long sessions and allowing faster cue ball control.</p>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-white transition-colors">Lightweight</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed pt-0.5">Carbon fiber shafts are significantly lighter than wood, reducing arm fatigue during long sessions and allowing faster cue ball control.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
-                            <span class="text-sm font-black text-[#E23B3B]">2</span>
+                    <!-- Item 2 -->
+                    <div class="flex items-start space-x-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] group cursor-default shadow-lg"
+                         :class="currentTheme === 'venom' ? 'border-white/[0.08] hover:border-[#00E676]/50 hover:shadow-[0_8px_25px_-5px_rgba(0,230,118,0.25)]' : 'border-white/[0.08] hover:border-[#E23B3B]/50 hover:shadow-[0_8px_25px_-5px_rgba(226,59,59,0.3)]'">
+                        <div class="w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md"
+                             :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676] group-hover:bg-[#00E676] group-hover:text-black group-hover:shadow-[0_0_15px_rgba(0,230,118,0.6)]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E] group-hover:bg-[#E23B3B] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(226,59,59,0.6)]'">
+                            <span class="text-sm font-black font-mono">2</span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-white uppercase">More Durable</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed">Less prone to warping, damage, or bending over time. Wood shafts warp with humidity and temperature changes — carbon stays true forever.</p>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-white transition-colors">More Durable</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed pt-0.5">Less prone to warping, damage, or bending over time. Wood shafts warp with humidity and temperature changes — carbon stays true forever.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
-                            <span class="text-sm font-black text-[#E23B3B]">3</span>
+                    <!-- Item 3 -->
+                    <div class="flex items-start space-x-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] group cursor-default shadow-lg"
+                         :class="currentTheme === 'venom' ? 'border-white/[0.08] hover:border-[#00E676]/50 hover:shadow-[0_8px_25px_-5px_rgba(0,230,118,0.25)]' : 'border-white/[0.08] hover:border-[#E23B3B]/50 hover:shadow-[0_8px_25px_-5px_rgba(226,59,59,0.3)]'">
+                        <div class="w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md"
+                             :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676] group-hover:bg-[#00E676] group-hover:text-black group-hover:shadow-[0_0_15px_rgba(0,230,118,0.6)]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E] group-hover:bg-[#E23B3B] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(226,59,59,0.6)]'">
+                            <span class="text-sm font-black font-mono">3</span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-white uppercase">Harder to Bend or Damage</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed">Perfect for intense players. Carbon's molecular structure resists impact stress that would crack or splinter a wood shaft.</p>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-white transition-colors">Harder to Bend or Damage</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed pt-0.5">Perfect for intense players. Carbon's molecular structure resists impact stress that would crack or splinter a wood shaft.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
-                            <span class="text-sm font-black text-[#E23B3B]">4</span>
+                    <!-- Item 4 -->
+                    <div class="flex items-start space-x-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] group cursor-default shadow-lg"
+                         :class="currentTheme === 'venom' ? 'border-white/[0.08] hover:border-[#00E676]/50 hover:shadow-[0_8px_25px_-5px_rgba(0,230,118,0.25)]' : 'border-white/[0.08] hover:border-[#E23B3B]/50 hover:shadow-[0_8px_25px_-5px_rgba(226,59,59,0.3)]'">
+                        <div class="w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md"
+                             :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676] group-hover:bg-[#00E676] group-hover:text-black group-hover:shadow-[0_0_15px_rgba(0,230,118,0.6)]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E] group-hover:bg-[#E23B3B] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(226,59,59,0.6)]'">
+                            <span class="text-sm font-black font-mono">4</span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-white uppercase">Smoother Feel</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed">Frosted satin finish that's pleasant to the touch. Easy to maintain — a quick wipe down keeps it looking and feeling good as new.</p>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-white transition-colors">Smoother Feel</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed pt-0.5">Frosted satin finish that's pleasant to the touch. Easy to maintain — a quick wipe down keeps it looking and feeling good as new.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
-                            <span class="text-sm font-black text-[#E23B3B]">5</span>
+                    <!-- Item 5 -->
+                    <div class="flex items-start space-x-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] group cursor-default shadow-lg"
+                         :class="currentTheme === 'venom' ? 'border-white/[0.08] hover:border-[#00E676]/50 hover:shadow-[0_8px_25px_-5px_rgba(0,230,118,0.25)]' : 'border-white/[0.08] hover:border-[#E23B3B]/50 hover:shadow-[0_8px_25px_-5px_rgba(226,59,59,0.3)]'">
+                        <div class="w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md"
+                             :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676] group-hover:bg-[#00E676] group-hover:text-black group-hover:shadow-[0_0_15px_rgba(0,230,118,0.6)]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E] group-hover:bg-[#E23B3B] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(226,59,59,0.6)]'">
+                            <span class="text-sm font-black font-mono">5</span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-white uppercase">Temperature Resistant</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed">Can withstand extreme temperatures without warping or losing structural integrity. Wood swells, contracts, and cracks.</p>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-white transition-colors">Temperature Resistant</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed pt-0.5">Can withstand extreme temperatures without warping or losing structural integrity. Wood swells, contracts, and cracks.</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
-                        <div class="w-10 h-10 rounded-xl bg-[#E23B3B]/15 border border-[#E23B3B]/30 flex items-center justify-center shrink-0">
-                            <span class="text-sm font-black text-[#E23B3B]">6</span>
+                    <!-- Item 6 -->
+                    <div class="flex items-start space-x-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] group cursor-default shadow-lg"
+                         :class="currentTheme === 'venom' ? 'border-white/[0.08] hover:border-[#00E676]/50 hover:shadow-[0_8px_25px_-5px_rgba(0,230,118,0.25)]' : 'border-white/[0.08] hover:border-[#E23B3B]/50 hover:shadow-[0_8px_25px_-5px_rgba(226,59,59,0.3)]'">
+                        <div class="w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md"
+                             :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676] group-hover:bg-[#00E676] group-hover:text-black group-hover:shadow-[0_0_15px_rgba(0,230,118,0.6)]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E] group-hover:bg-[#E23B3B] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(226,59,59,0.6)]'">
+                            <span class="text-sm font-black font-mono">6</span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-bold text-white uppercase">Consistent Straightness</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed">Carbon's stronger physical structure maintains consistent straightness in the long run. No gradual warping that plagues traditional wood shafts.</p>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wide group-hover:text-white transition-colors">Consistent Straightness</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed pt-0.5">Carbon's stronger physical structure maintains consistent straightness in the long run. No gradual warping that plagues traditional wood shafts.</p>
                         </div>
                     </div>
                 </div>
@@ -463,39 +482,39 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
 
             <!-- Card 1: SEVERUS I -->
-            <div class="p-8 sm:p-10 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border flex flex-col justify-between group"
+            <div class="p-8 sm:p-10 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border flex flex-col justify-between group hover:-translate-y-2 cursor-default"
                  :class="currentTheme === 'venom' 
-                    ? 'bg-gradient-to-b from-[#0a140f] to-[#060a08] border-[#00E676]/30 hover:border-[#00E676]/60 shadow-[0_0_30px_rgba(0,230,118,0.15)]' 
-                    : 'bg-gradient-to-b from-[#140b0e] to-[#080506] border-[#E23B3B]/30 hover:border-[#E23B3B]/60 shadow-[0_0_30px_rgba(226,59,59,0.15)]'">
+                    ? 'bg-gradient-to-b from-[#0a140f] to-[#060a08] border-[#00E676]/30 hover:border-[#00E676]/70 shadow-[0_0_30px_rgba(0,230,118,0.15)] hover:shadow-[0_15px_45px_rgba(0,230,118,0.25)]' 
+                    : 'bg-gradient-to-b from-[#140b0e] to-[#080506] border-[#E23B3B]/30 hover:border-[#E23B3B]/70 shadow-[0_0_30px_rgba(226,59,59,0.15)] hover:shadow-[0_15px_45px_rgba(226,59,59,0.25)]'">
                 
                 <!-- Atmospheric glow -->
-                <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[90px] pointer-events-none opacity-40 transition-all"
-                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/20' : 'bg-[#E23B3B]/20'"></div>
+                <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[90px] pointer-events-none opacity-40 group-hover:opacity-70 transition-all duration-500"
+                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/20 group-hover:bg-[#00E676]/35' : 'bg-[#E23B3B]/20 group-hover:bg-[#E23B3B]/35'"></div>
 
                 <div class="space-y-8 relative z-10">
                     <!-- Title & Badge -->
                     <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
                         <div>
                             <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block mb-1">PRO CARBON SHAFT</span>
-                            <h3 class="text-3xl sm:text-4xl font-black text-white font-cinzel tracking-wider">
+                            <h3 class="text-3xl sm:text-4xl font-black text-white font-cinzel tracking-wider group-hover:text-white transition-colors">
                                 SEVERUS I
                             </h3>
                         </div>
-                        <span class="px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-white/5 border border-white/15 text-slate-200">
+                        <span class="px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-white/5 border border-white/15 text-slate-200 transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/30">
                             Hybrid Pro Taper
                         </span>
                     </div>
 
                     <!-- Taper Visualizer Diagram (Interactive SVG) -->
-                    <div class="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4">
+                    <div class="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4 transition-all duration-300 hover:border-white/25 hover:bg-black/80 group/taper shadow-inner">
                         <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 uppercase">
                             <span>Taper Profile</span>
-                            <span class="font-bold text-white">Hybrid Pro Taper</span>
+                            <span class="font-bold text-white group-hover/taper:text-[#00E676] transition-colors">Hybrid Pro Taper</span>
                         </div>
 
                         <!-- SVG Shaft Outline -->
                         <div class="w-full py-3 flex items-center justify-center">
-                            <svg class="w-full max-w-[420px] h-20" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-full max-w-[420px] h-20 transform group-hover/taper:scale-[1.02] transition-transform duration-300" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Background grid marks -->
                                 <line x1="20" y1="40" x2="380" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" stroke-width="1"/>
                                 
@@ -529,7 +548,7 @@
                         </div>
 
                         <div class="text-center">
-                            <span class="text-xs font-mono font-black uppercase tracking-[0.2em]" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                            <span class="text-xs font-mono font-black uppercase tracking-[0.2em] transition-colors" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
                                 HYBRID PRO TAPER &bull; 12.4MM / 11.8MM
                             </span>
                         </div>
@@ -541,15 +560,15 @@
                         <div class="space-y-3">
                             <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">Specifications</h4>
                             <ul class="space-y-2 text-xs text-slate-200">
-                                <li class="flex items-center space-x-2.5">
+                                <li class="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1.5 cursor-default">
                                     <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
                                     <span class="font-bold">STANDARD BLACK TIP (S)</span>
                                 </li>
-                                <li class="flex items-center space-x-2.5">
+                                <li class="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1.5 cursor-default">
                                     <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
                                     <span class="font-bold">BAKELITE FERRULE BLACK</span>
                                 </li>
-                                <li class="flex items-center space-x-2.5">
+                                <li class="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1.5 cursor-default">
                                     <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
                                     <span class="font-bold">29 INCH LENGTH</span>
                                 </li>
@@ -562,13 +581,16 @@
                                 Compatible Joints
                             </h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-white/15 cursor-pointer shadow-sm"
+                                      :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/60 hover:text-[#00E676] hover:shadow-[0_0_15px_rgba(0,230,118,0.3)]' : 'hover:border-[#E23B3B]/60 hover:text-[#FF4D5E] hover:shadow-[0_0_15px_rgba(226,59,59,0.35)]'">
                                     UNILOCK
                                 </span>
-                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-white/15 cursor-pointer shadow-sm"
+                                      :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/60 hover:text-[#00E676] hover:shadow-[0_0_15px_rgba(0,230,118,0.3)]' : 'hover:border-[#E23B3B]/60 hover:text-[#FF4D5E] hover:shadow-[0_0_15px_rgba(226,59,59,0.35)]'">
                                     RADIAL 3/8X8
                                 </span>
-                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-white/15 cursor-pointer shadow-sm"
+                                      :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/60 hover:text-[#00E676] hover:shadow-[0_0_15px_rgba(0,230,118,0.3)]' : 'hover:border-[#E23B3B]/60 hover:text-[#FF4D5E] hover:shadow-[0_0_15px_rgba(226,59,59,0.35)]'">
                                     5/16X18
                                 </span>
                             </div>
@@ -586,38 +608,38 @@
 
 
             <!-- Card 2: REAPER (Flagship Edition) -->
-            <div class="p-8 sm:p-10 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border flex flex-col justify-between group"
+            <div class="p-8 sm:p-10 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border flex flex-col justify-between group hover:-translate-y-2 cursor-default"
                  :class="currentTheme === 'venom'
-                    ? 'bg-gradient-to-b from-[#0a1811] via-[#08100c] to-[#050806] border-[#00E676]/40 hover:border-[#00E676]/80 shadow-[0_0_40px_rgba(0,230,118,0.25)]'
-                    : 'bg-gradient-to-b from-[#1f0d11] via-[#12080a] to-[#080405] border-[#E23B3B]/40 hover:border-[#E23B3B]/80 shadow-[0_0_40px_rgba(226,59,59,0.25)]'">
+                    ? 'bg-gradient-to-b from-[#0a1811] via-[#08100c] to-[#050806] border-[#00E676]/40 hover:border-[#00E676]/80 shadow-[0_0_40px_rgba(0,230,118,0.25)] hover:shadow-[0_15px_50px_rgba(0,230,118,0.35)]'
+                    : 'bg-gradient-to-b from-[#1f0d11] via-[#12080a] to-[#080405] border-[#E23B3B]/40 hover:border-[#E23B3B]/80 shadow-[0_0_40px_rgba(226,59,59,0.25)] hover:shadow-[0_15px_50px_rgba(226,59,59,0.35)]'">
                 
                 <!-- Red / Crimson atmospheric smoke glow -->
-                <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full blur-[100px] pointer-events-none opacity-60 transition-all animate-pulse"
-                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/25' : 'bg-[#E23B3B]/30'"></div>
+                <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full blur-[100px] pointer-events-none opacity-60 group-hover:opacity-90 transition-all duration-500"
+                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/25 group-hover:bg-[#00E676]/40' : 'bg-[#E23B3B]/30 group-hover:bg-[#E23B3B]/45'"></div>
 
                 <div class="space-y-8 relative z-10">
                     <!-- Title & Badge -->
                     <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
                         <div class="flex items-center space-x-3">
-                            <h3 class="text-3xl sm:text-4xl font-black font-boska tracking-wide text-white drop-shadow-[0_0_15px_rgba(226,59,59,0.5)]">
+                            <h3 class="text-3xl sm:text-4xl font-black font-boska tracking-wide text-white drop-shadow-[0_0_15px_rgba(226,59,59,0.5)] group-hover:scale-105 transition-transform duration-300">
                                 Reaper
                             </h3>
                             <!-- Grim Reaper Silhouette SVG Icon matching the poster -->
-                            <div class="w-10 h-10 rounded-full flex items-center justify-center p-1"
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center p-1 transition-transform duration-300 group-hover:rotate-12"
                                  :class="currentTheme === 'venom' ? 'bg-[#00E676]/20 text-[#00E676]' : 'bg-[#E23B3B]/20 text-[#E23B3B]'">
                                 <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2C7.5 2 4.5 5.5 4.5 10c0 3.2 1.8 6 4.5 7.5V22l3-2 3 2v-4.5c2.7-1.5 4.5-4.3 4.5-7.5 0-4.5-3-8-7.5-8zm0 2.5c3.2 0 5.2 2.7 5.2 5.5 0 2.8-2 5.2-5.2 5.2s-5.2-2.4-5.2-5.2c0-2.8 2-5.5 5.2-5.5zm7 2l3.5-3.5-1.4-1.4L18 4.2V2h-2v3.8l-1.5 1.5 1.4 1.4L17.5 7v13h2V6.5z"/>
                                 </svg>
                             </div>
                         </div>
-                        <span class="px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider font-mono shadow-[0_0_15px_rgba(226,59,59,0.4)]"
-                              :class="currentTheme === 'venom' ? 'bg-[#00E676] text-black' : 'bg-[#E23B3B] text-white'">
+                        <span class="px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider font-mono shadow-[0_0_15px_rgba(226,59,59,0.4)] transition-all duration-300 group-hover:scale-105"
+                              :class="currentTheme === 'venom' ? 'bg-[#00E676] text-black shadow-[0_0_20px_rgba(0,230,118,0.6)]' : 'bg-[#E23B3B] text-white shadow-[0_0_20px_rgba(226,59,59,0.6)]'">
                             True Pro Taper
                         </span>
                     </div>
 
                     <!-- Taper Visualizer Diagram (Interactive SVG) -->
-                    <div class="p-6 rounded-2xl bg-black/70 border border-white/15 space-y-4">
+                    <div class="p-6 rounded-2xl bg-black/70 border border-white/15 space-y-4 transition-all duration-300 hover:border-white/30 hover:bg-black/90 group/taper shadow-inner">
                         <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 uppercase">
                             <span>Taper Profile</span>
                             <span class="font-bold" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">True Pro Taper (Stepped)</span>
@@ -625,7 +647,7 @@
 
                         <!-- SVG Shaft Outline -->
                         <div class="w-full py-3 flex items-center justify-center">
-                            <svg class="w-full max-w-[420px] h-20" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-full max-w-[420px] h-20 transform group-hover/taper:scale-[1.02] transition-transform duration-300" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Background grid marks -->
                                 <line x1="20" y1="40" x2="380" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" stroke-width="1"/>
                                 
@@ -673,19 +695,19 @@
                         <div class="space-y-3">
                             <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">Specifications</h4>
                             <ul class="space-y-2 text-xs text-slate-200">
-                                <li class="flex items-center space-x-2.5">
+                                <li class="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1.5 cursor-default">
                                     <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                                     <span class="font-bold">SEVERUS PREMIUM CLEAR TIP (S)</span>
                                 </li>
-                                <li class="flex items-center space-x-2.5">
+                                <li class="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1.5 cursor-default">
                                     <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                                     <span class="font-bold">JUMA FERRULE WHITE</span>
                                 </li>
-                                <li class="flex items-center space-x-2.5">
+                                <li class="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1.5 cursor-default">
                                     <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                                     <span class="font-bold">SUPER LOW DEFLECTION</span>
                                 </li>
-                                <li class="flex items-center space-x-2.5">
+                                <li class="flex items-center space-x-2.5 transition-transform duration-200 hover:translate-x-1.5 cursor-default">
                                     <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                                     <span class="font-bold">30 INCH LENGTH</span>
                                 </li>
@@ -698,13 +720,16 @@
                                 Compatible Joints
                             </h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-white/15 cursor-pointer shadow-sm"
+                                      :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/60 hover:text-[#00E676] hover:shadow-[0_0_15px_rgba(0,230,118,0.3)]' : 'hover:border-[#E23B3B]/60 hover:text-[#FF4D5E] hover:shadow-[0_0_15px_rgba(226,59,59,0.35)]'">
                                     UNILOCK
                                 </span>
-                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-white/15 cursor-pointer shadow-sm"
+                                      :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/60 hover:text-[#00E676] hover:shadow-[0_0_15px_rgba(0,230,118,0.3)]' : 'hover:border-[#E23B3B]/60 hover:text-[#FF4D5E] hover:shadow-[0_0_15px_rgba(226,59,59,0.35)]'">
                                     RADIAL 3/8X8
                                 </span>
-                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white transition-all duration-300 hover:scale-105 hover:bg-white/15 cursor-pointer shadow-sm"
+                                      :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/60 hover:text-[#00E676] hover:shadow-[0_0_15px_rgba(0,230,118,0.3)]' : 'hover:border-[#E23B3B]/60 hover:text-[#FF4D5E] hover:shadow-[0_0_15px_rgba(226,59,59,0.35)]'">
                                     WAVY
                                 </span>
                             </div>
@@ -723,21 +748,21 @@
         </div>
 
         <!-- Play Shaft Spotlight Banner with Cleaned Image & Rich Typography -->
-        <div class="p-8 sm:p-12 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border"
+        <div class="p-8 sm:p-12 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border group hover:-translate-y-1.5 cursor-default"
              :class="currentTheme === 'venom' 
-                ? 'bg-gradient-to-br from-[#0a1811] via-[#0d1f16] to-[#060a08] border-[#00E676]/30 shadow-[0_0_40px_rgba(0,230,118,0.15)]' 
-                : 'bg-gradient-to-br from-[#1c0d12] via-[#14080b] to-[#080405] border-[#E23B3B]/30 shadow-[0_0_40px_rgba(226,59,59,0.2)]'">
+                ? 'bg-gradient-to-br from-[#0a1811] via-[#0d1f16] to-[#060a08] border-[#00E676]/30 hover:border-[#00E676]/70 shadow-[0_0_40px_rgba(0,230,118,0.15)] hover:shadow-[0_0_60px_rgba(0,230,118,0.3)]' 
+                : 'bg-gradient-to-br from-[#1c0d12] via-[#14080b] to-[#080405] border-[#E23B3B]/30 hover:border-[#E23B3B]/70 shadow-[0_0_40px_rgba(226,59,59,0.2)] hover:shadow-[0_0_60px_rgba(226,59,59,0.35)]'">
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
                 <!-- Left: Text & Captions (Clean, high-legibility HTML text) -->
                 <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border text-[11px] font-extrabold uppercase tracking-wider"
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border text-[11px] font-extrabold uppercase tracking-wider transition-all"
                          :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E]'">
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                         <span>AUTHENTIC SOLID CARBON FIBER</span>
                     </div>
 
-                    <h3 class="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-wider uppercase">
+                    <h3 class="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-wider uppercase group-hover:scale-[1.01] transition-transform duration-300">
                         PLAY SHAFT
                     </h3>
 
@@ -747,11 +772,13 @@
 
                     <!-- Feature pills -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        <div class="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-1">
+                        <div class="p-4.5 rounded-2xl bg-black/50 border border-white/10 space-y-1 transition-all duration-300 hover:-translate-y-1 hover:bg-black/80 hover:border-white/30 cursor-default shadow-lg"
+                             :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/50 hover:shadow-[0_4px_20px_rgba(0,230,118,0.2)]' : 'hover:border-[#E23B3B]/50 hover:shadow-[0_4px_20px_rgba(226,59,59,0.25)]'">
                             <span class="text-xs font-mono font-bold text-white uppercase block">Free Accessories</span>
                             <p class="text-xs text-slate-400">Includes protective cue sleeve & matching joint protector.</p>
                         </div>
-                        <div class="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-1">
+                        <div class="p-4.5 rounded-2xl bg-black/50 border border-white/10 space-y-1 transition-all duration-300 hover:-translate-y-1 hover:bg-black/80 hover:border-white/30 cursor-default shadow-lg"
+                             :class="currentTheme === 'venom' ? 'hover:border-[#00E676]/50 hover:shadow-[0_4px_20px_rgba(0,230,118,0.2)]' : 'hover:border-[#E23B3B]/50 hover:shadow-[0_4px_20px_rgba(226,59,59,0.25)]'">
                             <span class="text-xs font-mono font-bold uppercase block" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">100% Solid Carbon</span>
                             <p class="text-xs text-slate-400">Authentic multi-axial weave, not surface coating.</p>
                         </div>
@@ -759,7 +786,7 @@
 
                     <div class="pt-2 flex flex-wrap gap-4">
                         <a href="{{ route('products.index') }}" 
-                           class="px-7 py-3.5 rounded-2xl font-black text-xs uppercase tracking-wider transition-all min-h-[48px] flex items-center justify-center cursor-pointer"
+                           class="px-7 py-3.5 rounded-2xl font-black text-xs uppercase tracking-wider transition-all min-h-[48px] flex items-center justify-center cursor-pointer shadow-lg"
                            :class="currentTheme === 'venom' ? 'btn-venom' : 'btn-reaper'">
                             Explore All Shafts
                         </a>
