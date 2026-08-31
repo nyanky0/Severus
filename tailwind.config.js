@@ -25,6 +25,8 @@ export default {
             },
             fontFamily: {
                 sans: ['Outfit', 'Inter', ...defaultTheme.fontFamily.sans],
+                cinzel: ['Cinzel', 'serif'],
+                gothic: ['UnifrakturMaguntia', 'Pirata One', 'Cinzel', 'serif'],
             },
         },
     },

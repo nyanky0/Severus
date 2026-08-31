@@ -6,6 +6,7 @@ return [
     'nav' => [
         'home' => 'Beranda',
         'why_carbon' => 'Mengapa Karbon?',
+        'shaft_guide' => 'Panduan Shaft',
         'collection' => 'Koleksi',
         'tokopedia_store' => 'Toko Tokopedia',
         'technology' => 'Teknologi Viper',

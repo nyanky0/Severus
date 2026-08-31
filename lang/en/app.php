@@ -6,6 +6,7 @@ return [
     'nav' => [
         'home' => 'Home',
         'why_carbon' => 'Why Carbon?',
+        'shaft_guide' => 'Shaft Guide',
         'collection' => 'Collection',
         'tokopedia_store' => 'Tokopedia Store',
         'technology' => 'Viper Tech',

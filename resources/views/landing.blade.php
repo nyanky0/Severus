@@ -35,6 +35,10 @@
                     {{ __('app.nav.why_carbon') }}
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
                 </a>
+                <a href="#shaft-guide" @click.prevent="$dispatch('scroll-to', 'shaft-guide')" class="transition-colors py-1 relative group cursor-pointer" :class="currentTheme === 'venom' ? 'hover:text-[#00E676]' : 'hover:text-[#E23B3B]'">
+                    {{ __('app.nav.shaft_guide') }}
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
+                </a>
                 <a href="{{ route('products.index') }}"  class="transition-colors py-1 relative group cursor-pointer" :class="currentTheme === 'venom' ? 'hover:text-[#00E676]' : 'hover:text-[#E23B3B]'">
                     {{ __('app.nav.collection') }}
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
@@ -74,6 +78,10 @@
             </a>
             <a @click.prevent="mobileMenuOpen = false; $dispatch('scroll-to', 'why-carbon')" href="#why-carbon" class="py-3 min-h-[48px] px-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-between cursor-pointer">
                 <span>{{ __('app.nav.why_carbon') }}</span>
+                <svg class="w-4 h-4" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            <a @click.prevent="mobileMenuOpen = false; $dispatch('scroll-to', 'shaft-guide')" href="#shaft-guide" class="py-3 min-h-[48px] px-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-between cursor-pointer">
+                <span>{{ __('app.nav.shaft_guide') }}</span>
                 <svg class="w-4 h-4" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
             <a  href="{{ route('products.index') }}" class="py-3 min-h-[48px] px-4 rounded-xl hover:bg-white/10 transition-all flex items-center justify-between cursor-pointer">
@@ -438,7 +446,300 @@
 
 
     <!-- ===================================================== -->
-    <!-- 4. BIG TYPOGRAPHY + numbered spec cards -->
+    <!-- 4. SHAFT GUIDE SECTION (SEVERUS I & REAPER) -->
+    <!-- ===================================================== -->
+    <section id="shaft-guide" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 scroll-mt-28">
+        <!-- Section Header -->
+        <div class="text-center space-y-4 reveal-on-scroll">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border text-xs font-extrabold uppercase tracking-widest transition-all"
+                 :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E]'">
+                <span class="w-2 h-2 rounded-full animate-ping" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
+                <span>SEVERUS CARBON SHAFT LINEUP</span>
+            </div>
+
+            <!-- Gothic Title matching the poster -->
+            <h2 class="font-gothic text-5xl sm:text-7xl lg:text-8xl text-white tracking-wide uppercase drop-shadow-[0_0_35px_rgba(226,59,59,0.4)]">
+                Shaft Guide
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Explore the engineering, pro taper profiles, ferrule construction, and joint compatibility of the Severus flagship carbon fiber shafts.
+            </p>
+        </div>
+
+        <!-- 2 Column Comparison Grid for Severus I & Reaper -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+
+            <!-- Card 1: SEVERUS I -->
+            <div class="p-8 sm:p-10 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border flex flex-col justify-between group"
+                 :class="currentTheme === 'venom' 
+                    ? 'bg-gradient-to-b from-[#0a140f] to-[#060a08] border-[#00E676]/30 hover:border-[#00E676]/60 shadow-[0_0_30px_rgba(0,230,118,0.15)]' 
+                    : 'bg-gradient-to-b from-[#140b0e] to-[#080506] border-[#E23B3B]/30 hover:border-[#E23B3B]/60 shadow-[0_0_30px_rgba(226,59,59,0.15)]'">
+                
+                <!-- Atmospheric glow -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[90px] pointer-events-none opacity-40 transition-all"
+                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/20' : 'bg-[#E23B3B]/20'"></div>
+
+                <div class="space-y-8 relative z-10">
+                    <!-- Title & Badge -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
+                        <div>
+                            <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block mb-1">PRO CARBON SHAFT</span>
+                            <h3 class="text-3xl sm:text-4xl font-black text-white font-cinzel tracking-wider">
+                                SEVERUS I
+                            </h3>
+                        </div>
+                        <span class="px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-white/5 border border-white/15 text-slate-200">
+                            Hybrid Pro Taper
+                        </span>
+                    </div>
+
+                    <!-- Taper Visualizer Diagram (Interactive SVG) -->
+                    <div class="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4">
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 uppercase">
+                            <span>Taper Profile</span>
+                            <span class="font-bold text-white">Hybrid Pro Taper</span>
+                        </div>
+
+                        <!-- SVG Shaft Outline -->
+                        <div class="w-full py-3 flex items-center justify-center">
+                            <svg class="w-full max-w-[420px] h-20" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background grid marks -->
+                                <line x1="20" y1="40" x2="380" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" stroke-width="1"/>
+                                
+                                <!-- Shaft Body Outline -->
+                                <polygon points="30,20 220,28 340,30 340,50 220,52 30,60" 
+                                         fill="url(#severusGradient)" 
+                                         stroke="white" 
+                                         stroke-width="2" 
+                                         stroke-linejoin="round"/>
+                                
+                                <!-- Ferrule & Tip -->
+                                <rect x="340" y="30" width="16" height="20" fill="#121212" stroke="white" stroke-width="1.5"/>
+                                <path d="M356,31 Q364,40 356,49 Z" fill="#00E676" opacity="0.8"/>
+
+                                <!-- Dimension Callouts -->
+                                <line x1="370" y1="26" x2="370" y2="54" stroke="#888" stroke-width="1"/>
+                                <text x="375" y="34" fill="#FFFFFF" font-size="11" font-weight="900" font-family="Outfit, sans-serif">12.4MM</text>
+                                <text x="375" y="52" fill="#888888" font-size="11" font-weight="900" font-family="Outfit, sans-serif">11.8MM</text>
+
+                                <!-- Joint Base mark -->
+                                <text x="25" y="74" fill="#666" font-size="9" font-family="Outfit, sans-serif" font-weight="700">JOINT</text>
+                                <text x="330" y="74" fill="#00E676" font-size="9" font-family="Outfit, sans-serif" font-weight="700">TIP</text>
+
+                                <defs>
+                                    <linearGradient id="severusGradient" x1="30" y1="40" x2="340" y2="40" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#141414"/>
+                                        <stop offset="100%" stop-color="#2a2a2a"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <div class="text-center">
+                            <span class="text-xs font-mono font-black uppercase tracking-[0.2em]" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                                HYBRID PRO TAPER &bull; 12.4MM / 11.8MM
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Specs Breakdown -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Key Specs -->
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">Specifications</h4>
+                            <ul class="space-y-2 text-xs text-slate-200">
+                                <li class="flex items-center space-x-2.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                    <span class="font-bold">STANDARD BLACK TIP (S)</span>
+                                </li>
+                                <li class="flex items-center space-x-2.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                    <span class="font-bold">BAKELITE FERRULE BLACK</span>
+                                </li>
+                                <li class="flex items-center space-x-2.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                    <span class="font-bold">29 INCH LENGTH</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Compatible Joints -->
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-mono font-bold uppercase tracking-wider" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                                Compatible Joints
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                    UNILOCK
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                    RADIAL 3/8X8
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                    5/16X18
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 mt-8 border-t border-white/10 flex items-center justify-between">
+                    <span class="text-[11px] font-mono text-slate-400">SEVERUS PRECISION I</span>
+                    <a href="{{ route('products.index') }}" class="text-xs font-bold uppercase tracking-wider hover:underline" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                        Browse Cues &rarr;
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Card 2: REAPER (Flagship Edition) -->
+            <div class="p-8 sm:p-10 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border flex flex-col justify-between group"
+                 :class="currentTheme === 'venom'
+                    ? 'bg-gradient-to-b from-[#0a1811] via-[#08100c] to-[#050806] border-[#00E676]/40 hover:border-[#00E676]/80 shadow-[0_0_40px_rgba(0,230,118,0.25)]'
+                    : 'bg-gradient-to-b from-[#1f0d11] via-[#12080a] to-[#080405] border-[#E23B3B]/40 hover:border-[#E23B3B]/80 shadow-[0_0_40px_rgba(226,59,59,0.25)]'">
+                
+                <!-- Red / Crimson atmospheric smoke glow -->
+                <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full blur-[100px] pointer-events-none opacity-60 transition-all animate-pulse"
+                     :class="currentTheme === 'venom' ? 'bg-[#00E676]/25' : 'bg-[#E23B3B]/30'"></div>
+
+                <div class="space-y-8 relative z-10">
+                    <!-- Title & Badge -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
+                        <div class="flex items-center space-x-3">
+                            <h3 class="text-3xl sm:text-4xl font-black font-gothic tracking-widest text-white drop-shadow-[0_0_15px_rgba(226,59,59,0.5)]">
+                                REAPER
+                            </h3>
+                            <!-- Grim Reaper Silhouette SVG Icon matching the poster -->
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center p-1"
+                                 :class="currentTheme === 'venom' ? 'bg-[#00E676]/20 text-[#00E676]' : 'bg-[#E23B3B]/20 text-[#E23B3B]'">
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C7.5 2 4.5 5.5 4.5 10c0 3.2 1.8 6 4.5 7.5V22l3-2 3 2v-4.5c2.7-1.5 4.5-4.3 4.5-7.5 0-4.5-3-8-7.5-8zm0 2.5c3.2 0 5.2 2.7 5.2 5.5 0 2.8-2 5.2-5.2 5.2s-5.2-2.4-5.2-5.2c0-2.8 2-5.5 5.2-5.5zm7 2l3.5-3.5-1.4-1.4L18 4.2V2h-2v3.8l-1.5 1.5 1.4 1.4L17.5 7v13h2V6.5z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider font-mono shadow-[0_0_15px_rgba(226,59,59,0.4)]"
+                              :class="currentTheme === 'venom' ? 'bg-[#00E676] text-black' : 'bg-[#E23B3B] text-white'">
+                            True Pro Taper
+                        </span>
+                    </div>
+
+                    <!-- Taper Visualizer Diagram (Interactive SVG) -->
+                    <div class="p-6 rounded-2xl bg-black/70 border border-white/15 space-y-4">
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 uppercase">
+                            <span>Taper Profile</span>
+                            <span class="font-bold" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">True Pro Taper (Stepped)</span>
+                        </div>
+
+                        <!-- SVG Shaft Outline -->
+                        <div class="w-full py-3 flex items-center justify-center">
+                            <svg class="w-full max-w-[420px] h-20" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background grid marks -->
+                                <line x1="20" y1="40" x2="380" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4 4" stroke-width="1"/>
+                                
+                                <!-- Shaft Body Outline with Extended Straight Pro Taper -->
+                                <polygon points="30,20 180,30 250,30 340,30 340,50 250,50 180,50 30,60" 
+                                         fill="url(#reaperGradient)" 
+                                         stroke="white" 
+                                         stroke-width="2" 
+                                         stroke-linejoin="round"/>
+                                
+                                <!-- Juma White Ferrule & Clear Tip -->
+                                <rect x="340" y="30" width="16" height="20" fill="#F8FAFC" stroke="white" stroke-width="1.5"/>
+                                <path d="M356,31 Q364,40 356,49 Z" fill="#E23B3B" opacity="0.9"/>
+
+                                <!-- Dimension Callouts -->
+                                <line x1="370" y1="22" x2="370" y2="58" stroke="#888" stroke-width="1"/>
+                                <text x="375" y="28" fill="#FFFFFF" font-size="11" font-weight="900" font-family="Outfit, sans-serif">12.4MM</text>
+                                <text x="375" y="44" fill="#E23B3B" font-size="11" font-weight="900" font-family="Outfit, sans-serif">12.2MM</text>
+                                <text x="375" y="58" fill="#888888" font-size="11" font-weight="900" font-family="Outfit, sans-serif">11.8MM</text>
+
+                                <!-- Joint Base mark -->
+                                <text x="25" y="74" fill="#666" font-size="9" font-family="Outfit, sans-serif" font-weight="700">JOINT</text>
+                                <text x="330" y="74" fill="#E23B3B" font-size="9" font-family="Outfit, sans-serif" font-weight="700">TIP</text>
+
+                                <defs>
+                                    <linearGradient id="reaperGradient" x1="30" y1="40" x2="340" y2="40" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#1f0a0d"/>
+                                        <stop offset="60%" stop-color="#3d1419"/>
+                                        <stop offset="100%" stop-color="#1a0a0c"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <div class="text-center">
+                            <span class="text-xs font-mono font-black uppercase tracking-[0.2em]" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
+                                TRUE PRO TAPER &bull; 12.4MM / 12.2MM / 11.8MM
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Specs Breakdown -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Key Specs -->
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">Specifications</h4>
+                            <ul class="space-y-2 text-xs text-slate-200">
+                                <li class="flex items-center space-x-2.5">
+                                    <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
+                                    <span class="font-bold">SEVERUS PREMIUM CLEAR TIP (S)</span>
+                                </li>
+                                <li class="flex items-center space-x-2.5">
+                                    <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
+                                    <span class="font-bold">JUMA FERRULE WHITE</span>
+                                </li>
+                                <li class="flex items-center space-x-2.5">
+                                    <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
+                                    <span class="font-bold">SUPER LOW DEFLECTION</span>
+                                </li>
+                                <li class="flex items-center space-x-2.5">
+                                    <span class="w-1.5 h-1.5 rounded-full" :class="currentTheme === 'venom' ? 'bg-[#00E676]' : 'bg-[#E23B3B]'"></span>
+                                    <span class="font-bold">30 INCH LENGTH</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Compatible Joints -->
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-mono font-bold uppercase tracking-wider" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                                Compatible Joints
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                    UNILOCK
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                    RADIAL 3/8X8
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-white">
+                                    WAVY
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 mt-8 border-t border-white/10 flex items-center justify-between">
+                    <span class="text-[11px] font-mono" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">REAPER EDITION FLAGSHIP</span>
+                    <a href="{{ route('products.index') }}" class="text-xs font-bold uppercase tracking-wider hover:underline" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                        Browse Cues &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Watermark Footer in section -->
+        <div class="text-center pt-2">
+            <span class="font-cinzel text-xl sm:text-2xl font-black tracking-[0.35em] text-white/20 uppercase">
+                SEVERUS
+            </span>
+        </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 5. BIG TYPOGRAPHY + numbered spec cards -->
     <!-- ===================================================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div class="text-center space-y-3 reveal-on-scroll">
