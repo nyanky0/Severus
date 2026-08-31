@@ -798,38 +798,45 @@
     </section>
 
     <!-- ===================================================== -->
-    <!-- 5. BRAND MANIFESTO & REAL-WORLD CRAFTSMANSHIP SHOWCASE -->
+    <!-- 5. EDGAR ALLAN POE PHILOSOPHY & BRAND MANIFESTO -->
     <!-- ===================================================== -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        
+        <!-- Edgar Allan Poe Gothic Quote Banner (Pure Typography Caption) -->
+        <div class="relative p-8 sm:p-12 rounded-3xl border overflow-hidden text-center reveal-on-scroll"
+             :class="currentTheme === 'venom' 
+                ? 'bg-gradient-to-r from-[#060a08] via-[#0d1712] to-[#060a08] border-[#00E676]/30 shadow-[0_0_40px_rgba(0,230,118,0.12)]' 
+                : 'bg-gradient-to-r from-[#0a0507] via-[#160a0d] to-[#0a0507] border-[#E23B3B]/30 shadow-[0_0_40px_rgba(226,59,59,0.18)]'">
             
-            <!-- Card 1: Edgar Allan Poe Gothic Philosophy -->
-            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll flex flex-col justify-between"
-                 :class="currentTheme === 'venom' 
-                    ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
-                    : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
-                
-                <div class="relative rounded-2xl overflow-hidden aspect-square flex items-center justify-center bg-black/40">
-                    <img src="{{ asset('images/poe_quote_frame.jpg') }}" 
-                         alt="Edgar Allan Poe Gothic Philosophy - Severus Cues" 
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
-                    
-                    <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
-                        <span class="text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
-                              :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
-                            GOTHIC PHILOSOPHY
-                        </span>
-                        <p class="text-xs sm:text-[13px] font-bold text-white font-cinzel leading-snug">
-                            “There is no exquisite beauty... without some strangeness in the proportion.”
-                        </p>
-                        <span class="text-[10px] text-slate-400 font-mono block">— Edgar Allan Poe</span>
-                    </div>
+            <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full blur-[90px] pointer-events-none opacity-40"
+                 :class="currentTheme === 'venom' ? 'bg-[#00E676]/20' : 'bg-[#E23B3B]/25'"></div>
+
+            <div class="relative z-10 space-y-4 max-w-3xl mx-auto">
+                <span class="text-4xl sm:text-5xl font-cinzel select-none block opacity-40 leading-none"
+                      :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'">
+                    &ldquo;
+                </span>
+
+                <blockquote class="text-xl sm:text-2xl lg:text-3xl font-cinzel font-black tracking-wider uppercase leading-relaxed text-white"
+                            :class="currentTheme === 'venom' ? 'text-glow-venom' : 'text-glow-reaper'">
+                    “There is no exquisite beauty... without some strangeness in the proportion.”
+                </blockquote>
+
+                <div class="pt-3 flex items-center justify-center space-x-3">
+                    <span class="w-10 h-[1px] bg-white/20"></span>
+                    <span class="text-xs font-mono uppercase tracking-[0.25em] text-slate-400 font-bold">
+                        EDGAR ALLAN POE
+                    </span>
+                    <span class="w-10 h-[1px] bg-white/20"></span>
                 </div>
             </div>
+        </div>
 
-            <!-- Card 2: Quote on Red Felt ("Where the game is not just played, it's lived") -->
-            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll delay-100 flex flex-col justify-between"
+        <!-- 2-Column Lifestyle Photography Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            
+            <!-- Left Photo: Quote on Red Felt ("Where the game is not just played, it's lived") -->
+            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll"
                  :class="currentTheme === 'venom' 
                     ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
                     : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
@@ -840,21 +847,20 @@
                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
                     
-                    <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
-                        <span class="text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
+                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
+                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
                               :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
                             BRAND MANIFESTO
                         </span>
-                        <p class="text-xs sm:text-[13px] font-bold text-white font-cinzel leading-snug">
-                            "Where the game is not just played, it's lived."
+                        <p class="text-xs sm:text-sm font-bold text-white font-cinzel tracking-wider">
+                            "WHERE THE GAME IS NOT JUST PLAYED, IT'S LIVED."
                         </p>
-                        <span class="text-[10px] text-slate-400 font-mono block">— Severus Heritage</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 3: Joint Precision & Assembly Close-up -->
-            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll delay-200 flex flex-col justify-between"
+            <!-- Right Photo: Joint Precision & Assembly Close-up -->
+            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll delay-150"
                  :class="currentTheme === 'venom' 
                     ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
                     : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
@@ -865,15 +871,14 @@
                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
                     
-                    <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
-                        <span class="text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
+                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
+                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
                               :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
                             PRECISION ASSEMBLY
                         </span>
-                        <p class="text-xs sm:text-[13px] font-bold text-white font-outfit uppercase tracking-wider leading-snug">
-                            Seamless Carbon Joint Pin & Custom Bumper
+                        <p class="text-xs sm:text-sm font-bold text-white font-outfit uppercase tracking-wider">
+                            Seamless Carbon Joint Pin & Custom Extension Bumper
                         </p>
-                        <span class="text-[10px] text-slate-400 font-mono block">— Radial & Uni-Loc Milled</span>
                     </div>
                 </div>
             </div>
