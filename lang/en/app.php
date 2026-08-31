@@ -30,7 +30,7 @@ return [
         'badge' => 'PRO BILLIARD EQUIPMENT',
         'headline_prefix' => 'STRIKE WITH',
         'headline_highlight' => 'VENOM PRECISION',
-        'subtitle' => 'Engineered carbon cues, zero-miscue toxic chalk, and tournament-grade accessories built for champions.',
+        'subtitle' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesian",
         'explore_btn' => 'Explore Products',
         'tokopedia_btn' => 'Buy on Tokopedia',
         'guarantee' => '100% Authentic Severus Quality Guarantee',

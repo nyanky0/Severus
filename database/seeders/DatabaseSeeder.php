@@ -202,8 +202,8 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'key_name' => 'hero_subtitle',
-                'value_en' => 'Engineered carbon cues, zero-miscue toxic chalk, and tournament-grade accessories built for champions.',
-                'value_id' => 'Stik billiard karbon presisi tinggi, kapur toxic bebas miscue, dan aksesoris standar turnamen dunia.',
+                'value_en' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesian",
+                'value_id' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesia",
                 'section' => 'hero',
             ],
             [

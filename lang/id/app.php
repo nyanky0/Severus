@@ -30,7 +30,7 @@ return [
         'badge' => 'PERALATAN BILLIARD PRO',
         'headline_prefix' => 'MAIN DENGAN',
         'headline_highlight' => 'PRESISI VENOM',
-        'subtitle' => 'Stik serat karbon canggih, kapur anti-meleset, dan aksesoris kelas turnamen yang dibuat untuk para juara.',
+        'subtitle' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesia",
         'explore_btn' => 'Lihat Produk',
         'tokopedia_btn' => 'Beli di Tokopedia',
         'guarantee' => 'Garansi 100% Kualitas Asli Severus',

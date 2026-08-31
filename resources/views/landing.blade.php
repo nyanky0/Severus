@@ -142,7 +142,7 @@
                     </span>
                 </h1>
 
-                <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal whitespace-pre-line">
                     {{ $siteContents['hero_subtitle'] ?? __('app.hero.subtitle') }}
                 </p>
 
