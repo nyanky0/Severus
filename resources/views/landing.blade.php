@@ -730,6 +730,65 @@
 
         </div>
 
+        <!-- Play Shaft Spotlight Banner with Cleaned Image & Rich Typography -->
+        <div class="p-8 sm:p-12 rounded-3xl relative overflow-hidden transition-all duration-500 reveal-on-scroll border"
+             :class="currentTheme === 'venom' 
+                ? 'bg-gradient-to-br from-[#0a1811] via-[#0d1f16] to-[#060a08] border-[#00E676]/30 shadow-[0_0_40px_rgba(0,230,118,0.15)]' 
+                : 'bg-gradient-to-br from-[#1c0d12] via-[#14080b] to-[#080405] border-[#E23B3B]/30 shadow-[0_0_40px_rgba(226,59,59,0.2)]'">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                <!-- Left: Text & Captions (Clean, high-legibility HTML text) -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border text-[11px] font-extrabold uppercase tracking-wider"
+                         :class="currentTheme === 'venom' ? 'bg-[#00E676]/10 border-[#00E676]/30 text-[#00E676]' : 'bg-[#E23B3B]/10 border-[#E23B3B]/30 text-[#FF4D5E]'">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <span>AUTHENTIC SOLID CARBON FIBER</span>
+                    </div>
+
+                    <h3 class="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-wider uppercase">
+                        PLAY SHAFT
+                    </h3>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                        Our cues feature authentic carbon construction, not just carbon layers. Elevate your game with a free cue sleeve + joint protector. Perfect for both beginners and pro players, our shafts offer low deflection, a smooth feel, and unrivaled consistency. Make the transition to carbon fiber and discover a new level of precision.
+                    </p>
+
+                    <!-- Feature pills -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-1">
+                            <span class="text-xs font-mono font-bold text-white uppercase block">Free Accessories</span>
+                            <p class="text-xs text-slate-400">Includes protective cue sleeve & matching joint protector.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-1">
+                            <span class="text-xs font-mono font-bold uppercase block" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">100% Solid Carbon</span>
+                            <p class="text-xs text-slate-400">Authentic multi-axial weave, not surface coating.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex flex-wrap gap-4">
+                        <a href="{{ route('products.index') }}" 
+                           class="px-7 py-3.5 rounded-2xl font-black text-xs uppercase tracking-wider transition-all min-h-[48px] flex items-center justify-center cursor-pointer"
+                           :class="currentTheme === 'venom' ? 'btn-venom' : 'btn-reaper'">
+                            Explore All Shafts
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Cleaned Photo Showcase (Shafts without burnt-in text) -->
+                <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/10 group shadow-2xl">
+                    <img src="{{ asset('images/carbon_play_shaft_clean.jpg') }}" 
+                         alt="Severus Carbon Play Shafts Detail" 
+                         class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl glass border border-white/10 text-center">
+                        <span class="text-[10px] font-mono tracking-widest text-slate-300 uppercase font-bold">
+                            SEVERUS PRECISION CARBON CUE SHAFTS
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Watermark Footer in section -->
         <div class="text-center pt-2">
             <span class="font-cinzel text-xl sm:text-2xl font-black tracking-[0.35em] text-white/20 uppercase">
