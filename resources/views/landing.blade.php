@@ -462,8 +462,8 @@
             </div>
 
             <!-- Boska Display Title -->
-            <h2 class="font-boska font-black text-5xl sm:text-7xl lg:text-8xl text-white tracking-[0.12em] uppercase drop-shadow-[0_0_25px_rgba(226,59,59,0.4)]">
-                SHAFT GUIDE
+            <h2 class="font-boska font-black text-5xl sm:text-7xl lg:text-8xl text-white tracking-wide drop-shadow-[0_0_25px_rgba(226,59,59,0.4)]">
+                Shaft Guide
             </h2>
 
             <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
@@ -611,8 +611,8 @@
                     <!-- Title & Badge -->
                     <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
                         <div class="flex items-center space-x-3">
-                            <h3 class="text-3xl sm:text-4xl font-black font-boska tracking-widest text-white drop-shadow-[0_0_15px_rgba(226,59,59,0.5)]">
-                                REAPER
+                            <h3 class="text-3xl sm:text-4xl font-black font-boska tracking-wide text-white drop-shadow-[0_0_15px_rgba(226,59,59,0.5)]">
+                                Reaper
                             </h3>
                             <!-- Grim Reaper Silhouette SVG Icon matching the poster -->
                             <div class="w-10 h-10 rounded-full flex items-center justify-center p-1"
