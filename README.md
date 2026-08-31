@@ -98,6 +98,18 @@ severus-off.bat
 
 ---
 
+## 🛡️ Security Architecture & Audit
+
+The application underwent a comprehensive security audit across all public and administrative pages. Detailed findings, mitigation models, and testing results are documented in [**`SECURITY_AUDIT.md`**](file:///d:/PROJECT/Severus/Severus/SECURITY_AUDIT.md).
+
+- **HTTP Security Headers**: Enforced natively on all responses via `SecurityHeaders` middleware (`X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-XSS-Protection: 1; mode=block`).
+- **Brute-Force Rate Limiting**: `/admin/login` protected with `throttle:6,1` (maximum 6 attempts per minute).
+- **Injection Defense**: 100% parameter-bound queries via Eloquent ORM.
+- **Output Encoding**: Universal Blade escaping (`{{ ... }}`) across all views with zero unescaped interpolations.
+- **CSRF Defense**: `@csrf` token validation on all state-modifying POST/PUT/DELETE forms.
+
+---
+
 ## 📦 Project Structure
 
 ```
@@ -109,7 +121,9 @@ Severus/
 │   │   ├── LandingController.php
 │   │   ├── ProductController.php
 │   │   └── LanguageController.php
-│   ├── Http/Middleware/SetLocale.php
+│   ├── Http/Middleware/
+│   │   ├── SecurityHeaders.php (X-Frame-Options, nosniff, Referrer-Policy)
+│   │   └── SetLocale.php (EN / ID bilingual session binder)
 │   ├── Models/ (User, Category, Product, SiteContent, TokopediaSyncLog)
 │   └── Services/TokopediaSyncService.php
 ├── docker/
@@ -120,10 +134,12 @@ Severus/
 │   └── id/app.php
 ├── public/images/logo.png
 ├── resources/
-│   ├── css/app.css (Venom Snake styling)
+│   ├── css/app.css (Venom Snake / Reaper Grim styling)
 │   └── views/ (Landing, Show, Admin portal views)
+├── DESIGN_CONCEPTS.md (Named overlays & component design catalog)
+├── SECURITY_AUDIT.md (Comprehensive page-by-page security audit report)
+├── PROJECT_BRAIN.md (Authoritative architecture brain)
 ├── docker-compose.yml
-├── PROJECT_BRAIN.md
 ├── severus-on.bat
 └── severus-off.bat
 ```
