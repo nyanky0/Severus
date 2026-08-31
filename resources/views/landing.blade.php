@@ -778,17 +778,11 @@
                     </div>
                 </div>
 
-                <!-- Right: Cleaned Photo Showcase (Shafts without burnt-in text) -->
+                <!-- Right: Cleaned Photo Showcase -->
                 <div class="lg:col-span-6 relative rounded-2xl overflow-hidden border border-white/10 group shadow-2xl">
                     <img src="{{ asset('images/carbon_play_shaft_clean.jpg') }}" 
                          alt="Severus Carbon Play Shafts Detail" 
                          class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-                    <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl glass border border-white/10 text-center">
-                        <span class="text-[10px] font-mono tracking-widest text-slate-300 uppercase font-bold">
-                            SEVERUS PRECISION CARBON CUE SHAFTS
-                        </span>
-                    </div>
                 </div>
             </div>
         </div>
