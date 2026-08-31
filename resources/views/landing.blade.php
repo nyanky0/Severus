@@ -801,46 +801,79 @@
     <!-- 5. BRAND MANIFESTO & REAL-WORLD CRAFTSMANSHIP SHOWCASE -->
     <!-- ===================================================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             
-            <!-- Left Photo: Quote on Red Felt ("Where the game is not just played, it's lived") -->
-            <div class="md:col-span-6 group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll"
+            <!-- Card 1: Edgar Allan Poe Gothic Philosophy -->
+            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll flex flex-col justify-between"
                  :class="currentTheme === 'venom' 
                     ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
                     : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
                 
-                <div class="relative rounded-2xl overflow-hidden aspect-square">
-                    <img src="{{ asset('images/lifestyle_quote.jpg') }}" 
-                         alt="Severus - Where the game is not just played, it's lived" 
+                <div class="relative rounded-2xl overflow-hidden aspect-square flex items-center justify-center bg-black/40">
+                    <img src="{{ asset('images/poe_quote_frame.jpg') }}" 
+                         alt="Edgar Allan Poe Gothic Philosophy - Severus Cues" 
                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
                     
-                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md">
-                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block">BRAND MANIFESTO</span>
-                        <p class="text-xs sm:text-sm font-bold text-white font-cinzel tracking-wider">
-                            "WHERE THE GAME IS NOT JUST PLAYED, IT'S LIVED."
+                    <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
+                        <span class="text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
+                              :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
+                            GOTHIC PHILOSOPHY
+                        </span>
+                        <p class="text-xs sm:text-[13px] font-bold text-white font-cinzel leading-snug">
+                            “There is no exquisite beauty... without some strangeness in the proportion.”
                         </p>
+                        <span class="text-[10px] text-slate-400 font-mono block">— Edgar Allan Poe</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Photo: Joint Precision & Assembly Close-up -->
-            <div class="md:col-span-6 group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll delay-150"
+            <!-- Card 2: Quote on Red Felt ("Where the game is not just played, it's lived") -->
+            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll delay-100 flex flex-col justify-between"
                  :class="currentTheme === 'venom' 
                     ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
                     : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
                 
-                <div class="relative rounded-2xl overflow-hidden aspect-square">
+                <div class="relative rounded-2xl overflow-hidden aspect-square flex items-center justify-center bg-black/40">
+                    <img src="{{ asset('images/lifestyle_quote.jpg') }}" 
+                         alt="Severus - Where the game is not just played, it's lived" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
+                    
+                    <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
+                        <span class="text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
+                              :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
+                            BRAND MANIFESTO
+                        </span>
+                        <p class="text-xs sm:text-[13px] font-bold text-white font-cinzel leading-snug">
+                            "Where the game is not just played, it's lived."
+                        </p>
+                        <span class="text-[10px] text-slate-400 font-mono block">— Severus Heritage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Joint Precision & Assembly Close-up -->
+            <div class="group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll delay-200 flex flex-col justify-between"
+                 :class="currentTheme === 'venom' 
+                    ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
+                    : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
+                
+                <div class="relative rounded-2xl overflow-hidden aspect-square flex items-center justify-center bg-black/40">
                     <img src="{{ asset('images/lifestyle_joint.jpg') }}" 
                          alt="Severus Cue Joint Detail and Craftsmanship" 
                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
                     
-                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md">
-                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block">PRECISION ASSEMBLY</span>
-                        <p class="text-xs sm:text-sm font-bold text-white font-outfit uppercase tracking-wider">
-                            Seamless Carbon Joint Pin & Custom Extension Bumper
+                    <div class="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
+                        <span class="text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
+                              :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
+                            PRECISION ASSEMBLY
+                        </span>
+                        <p class="text-xs sm:text-[13px] font-bold text-white font-outfit uppercase tracking-wider leading-snug">
+                            Seamless Carbon Joint Pin & Custom Bumper
                         </p>
+                        <span class="text-[10px] text-slate-400 font-mono block">— Radial & Uni-Loc Milled</span>
                     </div>
                 </div>
             </div>
