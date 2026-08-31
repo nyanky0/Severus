@@ -843,17 +843,6 @@
                     <img src="{{ asset('images/lifestyle_quote.jpg') }}" 
                          alt="Severus - Where the game is not just played, it's lived" 
                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
-                    
-                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
-                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
-                              :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
-                            BRAND MANIFESTO
-                        </span>
-                        <p class="text-xs sm:text-sm font-bold text-white font-cinzel tracking-wider">
-                            "WHERE THE GAME IS NOT JUST PLAYED, IT'S LIVED."
-                        </p>
-                    </div>
                 </div>
             </div>
 
@@ -867,17 +856,6 @@
                     <img src="{{ asset('images/lifestyle_joint.jpg') }}" 
                          alt="Severus Cue Joint Detail and Craftsmanship" 
                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
-                    
-                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md space-y-1">
-                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block"
-                              :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#FF4D5E]'">
-                            PRECISION ASSEMBLY
-                        </span>
-                        <p class="text-xs sm:text-sm font-bold text-white font-outfit uppercase tracking-wider">
-                            Seamless Carbon Joint Pin & Custom Extension Bumper
-                        </p>
-                    </div>
                 </div>
             </div>
 
