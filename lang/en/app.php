@@ -27,10 +27,10 @@ return [
         'feature3_highlight' => 'AND LET\'S BE HONEST, EVERYONE LOOKS BETTER IN BLACK.',
     ],
     'hero' => [
-        'badge' => 'PRO BILLIARD EQUIPMENT',
+        'badge' => 'BASED FROM INDONESIA',
         'headline_prefix' => 'SEVERUS',
         'headline_highlight' => 'CUES',
-        'subtitle' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesian",
+        'subtitle' => 'Billiard Carbon Shafts, Cues, Et Cetera',
         'explore_btn' => 'Explore Products',
         'tokopedia_btn' => 'Buy on Tokopedia',
         'guarantee' => '100% Authentic Severus Quality Guarantee',

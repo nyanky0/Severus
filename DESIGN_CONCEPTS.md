@@ -122,14 +122,29 @@ These are frosted liquid-glass overlay cards placed inside media containers (`as
 
 ---
 
+### E. `Authentic Quality Guarantee Badge`
+- **Component Identifier**: `authentic-quality-guarantee-badge`
+- **Location**: Section 1 (Hero Section — Under CTAs)
+- **Code Blueprint**:
+```blade
+<div class="pt-2 text-center lg:text-left">
+    <span class="serpent-shimmer inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300 font-bold">
+        <svg class="w-3.5 h-3.5" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>100% Authentic Severus Quality Guarantee</span>
+    </span>
+</div>
+```
+
+---
+
 ## 2. Typography System
 
 | Name | Source | CSS Class | Primary Usage |
 | :--- | :--- | :--- | :--- |
+| **Outfit** | Google Fonts | `.font-outfit` | Severus Cues brand display, UI badges, technical specifications |
 | **Boska** | Fontshare CDN | `.font-boska` | Shaft Guide headline, Reaper edition title, luxury display |
-| **Cinzel** | Google Fonts | `.font-cinzel` | Hero headlines, brand quote banners, product titles |
+| **Cinzel** | Google Fonts | `.font-cinzel` | Quote banners, product titles, secondary headlines |
 | **Cinzel Decorative** | Google Fonts | `.font-gothic` | Gothic Roman ornate headings, alternate Reaper branding |
-| **Outfit** | Google Fonts | `.font-outfit` | UI badges, technical specifications, modern subtitles |
 | **Inter** | Google Fonts | `.font-sans` | Body copy, administrative controls, specifications |
 | **JetBrains Mono** | Google Fonts | `.font-mono` | Joint pin badges, numbers (01-04), precision data |
 
@@ -159,4 +174,5 @@ To restore or reuse any overlay modal or design preset, simply mention:
 - *"Add Precision Assembly Modal"*
 - *"Add Play Shaft Specs Modal"*
 - *"Add Engineering Lab Stats Matrix Modal"*
+- *"Add Authentic Quality Guarantee Badge"*
 - *"Apply Boska font"*

@@ -196,14 +196,14 @@ class DatabaseSeeder extends Seeder
         $contents = [
             [
                 'key_name' => 'hero_title',
-                'value_en' => 'PRO BILLIARD EQUIPMENT',
-                'value_id' => 'PERALATAN BILLIARD PRO',
+                'value_en' => 'BASED FROM INDONESIA',
+                'value_id' => 'BERBASIS DARI INDONESIA',
                 'section' => 'hero',
             ],
             [
                 'key_name' => 'hero_subtitle',
-                'value_en' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesian",
-                'value_id' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesia",
+                'value_en' => 'Billiard Carbon Shafts, Cues, Et Cetera',
+                'value_id' => 'Shaft & Stik Karbon Billiard, dan Lainnya',
                 'section' => 'hero',
             ],
             [

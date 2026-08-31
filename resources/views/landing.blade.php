@@ -128,7 +128,7 @@
                     <span>{{ $siteContents['hero_title'] ?? __('app.hero.badge') }}</span>
                 </div>
 
-                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[1.02] uppercase font-cinzel tracking-tight">
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[1.02] uppercase font-outfit tracking-widest">
                     SEVERUS
                     <span class="text-transparent bg-clip-text transition-all duration-500"
                           :class="currentTheme === 'venom' ? 'text-glow-venom' : 'text-glow-reaper'">
@@ -163,14 +163,6 @@
                         <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.667-.014 4.947-.072 4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.149-4.358-2.618-6.78-6.98-6.98zm0 4.85c-2.756 0-4.989 2.233-4.989 4.987 0 2.755 2.233 4.988 4.989 4.988s4.989-2.233 4.989-4.988c0-2.755-2.233-4.988-4.989-4.988zm0 1.738c1.795 0 3.25 1.455 3.25 3.25S13.795 14.59 12 14.59 8.75 13.135 8.75 11.339s1.455-3.25 3.25-3.25zm5.188-2.555a1.169 1.169 0 11-2.337 0 1.169 1.169 0 012.337 0z"/></svg>
                         <span>Instagram</span>
                     </a>
-                </div>
-
-                <!-- Guarantee badge with serpent shimmer -->
-                <div class="pt-2 text-center lg:text-left">
-                    <span class="serpent-shimmer inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300 font-bold">
-                        <svg class="w-3.5 h-3.5" :class="currentTheme === 'venom' ? 'text-[#00E676]' : 'text-[#E23B3B]'" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        <span>{{ $siteContents['hero_guarantee'] ?? __('app.hero.guarantee') }}</span>
-                    </span>
                 </div>
             </div>
 

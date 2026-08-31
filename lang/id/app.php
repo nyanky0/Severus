@@ -27,10 +27,10 @@ return [
         'feature3_highlight' => 'DAN JUJUR SAJA, SEMUA ORANG TERLIHAT LEBIH KEREN DENGAN WARNA HITAM.',
     ],
     'hero' => [
-        'badge' => 'PERALATAN BILLIARD PRO',
+        'badge' => 'BERBASIS DARI INDONESIA',
         'headline_prefix' => 'SEVERUS',
         'headline_highlight' => 'CUES',
-        'subtitle' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesia",
+        'subtitle' => 'Shaft & Stik Karbon Billiard, dan Lainnya',
         'explore_btn' => 'Lihat Produk',
         'tokopedia_btn' => 'Beli di Tokopedia',
         'guarantee' => 'Garansi 100% Kualitas Asli Severus',
