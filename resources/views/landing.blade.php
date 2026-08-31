@@ -739,7 +739,58 @@
     </section>
 
     <!-- ===================================================== -->
-    <!-- 5. BIG TYPOGRAPHY + numbered spec cards -->
+    <!-- 5. BRAND MANIFESTO & REAL-WORLD CRAFTSMANSHIP SHOWCASE -->
+    <!-- ===================================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left Photo: Quote on Red Felt ("Where the game is not just played, it's lived") -->
+            <div class="md:col-span-6 group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll"
+                 :class="currentTheme === 'venom' 
+                    ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
+                    : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
+                
+                <div class="relative rounded-2xl overflow-hidden aspect-square">
+                    <img src="{{ asset('images/lifestyle_quote.jpg') }}" 
+                         alt="Severus - Where the game is not just played, it's lived" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                    
+                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md">
+                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block">BRAND MANIFESTO</span>
+                        <p class="text-xs sm:text-sm font-bold text-white font-cinzel tracking-wider">
+                            "WHERE THE GAME IS NOT JUST PLAYED, IT'S LIVED."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Photo: Joint Precision & Assembly Close-up -->
+            <div class="md:col-span-6 group relative rounded-3xl overflow-hidden border p-2.5 transition-all duration-500 reveal-on-scroll delay-150"
+                 :class="currentTheme === 'venom' 
+                    ? 'border-[#00E676]/30 hover:border-[#00E676]/60 bg-[#0a140f]/60 shadow-[0_0_35px_rgba(0,230,118,0.15)]' 
+                    : 'border-[#E23B3B]/30 hover:border-[#E23B3B]/60 bg-[#140b0e]/60 shadow-[0_0_35px_rgba(226,59,59,0.2)]'">
+                
+                <div class="relative rounded-2xl overflow-hidden aspect-square">
+                    <img src="{{ asset('images/lifestyle_joint.jpg') }}" 
+                         alt="Severus Cue Joint Detail and Craftsmanship" 
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                    
+                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10 backdrop-blur-md">
+                        <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 font-bold block">PRECISION ASSEMBLY</span>
+                        <p class="text-xs sm:text-sm font-bold text-white font-outfit uppercase tracking-wider">
+                            Seamless Carbon Joint Pin & Custom Extension Bumper
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 6. BIG TYPOGRAPHY + numbered spec cards -->
     <!-- ===================================================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div class="text-center space-y-3 reveal-on-scroll">
