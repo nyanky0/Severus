@@ -7,6 +7,11 @@
     <meta name="referrer" content="no-referrer">
     <meta name="theme-color" content="#060506">
 
+    <!-- Favicon & Web Logo on Title Bar -->
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
+
     <title>@yield('title', config('app.name', 'Severus Cues')) — Reaper Edition</title>
     <meta name="description" content="Severus Cues — Premium Billiard Cues, High-Friction Venom Chalk & Accessories. Official Tokopedia, Shopee & Instagram Partner.">
 
