@@ -196,8 +196,8 @@ class DatabaseSeeder extends Seeder
         $contents = [
             [
                 'key_name' => 'hero_title',
-                'value_en' => 'STRIKE WITH VENOM PRECISION',
-                'value_id' => 'SERANG DENGAN PRESISI VENOM',
+                'value_en' => 'PRO BILLIARD EQUIPMENT',
+                'value_id' => 'PERALATAN BILLIARD PRO',
                 'section' => 'hero',
             ],
             [

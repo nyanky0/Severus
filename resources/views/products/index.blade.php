@@ -6,13 +6,9 @@
 <header x-data="{ scrolled: false, mobileMenuOpen: false }" @scroll.window="scrolled = (window.pageYOffset > 20)" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" :class="currentTheme === 'venom' ? 'navbar-gradient-blur--venom' : 'navbar-gradient-blur--reaper'">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between" :class="scrolled ? 'py-3' : 'py-5'">
-            <a href="{{ route('landing') }}" class="flex items-center space-x-3 group">
+            <a href="{{ route('landing') }}" class="flex items-center group">
                 <div class="relative">
                     <img src="{{ asset('images/logo.png') }}" alt="Severus Logo" class="h-10 sm:h-12 w-auto transform group-hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-black text-xl sm:text-2xl text-white tracking-widest uppercase font-outfit">SEVERUS <span class="transition-colors" :class="currentTheme === 'venom' ? 'text-[#00E676] group-hover:text-[#10b981]' : 'text-[#E23B3B] group-hover:text-[#FF4D5E]'">CUES</span></span>
-                    <span x-text="currentTheme === 'venom' ? 'Venom Precision' : 'Reaper Precision'" class="text-[9px] uppercase tracking-[0.28em] text-slate-400 font-bold -mt-1">Reaper Precision</span>
                 </div>
             </a>
             <nav class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-slate-300">

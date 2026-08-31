@@ -11,17 +11,11 @@
         <div class="flex items-center justify-between" :class="scrolled ? 'py-3' : 'py-5'">
 
             <!-- Brand -->
-            <a href="#home" @click.prevent="$dispatch('scroll-to', 'home')" class="flex items-center space-x-3 group">
+            <a href="#home" @click.prevent="$dispatch('scroll-to', 'home')" class="flex items-center group">
                 <div class="relative">
                     <img src="{{ asset('images/logo.png') }}" alt="Severus Logo" class="h-10 sm:h-12 w-auto transform group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"
                          :class="currentTheme === 'venom' ? 'bg-[#00E676]/25' : 'bg-[#E23B3B]/25'"></div>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-black text-xl sm:text-2xl text-white tracking-widest uppercase font-outfit">
-                        SEVERUS <span class="transition-colors" :class="currentTheme === 'venom' ? 'text-[#00E676] group-hover:text-[#10b981]' : 'text-[#E23B3B] group-hover:text-[#FF4D5E]'">CUES</span>
-                    </span>
-                    <span x-text="currentTheme === 'venom' ? 'Venom Precision' : 'Reaper Precision'" class="text-[9px] uppercase tracking-[0.28em] text-slate-400 font-bold -mt-1">Reaper Precision</span>
                 </div>
             </a>
 
@@ -134,11 +128,11 @@
                     <span>{{ $siteContents['hero_title'] ?? __('app.hero.badge') }}</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.02] uppercase font-cinzel tracking-tight">
-                    {{ __('app.hero.headline_prefix') }}
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[1.02] uppercase font-cinzel tracking-tight">
+                    SEVERUS
                     <span class="text-transparent bg-clip-text transition-all duration-500"
                           :class="currentTheme === 'venom' ? 'text-glow-venom' : 'text-glow-reaper'">
-                        {{ __('app.hero.headline_highlight') }}
+                        CUES
                     </span>
                 </h1>
 

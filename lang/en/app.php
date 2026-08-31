@@ -28,8 +28,8 @@ return [
     ],
     'hero' => [
         'badge' => 'PRO BILLIARD EQUIPMENT',
-        'headline_prefix' => 'STRIKE WITH',
-        'headline_highlight' => 'VENOM PRECISION',
+        'headline_prefix' => 'SEVERUS',
+        'headline_highlight' => 'CUES',
         'subtitle' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesian",
         'explore_btn' => 'Explore Products',
         'tokopedia_btn' => 'Buy on Tokopedia',

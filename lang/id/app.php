@@ -28,8 +28,8 @@ return [
     ],
     'hero' => [
         'badge' => 'PERALATAN BILLIARD PRO',
-        'headline_prefix' => 'MAIN DENGAN',
-        'headline_highlight' => 'PRESISI VENOM',
+        'headline_prefix' => 'SEVERUS',
+        'headline_highlight' => 'CUES',
         'subtitle' => "Billiard Carbon Shafts, Cues, Et Cetera\nBased Indonesia",
         'explore_btn' => 'Lihat Produk',
         'tokopedia_btn' => 'Beli di Tokopedia',
